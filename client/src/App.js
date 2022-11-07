@@ -1,6 +1,7 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import ProductListingPage from "./pages/productListingPage";
+import { Landingpage } from "./pages/landingpage";
+import { Navbar } from "./components/navbar";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <ProductListingPage />
       {/* <CartsPage/> */}
       {/* <Landingpage /> */}
+      <Navbar />
+      <Landingpage />
     </ChakraProvider>
   );
 }
