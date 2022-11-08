@@ -1,6 +1,12 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7845f0a (create-register-page)
 import { ChakraProvider } from "@chakra-ui/react";
-import { Landingpage } from "./pages/landingpage";
+
+import Register from "./pages/Registerpage";
+
 
 function App() {
   return (
@@ -9,7 +15,8 @@ function App() {
       {/* <CartsPage/> */}
       {/* <Landingpage /> */}
       <Navbar />
-      <Landingpage />
+      <Landingpage />      <Register/>
+
     </ChakraProvider>
   );
 }
