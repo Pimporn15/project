@@ -26,7 +26,7 @@ export default function Register() {
       align={'center'}
       justify={'center'}
      >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={100} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'48px'} textAlign={'center'}>
           Register
@@ -45,36 +45,20 @@ export default function Register() {
               <Box>
               
                 <FormControl id="UserName">
-                  <FormLabel fontSize={'20px'} >UserName</FormLabel>
-                  <Input type="text"  />
+                  {/* <FormLabel fontSize={'20px'} >UserName</FormLabel> */}
+                  <Input type="text" variant='flushed' placeholder='UserName'fontSize={'20px'}   isInvalid
+    errorBorderColor='#AA8B56'/>
                   {/* <hr color='black' /> */}
                   
                 </FormControl>
-               
-              </Box>
-              
-              <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel fontSize={'20px'}>First Name</FormLabel>
-                  <Input type="text"  />
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel fontSize={'20px'} >Last Name</FormLabel>
-                  <Input type="text"  />
-                </FormControl>
-              </Box>
-            
-           
-           
-            <FormControl id="password" isRequired>
-              <FormLabel  fontSize={'20px'} >Password</FormLabel>
+                <FormControl id="password" isRequired  pt={4}>
+              {/* <FormLabel  fontSize={'20px'} >Password</FormLabel> */}
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'} variant='flushed' placeholder='password' fontSize={'20px'} isInvalid
+    errorBorderColor='#AA8B56' />
                 <InputRightElement h={'full'}>
                   <Button
-                    variant={'ghost'}
+                    variant={'ghost'} 
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
                     }>
@@ -82,7 +66,34 @@ export default function Register() {
                   </Button>
                 </InputRightElement>
               </InputGroup>
+            </FormControl> 
+              </Box>
+              
+              <Box>
+                <FormControl id="firstName" isRequired>
+                  {/* <FormLabel fontSize={'20px'}>First Name</FormLabel> */}
+                  <Input type="text" variant='flushed' placeholder='FirstName' fontSize={'20px'}  isInvalid
+    errorBorderColor='#AA8B56'/>
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="lastName">
+                  {/* <FormLabel fontSize={'20px'} >Last Name</FormLabel> */}
+                  <Input type="text" variant='flushed' placeholder='Lastname' fontSize={'20px'} isInvalid
+    errorBorderColor='#AA8B56'/>
+                </FormControl>
+              </Box>
+             
+           
+           
+           
+
+            <FormControl id="email" isRequired>
+              {/* <FormLabel>Email address</FormLabel> */}
+              <Input type="email"  variant='flushed' placeholder='Email' fontSize={'20px'} isInvalid
+    errorBorderColor='#AA8B56'/>
             </FormControl>
+
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
