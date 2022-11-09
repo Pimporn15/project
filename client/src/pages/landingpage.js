@@ -1,6 +1,6 @@
-import { Box, Flex, Image, Center } from "@chakra-ui/react";
+import { Box, Flex, Image, Center, Text } from "@chakra-ui/react";
 import { Navbar } from "../components/navbar";
-
+import { Time } from "../components/time";
 export function Landingpage() {
   return (
     <Box>
@@ -14,14 +14,14 @@ export function Landingpage() {
             </Box>
             <Box mt="20px" mb="20px">
               <Flex>
-                <Box w="400px" h="350px" p="15px" bg="#7E5B31">
-                  <h1 fontSize="40px" color="#ffffff">
+                <Box w="400px" h="350px" pt="10px" p="35px" bg="#7E5B31">
+                  <Text fontSize="25px" bold color="#ffffff">
                     DISCOVER YOUR BEST WATCH
-                  </h1>
-                  <p fontSize="32px" color="#ffffff">
+                  </Text>
+                  <Text fontSize="20px" color="#ffffff">
                     From the biggest designer brands, to the best of luxury and
                     hidden gems. See our featured brands.
-                  </p>
+                  </Text>
                 </Box>
                 <Image
                   src="picture/discover-watch.png"
@@ -29,6 +29,7 @@ export function Landingpage() {
                 />
               </Flex>
             </Box>
+            <Time />
             <Image src="picture/footer-watch.png" alt="Black watch" />
             <Center w="900px" h="60px" bg=" #D6BE96">
               Copyright©2022 Watchodile.All Right Reserved.
