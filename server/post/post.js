@@ -4,7 +4,7 @@ import { Router } from "express";
 const postRouter = Router();
 
 postRouter.get("/", async (req, res) => {
-  const usersInfo = await pool.query(`select * from testuser `);
+  const usersInfo = await pool.query(`select * from users `);
 
   return res.status(200).json({
     data: usersInfo.rows,
