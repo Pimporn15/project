@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap%22");
+
+* {
+  font-family: "League Spartan", sans-serif;
+}
