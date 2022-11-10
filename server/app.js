@@ -1,20 +1,29 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import Jwt from "jsonwebtoken";
 import authRouter from "./apps/auth.js";
-import postRouter from "./post/post.js";
+import dotenv from "dotenv";
+// import client from "./utils/db.js";
 
-let app = express();
-const port = 4000;
+// import postRouter from "./post/post.js";
 
-app.use(cors());
-app.use(bodyParser.json());
-// app.use(authRouter);
-app.use(postRouter);
-app.get("/", (req, res) => {
-  return res.json({ massage: "naja" });
-});
+async function init() {
+  dotenv.config();
 
-app.listen(port, () => {
-  console.log("server is runing on port 4000");
-});
+  let app = express();
+  const port = 4000;
+  // await client.connect();
+  app.use(cors());
+  app.use(bodyParser.json());
+  app.use("/auth", authRouter);
+  // app.use(postRouter);
+  app.get("/", (req, res) => {
+    return res.json({ massage: "naja" });
+  });
+
+  app.listen(port, () => {
+    console.log("server is runing on port 4000");
+  });
+}
+init();
