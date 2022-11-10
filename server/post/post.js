@@ -1,21 +1,19 @@
-// import { pool } from "../utils/db.js";
-// import { Router } from "express";
+import { pool } from "../utils/db.js";
+import { Router } from "express";
+// import { protect } from "../middlewares/protect.js";
 
-// const postRouter = Router();
+const postRouter = Router();
 
-<<<<<<< HEAD
+// postRouter.use(protect);
+
 postRouter.get("/", async (req, res) => {
   const usersInfo = await pool.query(`select * from users `);
-=======
-// postRouter.get("/", async (req, res) => {
-//   const usersInfo = await pool.query(`select * from testuser `);
->>>>>>> 8cd3e474de616f3e0a5e0954c32406b1bfc9c69a
 
-//   return res.status(200).json({
-//     data: usersInfo.rows,
-//     message: " successfully ",
-//   });
-// });
+  return res.status(200).json({
+    data: usersInfo.rows,
+    message: " successfully ",
+  });
+});
 
 // postRouter.post("/register", async (req, res) => {
 //   const newUser = {
@@ -44,4 +42,5 @@ postRouter.get("/", async (req, res) => {
 //     message: "user has been created.",
 //   });
 // });
-// export default postRouter;
+// }
+export default postRouter;
