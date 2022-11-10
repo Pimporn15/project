@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React from "react";
 import axios from "axios";
+import { useAuth } from "../contexts/authentication.js";
 
 export function Register() {
   // const [userProfile,setUserProfile] = useState({})
@@ -27,18 +28,36 @@ export function Register() {
   const [email, setEmail] = useState("");
   const [watch, setWatch] = useState([]);
 
-  const handleSubmit = async (event) => {
+  const { register } = useAuth();
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("yeah");
+    const data = {
+      username,
+      password,
+      firstName,
+      lastName,
+      email,
+    };
+    register(data);
+    // console.log(register);
   };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   console.log("yeah");
+  // };
+
   // const registerUser = async () => {
   //   const response = await axios.post("http://localhost:4000/register");
   // };
 
   const registerUser = async () => {
-    const response = await axios.get("http://localhost:4000/");
-    setWatch(response.data.data);
-    console.log(response.data.data);
+    try {
+      const response = await axios.get("http://localhost:4000/register");
+      setWatch(response.data.data);
+      console.log(registerUser);
+    } catch {}
   };
 
   // const registerPost = async () => {
@@ -193,9 +212,6 @@ export function Register() {
                         }}
                         fontSize={"20px"}
                         type="submit"
-                        // onSubmit={(event)=>{
-                        //  handleSubmit(event)
-                        // }}
                       >
                         SUBMIT
                       </Button>
