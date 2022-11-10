@@ -2,7 +2,7 @@
 import bcrypt from "bcrypt";
 import { response, Router } from "express";
 import { pool } from "../utils/db.js";
-import Jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 const authRouter = Router();
 authRouter.post("/register", async (req, res) => {
   const user = {
@@ -60,6 +60,7 @@ authRouter.post("/login", async (req, res) => {
       message: "user not found",
     });
   }
+  console.log(user.rows[0].password)
   const isValidPassword = await bcrypt.compare(
     req.body.password,
     user.rows[0].password

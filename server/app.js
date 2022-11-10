@@ -4,6 +4,7 @@ import cors from "cors";
 import Jwt from "jsonwebtoken";
 import authRouter from "./apps/auth.js";
 import dotenv from "dotenv";
+
 // import client from "./utils/db.js";
 
 // import postRouter from "./post/post.js";
