@@ -24,11 +24,16 @@ function AuthProvider(props) {
     setState({ ...state, user: userDataFromToken });
     navigate("/");
   };
+  const logout = () => {
+    localStorage.removeItem("token");
+    setState({ ...state, user: null });
+  };
   return (
-    <AuthContext.Provider value={{ register, login }}>
+    <AuthContext.Provider value={{ register, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );
 }
 const useAuth = () => React.useContext(AuthContext);
+
 export { AuthProvider, useAuth };
