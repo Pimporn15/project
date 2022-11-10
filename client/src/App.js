@@ -1,20 +1,24 @@
 import React from "react";
-
+import { AuthProvider } from "./contexts/authentication";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import { BrowserRouter } from "react-router-dom";
 // import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 
-import Register from "./pages/Registerpage";
+import { Register } from "./pages/Registerpage.js";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //สร้าง route
 function App() {
   return (
-    <ChakraProvider>
-      <LoginPage />
-
-      <Register />
-    </ChakraProvider>
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
