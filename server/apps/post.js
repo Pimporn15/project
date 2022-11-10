@@ -1,10 +1,10 @@
 import { pool } from "../utils/db.js";
 import { Router } from "express";
-// import { protect } from "../middlewares/protect.js";
+import { protect } from "../middlewares/protect.js";
 
 const postRouter = Router();
 
-// postRouter.use(protect);
+postRouter.use(protect);
 
 postRouter.get("/", async (req, res) => {
   const usersInfo = await pool.query(`select * from users `);
