@@ -27,15 +27,6 @@ export function LoginForm() {
       password,
     });
   };
-  const loginUser = async () => {
-    const response = await axios.post("http://localhost:4000/auth/login");
-    setUser(response.data.data);
-    console.log(response.data.data);
-  };
-
-  useEffect(() => {
-    loginUser();
-  }, []);
 
   return (
     <form

@@ -20,6 +20,7 @@ import axios from "axios";
 import { useAuth } from "../contexts/authentication.js";
 
 export function Register() {
+  const [showPassword, setShowPassword] = useState(false);
   // const [userProfile,setUserProfile] = useState({})
   const [username, setUsername] = useState("");
   const [firstName, setFirstname] = useState("");

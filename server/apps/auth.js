@@ -53,18 +53,18 @@ authRouter.post("/login", async (req, res) => {
   `,
     [username]
   );
-  console.log(user.rows[0]);
 
   if (!user) {
     return res.status(404).json({
       message: "user not found",
     });
   }
-  console.log(user.rows[0].password);
+  console.log(req.body.password);
   const isValidPassword = await bcrypt.compare(
     req.body.password,
     user.rows[0].password
   );
+
   console.log(isValidPassword);
 
   if (!isValidPassword) {

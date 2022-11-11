@@ -4,15 +4,25 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Image,
-  // Text,
+  Text,
+  Flex,
+  Menu,
+  MenuButton,
+  MenuItem,
+  Portal,
+  Spacer,
+  MenuList,
+  UnorderedList,
+  ListItem,
   Center,
   Button,
 } from "@chakra-ui/react";
-import { useAuth } from "../contexts/authentication";
-import { Menu, MenuButton, MenuList, MenuItem, Portal } from "@chakra-ui/react";
-
+import { useAuth } from "../contexts/authentication.js";
+import { useNavigate } from "react-router-dom";
 export function Navbar() {
   const { logout } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <Center bg="#C7BAB1" justifyContent="center">
       {/* <Flex position="relative" gap="2" bg="#C7BAB1" > */}
@@ -40,13 +50,28 @@ export function Navbar() {
             </Menu>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <Button bg="#D6BE96" href="#" fontSize="24px" color="#000000">
+            <Button
+              bg="#D6BE96"
+              href="#"
+              fontSize="24px"
+              color="#000000"
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
               REGISTER
             </Button>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <Button bg="#D6BE96" fontSize="24px" color="#000000">
+            <Button
+              bg="#D6BE96"
+              fontSize="24px"
+              color="#000000"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
               LOGIN
             </Button>
           </BreadcrumbItem>
