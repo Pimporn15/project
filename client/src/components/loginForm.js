@@ -74,7 +74,7 @@ export function LoginForm() {
               <Button bg="#CFB9AC" variant={"solid"} type="submit">
                 Log in
               </Button>
-              <Link>
+              <Link href="/register">
                 <center>Create account</center>
               </Link>
             </Stack>

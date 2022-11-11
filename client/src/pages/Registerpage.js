@@ -220,7 +220,7 @@ export function Register() {
                     <Stack pt={6}>
                       <Text align={"center"} fontSize={"20px"}>
                         Already a user?{" "}
-                        <Link color={"#AC4425"} fontSize={"20px"}>
+                        <Link href="/login" color={"#AC4425"} fontSize={"20px"}>
                           Login
                         </Link>
                       </Text>

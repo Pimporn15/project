@@ -22,4 +22,16 @@ function App() {
   );
 }
 
+// import { useAuth } from "./contexts/authentication";
+// import AuthenticatedApp from "./pages/authenticatedApp";
+// import UnauthenticatedApp from "./pages/UnauthenticatedApp";
+// import { ChakraProvider } from "@chakra-ui/react";
+
+// function App() {
+//   const auth = useAuth();
+//   <ChakraProvider>
+//     return auth.isAuthenticated ? <AuthenticatedApp /> : <UnauthenticatedApp />;
+//   </ChakraProvider>;
+// }
+
 export default App;
