@@ -26,7 +26,7 @@ export function Navbar() {
   return (
     <Center bg="#C7BAB1" justifyContent="center">
       {/* <Flex position="relative" gap="2" bg="#C7BAB1" > */}
-      <Box bg="#D6BE96" w="80%" p="4">
+      <Box bg="#D6BE96" w="100%" p="4">
         <Breadcrumb justifyContent="center" alignSelf="flex-end">
           <BreadcrumbItem>
             <Button bg="#D6BE96" fontSize="24px" color="#000000">
