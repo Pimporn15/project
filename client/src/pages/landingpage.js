@@ -14,12 +14,12 @@ import { Time } from "../components/time";
 export function Landingpage() {
   return (
     <Box>
-      <Center w="100vw" bg="#C7BAB1">
+      <Center w="100%" bg="#C7BAB1">
         <Flex>
-          <Box w="900px">
+          <Box w="80%">
             <Navbar />
             <Image src="picture/header.png" alt="white watch" />
-            <Box mt="20px" mb="20px">
+            <Box mt="5%" mb="5%">
               <Image src="picture/banner.png" alt="watch banner" />
             </Box>
             <Box mt="20px" mb="20px">

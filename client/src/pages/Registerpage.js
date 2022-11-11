@@ -53,13 +53,13 @@ export function Register() {
   //   const response = await axios.post("http://localhost:4000/register");
   // };
 
-  const registerUser = async () => {
-    try {
-      const response = await axios.get("http://localhost:4000/register");
-      setWatch(response.data.data);
-      console.log(registerUser);
-    } catch {}
-  };
+  // const registerUser = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:4000/register");
+  //     setWatch(response.data.data);
+  //     console.log(registerUser);
+  //   } catch {}
+  // };
 
   // const registerPost = async () => {
   //   const response = await axios.post("http://localhost:4000/register",{
@@ -71,9 +71,9 @@ export function Register() {
   //   console.log(response.data.data);
   // };
 
-  useEffect(() => {
-    registerUser();
-  }, []);
+  // useEffect(() => {
+  //   registerUser();
+  // }, []);
 
   return (
     <form
