@@ -24,10 +24,13 @@ function AuthProvider(props) {
     setState({ ...state, user: userDataFromToken });
     navigate("/");
   };
+
   const logout = () => {
+    console.log("anananannan");
     localStorage.removeItem("token");
-    setState({ ...state, user: null });
+    setState({ ...state, user: null, error: null });
   };
+
   return (
     <AuthContext.Provider value={{ register, login, logout }}>
       {props.children}

@@ -6,20 +6,18 @@ import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+function Unauthentication() {
   return (
-    <ChakraProvider>
-      <Router>
-        <AuthProvider>
-          <Routes>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={<Landingpage />} />
-          </Routes>
-        </AuthProvider>
-      </Router>
-    </ChakraProvider>
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<Landingpage />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
-export default App;
+export default Unauthentication;
