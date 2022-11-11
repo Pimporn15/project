@@ -21,3 +21,22 @@ function Unauthentication() {
 }
 
 export default Unauthentication;
+// import { Routes, Route } from "react-router-dom";
+
+// import loginPage from "./loginpage";
+// import RegisterPage from "./registerpage";
+// import "../App.css";
+
+// function UnauthenticatedApp() {
+//   return (
+//     <div className="App">
+//       <Routes>
+//         <Route path="/login" element={<LoginPage />} />
+//         <Route path="/register" element={<RegisterPage />} />
+//         <Route path="*" element={<LoginPage />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// export default UnauthenticatedApp;
