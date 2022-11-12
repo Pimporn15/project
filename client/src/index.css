@@ -19,6 +19,7 @@ code {
 
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 .runtime {
   font-family: "Monoton", cursive;
@@ -28,3 +29,6 @@ code {
   font-family: "League Spartan", sans-serif;
 }
 
+.logo {
+  font-family: "Abril Fatface", cursive;
+}
