@@ -19,19 +19,17 @@ function App() {
         </AuthProvider>
       </Router>
     </ChakraProvider>
-  );
+    )
 }
+  export default App
 
 // import { useAuth } from "./contexts/authentication";
-// import AuthenticatedApp from "./pages/authenticatedApp";
-// import UnauthenticatedApp from "./pages/UnauthenticatedApp";
-// import { ChakraProvider } from "@chakra-ui/react";
+// import Authentication from "./pages/authenticatedApp";
+// import Unauthentication from "./pages/unauthenticatedApp";
 
 // function App() {
 //   const auth = useAuth();
-//   <ChakraProvider>
-//     return auth.isAuthenticated ? <AuthenticatedApp /> : <UnauthenticatedApp />;
-//   </ChakraProvider>;
+//   return auth.isAuthenticated ? <Authentication /> : <Unauthentication />;
 // }
 
-export default App;
+// export default App;
