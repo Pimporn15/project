@@ -1,80 +1,88 @@
 import React from 'react'
 
-import { Box,Image,Badge } from '@chakra-ui/react'
+import { Box,Center,Flex,Image,Stack,Text, Wrap } from '@chakra-ui/react'
 import {StarIcon } from '@chakra-ui/icons'
 
 
 
    const property = {
-        imageUrl: 'https://bit.ly/2Z4KKcF',
-        imageAlt: 'Rear view of modern home with pool',
-        // beds: 3,
-        // baths: 2,
-        title: 'Modern home in city center in the heart of historic Los Angeles',
-        formattedPrice: '$1,900.00',
+        name:'Garmin vivomove HR สีดำ',
+        imageUrl: 'picture/1.png',
+        imageAlt: 'Vaadeland',
+        ImageBrand:'picture/casio.png',
+        ImageBrandAlt:'casio',
+        title: 'dui maecenas tristique est et tempus semper est quam pharetra magna ac',
+        formattedPrice: '฿7,011.00',
         reviewCount: 10,
         rating: 3,
+
+
+        // name:'name',
+        // brandPicture: 'ImageBrand',
+        // imageUrl: 'image',
+        // imageAlt: 'nameImage',
+        // title: 'description',
+        // formattedPrice: 'price',
+        // reviewCount: 'review',
+        // rating: 'ratings',
       }
 function Products() {
   return (
- 
-        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-          <Image src={property.imageUrl} alt={property.imageAlt} />
-    
-          <Box p='6'>
-            <Box display='flex' alignItems='baseline'>
-              <Badge borderRadius='full' px='2' colorScheme='teal'>
-                New
-              </Badge>
-              <Box
-                color='gray.500'
-                fontWeight='semibold'
-                letterSpacing='wide'
-                fontSize='xs'
-                textTransform='uppercase'
-                ml='2'
-              >
-                {/* {property.beds} beds &bull; {property.baths} baths */}
-              </Box>
-            </Box>
-    
+         
+        <Box  w='30%' boxShadow='sm' borderWidth='5px' borderRadius='20px'  overflow='hidden'  bg='#ffffff' p='20px' >
+          <Center  >
+          <Image src={property.imageUrl} alt={property.imageAlt}  justify='center' />
+          </Center>
+          <Box >
+            <Flex >
+              
+          <Image src={property.ImageBrand} alt={property.ImageBrandAlt} w='35px' h='35px' mt ='7px' ml='5px' />
+         
+          <Flex direction='column' ml='20px' >
+        
             <Box
+             
               mt='1'
               fontWeight='semibold'
               as='h4'
               lineHeight='tight'
               noOfLines={1}
             >
-              {property.title}
+              {property.name}
             </Box>
-    
-            <Box>
+
+            
+            <Wrap direction='row'>
+             <Flex  >
+            
+              <Box color='gray.600' fontSize='sm' pr='2'>
+                price
+              <Text color='#FF786B'>
               {property.formattedPrice}
-              <Box as='span' color='gray.600' fontSize='sm'>
-                / wk
+              </Text> 
               </Box>
-            </Box>
-    
-            <Box display='flex' mt='2' alignItems='center'>
+             
+           </Flex>
+            
+              <Box as='span' color='gray.600' fontSize='sm' >Reviews (
+                {property.reviewCount} reviews)
+            <Box display='flex' mt='2' alignItems='center' >
               {Array(5)
                 .fill('')
                 .map((_, i) => (
                   <StarIcon
                     key={i}
-                    color={i < property.rating ? 'teal.500' : 'gray.300'}
+                    color={i < property.rating ? '#FFFF00' : 'gray.300'}
                   />
                 ))}
 
-              <Box as='span' ml='2' color='gray.600' fontSize='sm'>
-                {property.reviewCount} reviews
-              </Box>
             </Box>
+            </Box>
+             </Wrap>
+          </Flex>
+          </Flex>
           </Box>
         </Box>
-
-  
-
-    
 
       )
     }
