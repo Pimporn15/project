@@ -29,10 +29,12 @@ import {
 } from "@chakra-ui/icons";
 
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/authentication.js";
 
 export function LoginNavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   return (
     <Box>
@@ -123,6 +125,7 @@ export function LoginNavigation() {
               <MenuDivider />
               <MenuItem
                 onClick={() => {
+                  logout();
                   navigate("/login");
                 }}
               >

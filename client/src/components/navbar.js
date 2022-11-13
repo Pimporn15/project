@@ -1,104 +1,322 @@
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Image,
-  Text,
   Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  Portal,
-  Spacer,
-  MenuList,
-  UnorderedList,
-  ListItem,
-  Center,
+  Text,
+  IconButton,
   Button,
+  Stack,
+  Collapse,
+  Icon,
+  Link,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  useColorModeValue,
+  useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useAuth } from "../contexts/authentication.js";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
+
 import { useNavigate } from "react-router-dom";
-export function Navbar() {
-  const { logout } = useAuth();
+
+export function Navigation() {
+  const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
 
   return (
-    <Center bg="#C7BAB1" justifyContent="center">
-      {/* <Flex position="relative" gap="2" bg="#C7BAB1" > */}
-      <Box bg="#D6BE96" w="100%" p="4">
-        <Breadcrumb justifyContent="center" alignSelf="flex-end">
-          <BreadcrumbItem>
-            <Button bg="#D6BE96" fontSize="24px" color="#000000">
-              HOME
-            </Button>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Menu>
-              <MenuButton fontSize="24px" color="#000000">
-                PRODUCTS
-              </MenuButton>
-              <Portal>
-                <MenuList>
-                  <MenuItem>New PRODUCTS</MenuItem>
-                  <MenuItem>Men</MenuItem>
-                  <MenuItem>Women</MenuItem>
-                  <MenuItem>KID</MenuItem>
-                  <MenuItem>ACCESSORIES</MenuItem>
-                </MenuList>
-              </Portal>
-            </Menu>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Button
-              bg="#D6BE96"
-              href="#"
-              fontSize="24px"
-              color="#000000"
-              onClick={() => {
-                navigate("/register");
-              }}
-            >
-              REGISTER
-            </Button>
-          </BreadcrumbItem>
+    <Box>
+      <Flex
+        bg={"#ebe4d1"}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
+      >
+        <Flex
+          flex={{ base: 1, md: "auto" }}
+          ml={{ base: -2 }}
+          display={{ base: "flex", md: "none" }}
+        >
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
+          />
+        </Flex>
+        <Flex
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "start" }}
+          pl="2%"
+        >
+          <Text
+            className="logo"
+            fontSize={"1.5rem"}
+            color={"#D6BE96"}
+            textAlign={useBreakpointValue({ base: "center", md: "left" })}
+            // color={useColorModeValue("gray.800", "white")}
+          >
+            WOD
+          </Text>
 
-          <BreadcrumbItem>
-            <Button
-              bg="#D6BE96"
-              fontSize="24px"
-              color="#000000"
-              onClick={() => {
-                navigate("/login");
-              }}
-            >
-              LOGIN
-            </Button>
-          </BreadcrumbItem>
+          <Flex display={{ base: "none", md: "flex" }} ml={5} pt={2}>
+            <DesktopNav />
+          </Flex>
+        </Flex>
 
-          <BreadcrumbItem>
-            <Button
-              bg="#D6BE96"
-              fontSize="24px"
-              color="#000000"
-              onClick={() => {
-                logout();
-              }}
-            >
-              LOGOUT
-            </Button>
-          </BreadcrumbItem>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          <Button
+            as={"a"}
+            w={"70%"}
+            h={"30px"}
+            fontSize={"sm"}
+            fontWeight={600}
+            color={"white"}
+            borderRadius={"3xl"}
+            bg={"#D6BE96"}
+            // variant={"link"}
+            // href={"#"}
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            LOG IN
+          </Button>
+          <Button
+            display={{ base: "none", md: "inline-flex" }}
+            w={"70%"}
+            h={"30px"}
+            fontSize={"sm"}
+            fontWeight={500}
+            borderRadius={"3xl"}
+            bg={"#ebe4d1"}
+            color={"#9a7352"}
+            border={"2px"}
+            borderColor={"#D6BE96"}
+            href={"#"}
+            _hover={{
+              bg: "pink.300",
+            }}
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+            REGISTER
+          </Button>
+        </Stack>
+      </Flex>
 
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">
-              <Button bg="#D6BE96">
-                <Image src="/picture/cart.png" alt="cart" />
-              </Button>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      {/* </Flex> */}
-    </Center>
+      <Collapse in={isOpen} animateOpacity>
+        <MobileNav />
+      </Collapse>
+    </Box>
   );
 }
+
+///////
+const DesktopNav = () => {
+  const linkColor = useColorModeValue("#9a7352", "gray.200");
+  const linkHoverColor = useColorModeValue("#c28f3e", "white");
+  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+
+  return (
+    <Stack direction={"row"} spacing={2}>
+      {NAV_ITEMS.map((navItem) => (
+        <Box key={navItem.label}>
+          <Popover trigger={"hover"} placement={"bottom-start"}>
+            <PopoverTrigger>
+              <Link
+                pt={"28px"}
+                pl={"15px"}
+                href={navItem.href ?? "#"}
+                fontSize={"18px"}
+                fontWeight={500}
+                color={linkColor}
+                _hover={{
+                  textDecoration: "none",
+                  color: linkHoverColor,
+                }}
+              >
+                {navItem.label}
+              </Link>
+            </PopoverTrigger>
+
+            {navItem.children && (
+              <PopoverContent
+                border={0}
+                boxShadow={"xl"}
+                bg={popoverContentBgColor}
+                p={4}
+                rounded={"xl"}
+                minW={"sm"}
+              >
+                <Stack>
+                  {navItem.children.map((child) => (
+                    <DesktopSubNav key={child.label} {...child} />
+                  ))}
+                </Stack>
+              </PopoverContent>
+            )}
+          </Popover>
+        </Box>
+      ))}
+    </Stack>
+  );
+};
+
+const DesktopSubNav = ({ label, href, subLabel }) => {
+  return (
+    <Link
+      href={href}
+      role={"group"}
+      display={"block"}
+      p={2}
+      rounded={"md"}
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+    >
+      <Stack direction={"row"} align={"center"}>
+        <Box>
+          <Text
+            transition={"all .3s ease"}
+            _groupHover={{ color: "pink.400" }}
+            fontWeight={500}
+          >
+            {label}
+          </Text>
+          <Text fontSize={"sm"}>{subLabel}</Text>
+        </Box>
+        <Flex
+          transition={"all .3s ease"}
+          transform={"translateX(-10px)"}
+          opacity={0}
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          justify={"flex-end"}
+          align={"center"}
+          flex={1}
+        >
+          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
+    </Link>
+  );
+};
+
+const MobileNav = () => {
+  return (
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      p={4}
+      display={{ md: "none" }}
+    >
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, children, href }) => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <Flex
+        py={2}
+        as={Link}
+        href={href ?? "#"}
+        justify={"space-between"}
+        align={"center"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Text
+          fontWeight={600}
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
+          {label}
+        </Text>
+        {children && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={"all .25s ease-in-out"}
+            transform={isOpen ? "rotate(180deg)" : ""}
+            w={6}
+            h={6}
+          />
+        )}
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.700")}
+          align={"start"}
+        >
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} href={child.href}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
+    </Stack>
+  );
+};
+
+const NAV_ITEMS = [
+  {
+    label: "HOME",
+    href: "#",
+  },
+  {
+    label: "PRODUCTS",
+    children: [
+      {
+        label: "New Product",
+        subLabel: "New item sell 50% off",
+        href: "#",
+      },
+      {
+        label: "Men",
+        subLabel: "Find your favorite watch",
+        href: "#",
+      },
+      {
+        label: "Women",
+        subLabel: "An exclusive watch for you",
+        href: "#",
+      },
+      {
+        label: "Kid",
+        subLabel: "Creating imagination by fantacy watch",
+        href: "#",
+      },
+      {
+        label: "Accessories",
+        subLabel: "Watch spasres and part discount 60%",
+        href: "#",
+      },
+    ],
+  },
+];
