@@ -36,12 +36,12 @@ export function LoginForm() {
     >
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
-          <Stack w="400px" p="50px" bg="white" boxShadow="lg" maxW={"md"}>
-            <Heading fontSize="40px">
+          <Stack w="300%" p="5%" bg="white" boxShadow="lg" maxW={"md"}>
+            <Text fontSize="2.5rem" pb="5%">
               <center>LOG IN</center>
-            </Heading>
+            </Text>
             <FormControl id="username">
-              <FormLabel fontSize="20px">Username</FormLabel>
+              <FormLabel fontSize="1.2rem">Username</FormLabel>
               <Input
                 type="username"
                 bg="#EEEEEE"
@@ -52,7 +52,7 @@ export function LoginForm() {
               />
             </FormControl>
             <FormControl id="password">
-              <FormLabel fontSize="20px">Password</FormLabel>
+              <FormLabel fontSize="1.2rem">Password</FormLabel>
               <Input
                 type="password"
                 bg="#EEEEEE"
@@ -62,9 +62,6 @@ export function LoginForm() {
                 value={password}
               />
             </FormControl>
-            <Text fontSize="sm" color="red">
-              Validate Password?
-            </Text>
             <Stack spacing={6}>
               <Stack
                 direction={{ base: "column", sm: "row" }}

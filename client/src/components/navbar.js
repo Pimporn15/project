@@ -90,8 +90,9 @@ export function Navigation() {
             color={"white"}
             borderRadius={"3xl"}
             bg={"#D6BE96"}
-            // variant={"link"}
-            // href={"#"}
+            _hover={{
+              bg: "#d5b178",
+            }}
             onClick={() => {
               navigate("/login");
             }}
@@ -111,7 +112,7 @@ export function Navigation() {
             borderColor={"#D6BE96"}
             href={"#"}
             _hover={{
-              bg: "pink.300",
+              color:"#d5b178"
             }}
             onClick={() => {
               navigate("/register");
