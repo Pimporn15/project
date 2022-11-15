@@ -5,6 +5,8 @@ import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductList from "./components/productList";
+import ProductItem from "./components/productItem";
 
 function App() {
   return (
@@ -15,13 +17,14 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Landingpage />} />
+            <Route path="/product" element={<ProductList />} />
           </Routes>
         </AuthProvider>
       </Router>
     </ChakraProvider>
-    )
+  );
 }
-  export default App
+export default App;
 
 // import { useAuth } from "./contexts/authentication";
 // import Authentication from "./pages/authenticatedApp";
