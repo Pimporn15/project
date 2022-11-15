@@ -99,7 +99,7 @@ export function LoginNavigation() {
             borderRadius={"3xl"}
             bg={"#D6BE96"}
             onClick={() => {
-              navigate("/login");
+              // navigate("/login");
             }}
           >
             ADD TO CART
