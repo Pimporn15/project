@@ -20,7 +20,7 @@ import axios from "axios";
 import { useAuth } from "../contexts/authentication.js";
 
 export function Register() {
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   // const [userProfile,setUserProfile] = useState({})
   const [username, setUsername] = useState("");
   const [firstName, setFirstname] = useState("");
@@ -104,7 +104,7 @@ export function Register() {
                         {/* <FormLabel  fontSize={'20px'} >Password</FormLabel> */}
                         <InputGroup>
                           <Input
-                            id="inputPassword"
+                            // type={password ? "text" : "password"}
                             type="password"
                             variant="flushed"
                             placeholder="password"
@@ -117,14 +117,14 @@ export function Register() {
                             value={password}
                           />
                           <InputRightElement h={"full"}>
-                            <Button
-                              variant={"ghost"}
+                            {/* <Button
+                              // variant={"ghost"}
                               onClick={() =>
                                 setPassword((Password) => !Password)
                               }
-                            >
-                              {password ? <ViewIcon /> : <ViewOffIcon />}
-                            </Button>
+                            > */}
+                              {/* {setPassword ? <ViewIcon /> : <ViewOffIcon />} */}
+                            {/* </Button> */}
                           </InputRightElement>
                         </InputGroup>
                       </FormControl>
