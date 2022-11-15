@@ -5,19 +5,22 @@ import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {ProductDetail1}  from "./pages/product-detail1";
 
 function App() {
   return (
     <ChakraProvider>
-      <Router>
+      {/* <Router>
         <AuthProvider>
-          <Routes>
-            <Route path="/register" element={<Register />} />
+          <Routes> */}
+            {/* <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={<Landingpage />} />
-          </Routes>
+            <Route path="/" element={<Landingpage />} /> */}
+            <Router path="/products" elememt = {<ProductDetail1/>} />
+            
+          {/* </Routes>
         </AuthProvider>
-      </Router>
+      </Router> */}
     </ChakraProvider>
     )
 }
