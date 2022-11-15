@@ -44,75 +44,49 @@ export function Register() {
     // console.log(register);
   };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log("yeah");
+  // const validatePassword = () => {
+  //   let valid = document.getElementById("inputPassword").value;
+  //   let text;
+  //   if (valid == "" || valid.lenght < 8 || valid.lenght > 15) {
+  //     text = "Input not valid";
+  //   } else {
+  //     text = "Input OK";
+  //   }
+  //   return text
   // };
 
-  // const registerUser = async () => {
-  //   const response = await axios.post("http://localhost:4000/register");
-  // };
-
-  // const registerUser = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:4000/register");
-  //     setWatch(response.data.data);
-  //     console.log(registerUser);
-  //   } catch {}
-  // };
-
-  // const registerPost = async () => {
-  //   const response = await axios.post("http://localhost:4000/register",{
-  //     "username": "nannie",
-  //     "firstName":"napassorn",
-  //     "lastName": "Boo"
-  //   }),
-  //   setWatch(response.data.data);
-  //   console.log(response.data.data);
-  // };
-
-  // useEffect(() => {
-  //   registerUser();
-  // }, []);
 
   return (
     <form
+      className="registerForm"
       onSubmit={(event) => {
         handleSubmit(event);
       }}
     >
-      <Box bg="white" w="100vw">
-        <Flex direction="row" gap="500px">
+      <Box bg="white" w="100%" h="100%">
+        <Flex direction="row" gap="30%">
           <Box>
-            <Box position="relative" bg="#2C2C2C" w="350px" h="100vh"></Box>
-            <Box position="absolute" top="100px">
-              <Image src="picture/imagereg.png" alt="watch picture" />
+            <Box position="relative" bg="#2C2C2C" w="300px" h="100%"></Box>
+            <Box position="absolute" top="15%">
+              <Image src="picture/imagereg.png" alt="watch picture" w="70%" />
             </Box>
           </Box>
           <Box>
             <Flex align={"center"} justify={"center"}>
-              <Stack spacing={8} mx={"auto"} maxW={"lg"} py={100} px={6}>
-                <Stack align={"center"}>
-                  <Heading fontSize={"48px"} textAlign={"center"}>
-                    Register
-                  </Heading>
-                </Stack>
-                <Box
-                  w="500px"
-                  rounded={"lg"}
-                  // bg={useColorModeValue("white", "gray.700")}
-                  boxShadow={"lg"}
-                  p={8}
-                >
+              <Stack spacing={"5%"} mx={"auto"} maxW={"lg"} py={"25%"}>
+                <Box w="150%">
                   <Stack spacing={4}>
                     <Box>
-                      <FormControl id="UserName">
+                      <Text fontSize={"3rem"} textAlign={"center"} pb="10%">
+                        Register
+                      </Text>
+                      <FormControl id="UserName" isRequired>
                         {/* <FormLabel fontSize={'20px'} >UserName</FormLabel> */}
                         <Input
                           type="text"
                           variant="flushed"
-                          placeholder="UserName"
-                          fontSize={"20px"}
+                          placeholder="Username"
+                          fontSize={"1.2rem"}
                           isInvalid
                           errorBorderColor="#AA8B56"
                           onChange={(event) => {
@@ -122,14 +96,20 @@ export function Register() {
                         />
                         {/* <hr color='black' /> */}
                       </FormControl>
-                      <FormControl id="password" isRequired pt={4}>
+                      <FormControl
+                        id="password"
+                        isRequired
+                        pt={"5%"}
+                        // validate={validatePassword}
+                      >
                         {/* <FormLabel  fontSize={'20px'} >Password</FormLabel> */}
                         <InputGroup>
                           <Input
-                            type={password ? "text" : "password"}
+                            id="inputPassword"
+                            type="password"
                             variant="flushed"
                             placeholder="password"
-                            fontSize={"20px"}
+                            fontSize={"1.2rem"}
                             isInvalid
                             errorBorderColor="#AA8B56"
                             onChange={(event) => {
@@ -157,8 +137,8 @@ export function Register() {
                         <Input
                           type="text"
                           variant="flushed"
-                          placeholder="FirstName"
-                          fontSize={"20px"}
+                          placeholder="Firstname"
+                          fontSize={"1.2rem"}
                           isInvalid
                           errorBorderColor="#AA8B56"
                           onChange={(event) => {
@@ -169,13 +149,13 @@ export function Register() {
                       </FormControl>
                     </Box>
                     <Box>
-                      <FormControl id="lastName">
+                      <FormControl id="lastName" isRequired>
                         {/* <FormLabel fontSize={'20px'} >Last Name</FormLabel> */}
                         <Input
                           type="text"
                           variant="flushed"
                           placeholder="Lastname"
-                          fontSize={"20px"}
+                          fontSize={"1.2rem"}
                           isInvalid
                           errorBorderColor="#AA8B56"
                           onChange={(event) => {
@@ -192,7 +172,7 @@ export function Register() {
                         type="email"
                         variant="flushed"
                         placeholder="Email"
-                        fontSize={"20px"}
+                        fontSize={"1.2rem"}
                         isInvalid
                         errorBorderColor="#AA8B56"
                         onChange={(event) => {
@@ -213,6 +193,9 @@ export function Register() {
                         }}
                         fontSize={"20px"}
                         type="submit"
+                        // onClick={() => {
+                        //   validatePassword()
+                        // }}
                       >
                         SUBMIT
                       </Button>

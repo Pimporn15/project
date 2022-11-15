@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import { Text } from "@chakra-ui/react";
 export function Time() {
   const [runTime, setRunTime] = useState();
 
@@ -11,6 +11,6 @@ export function Time() {
     }, 1000);
   }, []);
 
-  return <box className="runtime">{runTime}</box>;
+  return <Text className="runtime" fontSize={"2rem"}>{runTime}</Text>;
 }
 
