@@ -25,7 +25,7 @@ export function Register() {
   const [username, setUsername] = useState("");
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [watch, setWatch] = useState([]);
 
@@ -35,7 +35,7 @@ export function Register() {
     event.preventDefault();
     const data = {
       username,
-      password,
+      showPassword,
       firstName,
       lastName,
       email,
@@ -54,7 +54,6 @@ export function Register() {
   //   }
   //   return text
   // };
-
 
   return (
     <form
@@ -105,26 +104,26 @@ export function Register() {
                         {/* <FormLabel  fontSize={'20px'} >Password</FormLabel> */}
                         <InputGroup>
                           <Input
-                            id="inputPassword"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
+                            // type="password"
                             variant="flushed"
                             placeholder="password"
                             fontSize={"1.2rem"}
                             isInvalid
                             errorBorderColor="#AA8B56"
-                            onChange={(event) => {
-                              setPassword(event.target.value);
-                            }}
-                            value={password}
+                            // onChange={(event) => {
+                            //   setShowPassword(event.target.value);
+                            // }}
+                            // value={showPassword}
                           />
                           <InputRightElement h={"full"}>
                             <Button
-                              variant={"ghost"}
+                              variant="ghost"
                               onClick={() =>
-                                setPassword((Password) => !Password)
+                                setShowPassword((Showpassword) => !Showpassword)
                               }
                             >
-                              {password ? <ViewIcon /> : <ViewOffIcon />}
+                              {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                             </Button>
                           </InputRightElement>
                         </InputGroup>
