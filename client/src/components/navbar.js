@@ -112,7 +112,7 @@ export function Navigation() {
             borderColor={"#D6BE96"}
             href={"#"}
             _hover={{
-              color:"#d5b178"
+              color: "#d5b178",
             }}
             onClick={() => {
               navigate("/register");
@@ -297,6 +297,11 @@ const NAV_ITEMS = [
         label: "New Product",
         subLabel: "New item sell 50% off",
         href: "#",
+      },
+      {
+        label: "Product",
+        subLabel: "All item sell 55% off",
+        href: "/products",
       },
       {
         label: "Men",

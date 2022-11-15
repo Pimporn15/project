@@ -17,7 +17,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Landingpage />} />
-            <Route path="/product" element={<ProductList />} />
+            <Route path="/products" element={<ProductList />} />
           </Routes>
         </AuthProvider>
       </Router>

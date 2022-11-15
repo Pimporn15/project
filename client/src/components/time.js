@@ -11,6 +11,9 @@ export function Time() {
     }, 1000);
   }, []);
 
-  return <Text className="runtime" fontSize={"2rem"}>{runTime}</Text>;
+  return (
+    <Text className="runtime" fontSize={"2rem"}>
+      {runTime}
+    </Text>
+  );
 }
-
