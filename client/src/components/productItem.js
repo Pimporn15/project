@@ -5,24 +5,22 @@ import { StarIcon } from "@chakra-ui/icons";
 
 function ProductItem(property) {
   return (
-    <Flex direction={"row"}> 
+    <Flex direction="row" justify="center" align="center">
       <Box
-        w="20%"
+        w="17%"
         h="40%"
-        borderWidth="5px"
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
         mt="3%"
-        ml="10%"
       >
         <Center>
           <Image
             src={property.image}
             alt={property.imageAlt}
-            w="500px"
-            h="300px"
+            w="400px"
+            h="250px"
             justify="center"
           />
         </Center>

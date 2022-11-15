@@ -5,8 +5,8 @@ import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductList from "./components/productList";
-import ProductItem from "./components/productItem";
+import ProductListingPage from "./pages/productListingPage";
+
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Landingpage />} />
-            <Route path="/products" element={<ProductList />} />
+            <Route path="/products" element={<ProductListingPage />} />
           </Routes>
         </AuthProvider>
       </Router>

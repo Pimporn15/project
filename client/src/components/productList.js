@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Box, Flex, Image, Wrap } from "@chakra-ui/react";
 import Products from "./productItem";
 import ProductItem from "./productItem";
 import axios from "axios";
@@ -18,21 +18,19 @@ function ProductList() {
     getProducts();
   }, []);
 
-  return (
-    <div>
-      {products.map((item) => {
-        return (
-          <div>
-            <img src={item.image}></img>
-            {item.product_name}
-            {item.description}
-            {item.price}
-            {item.rating}
-          </div>
-        );
-      })}
-    </div>
-  );
+  return products.map((item) => {
+    return (
+      <>
+        <ProductItem
+          image={item.image}
+          name={item.product_name}
+          description={item.description}
+          price={item.price}
+          rating={item.rating}
+        />
+      </>
+    );
+  });
 }
 
 export default ProductList;
