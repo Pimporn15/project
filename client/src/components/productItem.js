@@ -79,4 +79,4 @@ import ProductList from "./productList";
 //   );
 // }
 
-export default ProductItem;
+// export default ProductItem;
