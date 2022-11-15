@@ -114,4 +114,4 @@ function ProductItem(property) {
 //   );
 // }
 
-export default ProductItem;
+// export default ProductItem;
