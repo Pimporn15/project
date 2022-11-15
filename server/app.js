@@ -6,6 +6,7 @@ import authRouter from "./apps/auth.js";
 import dotenv from "dotenv";
 // import client from "./utils/db.js";
 import postRouter from "./apps/post.js";
+import productsRouter from "./apps/products.js";
 
 async function init() {
   dotenv.config();
@@ -16,6 +17,7 @@ async function init() {
   app.use(bodyParser.json());
   app.use("/auth", authRouter);
   app.use("/post", postRouter);
+  app.use("/products", productsRouter);
   app.get("/", (req, res) => {
     return res.json({ massage: "naja" });
   });
