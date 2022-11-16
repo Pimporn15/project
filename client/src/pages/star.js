@@ -1,23 +1,24 @@
-import React from "react";
-import { RatingStar } from "rating-star";
+// import React from "react";
+// import { RatingStar } from "rating-star";
 
-export default function Star() {
-  const [rating, setRating] = React.useState(3.5);
+// export default function Star101() {
+//   let [rating, setRating] = React.useState(4.5);
+  
 
-  const onRatingChange = (score) => {
-    setRating(score);
-  };
+//   let onRatingChange = (score) => {
+//     setRating(score);
+//   };
 
-  return (
-    <div className="App">
-      {/* <h1>  </h1> */}
-      <RatingStar
-        clickable
-        maxScore={5}
-        id="123"
-        rating={rating}
-        onRatingChange={onRatingChange}
-      />
-    </div>
-  );
-}
+//   return (
+//     <div className="App">
+//       {/* <h1>  </h1> */}
+//       <RatingStar
+//         clickable
+//         maxScore={5}
+//         id="123"
+//         rating={rating}
+//         onRatingChange={onRatingChange}
+//       />
+//     </div>
+//   );
+// }

@@ -5,20 +5,24 @@ import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {ProductDetail1}  from "./pages/product-detail1";
+
+import {ProductDetail10}  from "./pages/products-detail10";              // อย่าลืม import !!!
+// import {ProductDetail} from "./pages/product-detail0";
 
 function App() {
   return (
     <ChakraProvider>
       {/* <Router>
         <AuthProvider>
-          <Routes> */}
+          <Routes>  */}
             {/* <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Landingpage />} /> */}
-            <Router path="/products" elememt = {<ProductDetail1/>} />
+            <ProductDetail10/>
+            {/* <ProductDetail1/> */}
             
-          {/* </Routes>
+{/*             
+          </Routes>
         </AuthProvider>
       </Router> */}
     </ChakraProvider>
@@ -26,13 +30,3 @@ function App() {
 }
   export default App
 
-// import { useAuth } from "./contexts/authentication";
-// import Authentication from "./pages/authenticatedApp";
-// import Unauthentication from "./pages/unauthenticatedApp";
-
-// function App() {
-//   const auth = useAuth();
-//   return auth.isAuthenticated ? <Authentication /> : <Unauthentication />;
-// }
-
-// export default App;
