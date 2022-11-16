@@ -7,15 +7,15 @@ function ProductItem(property) {
   return (
     <Flex direction={"row"}>
       <Box
-        w="20%"
-        h="40%"
-        borderWidth="5px"
+        w="75%"
+        h="100%"
+r
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
-        mt="3%"
-        ml="10%"
+        mb="8%"
+
       >
         <Center>
           <Image
@@ -29,7 +29,7 @@ function ProductItem(property) {
         <Box>
           <Flex>
             <Image
-              src={property.ImageBrand}
+              src={property.imageBrand}
               alt={property.ImageBrandAlt}
               w="35px"
               h="35px"
@@ -47,7 +47,6 @@ function ProductItem(property) {
               >
                 {property.name}
               </Box>
-<<<<<<< HEAD
 
               <Wrap direction="row">
                 <Flex>
@@ -79,14 +78,7 @@ function ProductItem(property) {
   );
 }
 
-export default ProductItem;
-//                 lineHeight="tight"
-//                 noOfLines={1}
-//               >
-//                 {item.name}
-//               </Box>
-=======
->>>>>>> ca4215c529d382e4f835e473c629205916bc62a3
+
 
               <Wrap direction="row">
                 <Flex>

@@ -9,7 +9,6 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
     const result = await axios.get("http://localhost:4000/products");
-    // console.log(result);
     setProducts(result.data.data);
   };
 
@@ -20,16 +19,15 @@ function ProductList() {
   return products.map((item) => {
     return (
       <box>
-       
         <ProductItem
           image={item.image}
+          imageBrand={item.image_brand}
           name={item.product_name}
           description={item.description}
           price={item.price}
           rating={item.rating}
         />
-        </box>
-     
+      </box>
     );
   });
 }
