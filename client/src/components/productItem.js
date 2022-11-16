@@ -9,13 +9,12 @@ function ProductItem(property) {
       <Box
         w="75%"
         h="100%"
-r
+        r
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
         mb="8%"
-
       >
         <Center>
           <Image
@@ -77,37 +76,3 @@ r
     </Flex>
   );
 }
-
-
-
-              <Wrap direction="row">
-                <Flex>
-                  <Box color="gray.600" fontSize="sm" pr="2">
-                    price
-                    <Text color="#FF786B">{property.price}</Text>
-                  </Box>
-                </Flex>
-
-                <Box as="span" color="gray.600" fontSize="sm">
-                  Reviews ({property.review} reviews)
-                  <Box display="flex" mt="2" alignItems="center">
-                    {Array(5)
-                      .fill("")
-                      .map((_, i) => (
-                        <StarIcon
-                          key={i}
-                          color={i < property.rating ? "#FFFF00" : "gray.300"}
-                        />
-                      ))}
-                  </Box>
-                </Box>
-              </Wrap>
-            </Flex>
-          </Flex>
-        </Box>
-      </Box>
-    </Flex>
-  );
-}
-
-// export default ProductItem;
