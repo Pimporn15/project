@@ -11,7 +11,6 @@ function ProductList() {
     const result = await axios.get("http://localhost:4000/products");
     setProducts(result.data.data);
   };
-  console.log(products);
 
   useEffect(() => {
     getProducts();
