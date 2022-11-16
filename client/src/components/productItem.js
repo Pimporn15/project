@@ -5,23 +5,24 @@ import { StarIcon } from "@chakra-ui/icons";
 
 function ProductItem(property) {
   return (
-    <Flex direction="row" justify="center" align="center">
+    <Flex direction={"row"}>
       <Box
-        w="20p%"
+        w="20%"
         h="40%"
+        borderWidth="5px"
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
         mt="3%"
-        m="5%"
+        ml="10%"
       >
         <Center>
           <Image
             src={property.image}
             alt={property.imageAlt}
-            w="400px"
-            h="250px"
+            w="500px"
+            h="300px"
             justify="center"
           />
         </Center>
@@ -46,6 +47,7 @@ function ProductItem(property) {
               >
                 {property.name}
               </Box>
+<<<<<<< HEAD
 
               <Wrap direction="row">
                 <Flex>
@@ -83,35 +85,37 @@ export default ProductItem;
 //               >
 //                 {item.name}
 //               </Box>
+=======
+>>>>>>> ca4215c529d382e4f835e473c629205916bc62a3
 
-//               <Wrap direction="row">
-//                 <Flex>
-//                   <Box color="gray.600" fontSize="sm" pr="2">
-//                     price
-//                     <Text color="#FF786B">{item.price}</Text>
-//                   </Box>
-//                 </Flex>
+              <Wrap direction="row">
+                <Flex>
+                  <Box color="gray.600" fontSize="sm" pr="2">
+                    price
+                    <Text color="#FF786B">{property.price}</Text>
+                  </Box>
+                </Flex>
 
-//                 <Box as="span" color="gray.600" fontSize="sm">
-//                   Reviews ({item.review} reviews)
-//                   <Box display="flex" mt="2" alignItems="center">
-//                     {Array(5)
-//                       .fill("")
-//                       .map((_, i) => (
-//                         <StarIcon
-//                           key={i}
-//                           color={i < item.rating ? "#FFFF00" : "gray.300"}
-//                         />
-//                       ))}
-//                   </Box>
-//                 </Box>
-//               </Wrap>
-//             </Flex>
-//           </Flex>
-//         </Box>
-//       </Box>
-//     </Flex>
-//   );
-// }
+                <Box as="span" color="gray.600" fontSize="sm">
+                  Reviews ({property.review} reviews)
+                  <Box display="flex" mt="2" alignItems="center">
+                    {Array(5)
+                      .fill("")
+                      .map((_, i) => (
+                        <StarIcon
+                          key={i}
+                          color={i < property.rating ? "#FFFF00" : "gray.300"}
+                        />
+                      ))}
+                  </Box>
+                </Box>
+              </Wrap>
+            </Flex>
+          </Flex>
+        </Box>
+      </Box>
+    </Flex>
+  );
+}
 
 // export default ProductItem;
