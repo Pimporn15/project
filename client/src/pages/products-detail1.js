@@ -19,30 +19,9 @@ import {
   import axios from 'axios'
   import React from "react";
   import { RatingStar } from "rating-star";
+  import { StarIcon } from "@chakra-ui/icons";
 
-  function Star3() {
-  let [rating3, setRating3] = React.useState(3);
-  
 
-  let onRatingChange = (score) => {
-    setRating3(score);
-  };
-
-  return (
-    <div className="App">
-      {/* <h1>  </h1> */}
-      <RatingStar
-        clickable
-        maxScore={5}
-        id="123"
-        rating={rating3}
-        onRatingChange={onRatingChange}
-      />
-    </div>
-  );
-}
-
-  
   
 
 
@@ -132,11 +111,19 @@ import {
             <Text fontSize={{base:'10px',sm:'10px', md:'15px', lg:'25px'}}>
                 <Flex> 
             
-            {/* <Star/> */}
-            <Star3/>
-            
-
-            
+                <Box as="span" color="gray.600" fontSize="xl">
+                  <Box display="flex" mt="2" alignItems="center">
+                    {Array(5)
+                      .fill("")
+                      .map((_, i) => (
+                        <StarIcon
+                          key={i}
+                          color={i < value.rating ? "#fdd835" : "gray.300"}
+                        />
+                      ))}
+                  </Box>
+                </Box>
+          
 
             <Flex position="absolute" ml="150" mt="2.5">  <Button  borderColor="white" size="xs" variant="outline"> <Text fontSize={[5,10,12]}>{value.rating} Points and Reviews.. </Text> </Button>  </Flex> 
                  </Flex>
