@@ -3,8 +3,7 @@ import { response, Router } from "express";
 const productsRouter = Router();
 
 productsRouter.get("/", async (req, res) => {
-  const products = await pool.query(`select * from products `);
-
+  const products = await pool.query(`select * from products limit 5 `);
   return res.status(200).json({
     data: products.rows,
     message: " successfully ",

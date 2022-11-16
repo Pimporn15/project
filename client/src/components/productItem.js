@@ -7,14 +7,13 @@ function ProductItem(property) {
   return (
     <Flex direction="row" justify="center" align="center">
       <Box
-        w="20p%"
-        h="40%"
+        w="75%"
+        h="100%"
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
-        mt="3%"
-        m="5%"
+        mb="8%"
       >
         <Center>
           <Image
@@ -28,7 +27,7 @@ function ProductItem(property) {
         <Box>
           <Flex>
             <Image
-              src={property.ImageBrand}
+              src={property.imageBrand}
               alt={property.ImageBrandAlt}
               w="35px"
               h="35px"
