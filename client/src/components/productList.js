@@ -12,7 +12,6 @@ function ProductList() {
     // console.log(result);
     setProducts(result.data.data);
   };
-  console.log(products);
 
   useEffect(() => {
     getProducts();
