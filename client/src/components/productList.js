@@ -20,7 +20,8 @@ function ProductList() {
 
   return products.map((item) => {
     return (
-      <>
+      <box>
+       
         <ProductItem
           image={item.image}
           name={item.product_name}
@@ -28,7 +29,8 @@ function ProductList() {
           price={item.price}
           rating={item.rating}
         />
-      </>
+        </box>
+     
     );
   });
 }

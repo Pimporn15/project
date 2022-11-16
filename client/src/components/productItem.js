@@ -7,13 +7,14 @@ function ProductItem(property) {
   return (
     <Flex direction="row" justify="center" align="center">
       <Box
-        w="17%"
+        w="20p%"
         h="40%"
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="20px"
         mt="3%"
+        m="5%"
       >
         <Center>
           <Image
