@@ -76,3 +76,4 @@ function ProductItem(property) {
     </Flex>
   );
 }
+export default ProductItem;
