@@ -3,13 +3,7 @@ import {
     Button,
     Text,
     Image,
-    //ButtonGroup,
-    //Container,
     Flex,
-    //HStack,
-    //IconButton,
-    //useBreakpointValue,
-    //useColorModeValue,
     Stack,
    
   } from "@chakra-ui/react";
@@ -18,8 +12,10 @@ import {
 
   import axios from 'axios'
   import React from "react";
-  import { RatingStar } from "rating-star";
+  
   import { StarIcon } from "@chakra-ui/icons";
+  import { useParams } from "react-router-dom";
+
 
 
   
@@ -31,13 +27,14 @@ import {
     let [datas, setDatas] = useState([]);
     
     // let [textInfo, setTextInfo] = useState("");
+    const {id} = useParams();
 
     useEffect(()=>{
         getPosts()
     }, []);
 
    
-    let getPosts = async (id) => {
+    let getPosts = async () => {
     try{ 
      
        let response = await axios.get (`http://localhost:4000/products/${id} `)

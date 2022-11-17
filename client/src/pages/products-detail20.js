@@ -14,33 +14,6 @@ import {
   import React from "react";
   import { RatingStar } from "rating-star";
 
-  function Star4() {
-  let [rating4, setRating4] = React.useState(4);
-  
-
-  let onRatingChange = (score) => {
-    setRating4(score);
-  };
-
-  return (
-    <div className="App">
-      {/* <h1>  </h1> */}
-      <RatingStar
-        clickable
-        maxScore={5}
-        id="123"
-        rating={rating4}
-        onRatingChange={onRatingChange}
-      />
-    </div>
-  );
-}
-
-  
-  
-
-
-
   
   export function ProductDetail20() {
     let [datas, setDatas] = useState([]);

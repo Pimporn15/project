@@ -6,26 +6,26 @@ import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import {ProductDetail10}  from "./pages/products-detail10";              // อย่าลืม import !!!
+import {ProductDetail1}  from "./pages/products-detail1";              // อย่าลืม import !!!
 
 
 function App() {
   return (
     <ChakraProvider>
-      {/* <Router>
+      <Router>
         <AuthProvider>
-          <Routes>  */}
+          <Routes> 
             {/* <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Landingpage />} /> */}
-            <ProductDetail10/>
+            <Route path="/products/:id" element= {<ProductDetail1/>} />
             
             {/* <ProductDetail1/> */}
             
-{/*             
+            
           </Routes>
         </AuthProvider>
-      </Router> */}
+      </Router>
     </ChakraProvider>
     )
 }
