@@ -12,7 +12,7 @@ async function init() {
   dotenv.config();
   let app = express();
   const port = 4000;
-  // await client.connect();
+
   app.use(cors());
   app.use(bodyParser.json());
   app.use("/auth", authRouter);

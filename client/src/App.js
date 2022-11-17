@@ -5,6 +5,8 @@ import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductListingPage from "./pages/productListingPage";
+
 
 import {ProductDetail1}  from "./pages/products-detail1";              // อย่าลืม import !!!
 
@@ -17,17 +19,22 @@ function App() {
           <Routes> 
             {/* <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LoginPage />} />
+
             <Route path="/" element={<Landingpage />} /> */}
             <Route path="/products/:id" element= {<ProductDetail1/>} />
             
-            {/* <ProductDetail1/> */}
+          
             
             
+
+            <Route path="/" element={<Landingpage />} />
+            <Route path="/products" element={<ProductListingPage />} />
+
           </Routes>
         </AuthProvider>
       </Router>
     </ChakraProvider>
-    )
+  );
 }
-  export default App
+export default App;
 

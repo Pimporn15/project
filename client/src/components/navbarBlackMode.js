@@ -31,7 +31,7 @@ export function Navigation() {
   return (
     <Box>
       <Flex
-        bg={"#ebe4d1"}
+        bg={"#2F2E2C"}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -87,7 +87,7 @@ export function Navigation() {
             h={"30px"}
             fontSize={"sm"}
             fontWeight={600}
-            color={"white"}
+            color={"black"}
             borderRadius={"3xl"}
             bg={"#D6BE96"}
             _hover={{
@@ -106,8 +106,8 @@ export function Navigation() {
             fontSize={"sm"}
             fontWeight={500}
             borderRadius={"3xl"}
-            bg={"#ebe4d1"}
-            color={"#9a7352"}
+            bg={"#2F2E2C"}
+            color={"white"}
             border={"2px"}
             borderColor={"#D6BE96"}
             href={"#"}
@@ -132,7 +132,7 @@ export function Navigation() {
 
 ///////
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("#9a7352", "gray.200");
+  const linkColor = useColorModeValue("white", "gray.200");
   const linkHoverColor = useColorModeValue("#c28f3e", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
@@ -288,7 +288,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "HOME",
-    href: "#",
+    href: "/",
   },
   {
     label: "PRODUCTS",

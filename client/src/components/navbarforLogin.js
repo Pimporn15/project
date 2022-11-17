@@ -312,6 +312,11 @@ const NAV_ITEMS = [
         href: "#",
       },
       {
+        label: "Product",
+        subLabel: "All item sell 55% off",
+        href: "/products",
+      },
+      {
         label: "Men",
         subLabel: "Find your favorite watch",
         href: "#",

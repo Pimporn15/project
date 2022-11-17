@@ -14,6 +14,12 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Avatar,
+  MenuDivider,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -23,15 +29,17 @@ import {
 } from "@chakra-ui/icons";
 
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/authentication.js";
 
-export function Navigation() {
+export function LoginNavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   return (
     <Box>
       <Flex
-        bg={"#ebe4d1"}
+        bg={"#2F2E2C"}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -87,39 +95,44 @@ export function Navigation() {
             h={"30px"}
             fontSize={"sm"}
             fontWeight={600}
-            color={"white"}
+            color={"black"}
             borderRadius={"3xl"}
             bg={"#D6BE96"}
-            _hover={{
-              bg: "#d5b178",
-            }}
             onClick={() => {
-              navigate("/login");
+              // navigate("/login");
             }}
           >
-            LOG IN
+            ADD TO CART
           </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            w={"70%"}
-            h={"30px"}
-            fontSize={"sm"}
-            fontWeight={500}
-            borderRadius={"3xl"}
-            bg={"#ebe4d1"}
-            color={"#9a7352"}
-            border={"2px"}
-            borderColor={"#D6BE96"}
-            href={"#"}
-            _hover={{
-              color: "#d5b178",
-            }}
-            onClick={() => {
-              navigate("/register");
-            }}
-          >
-            REGISTER
-          </Button>
+          <Menu>
+            <MenuButton
+              as={Button}
+              rounded={"full"}
+              variant={"link"}
+              cursor={"pointer"}
+              minW={0}
+            >
+              <Avatar
+                size={"sm"}
+                src={
+                  "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                }
+              />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>My Profile</MenuItem>
+              <MenuItem>My favorite</MenuItem>
+              <MenuDivider />
+              <MenuItem
+                onClick={() => {
+                  logout();
+                  navigate("/login");
+                }}
+              >
+                Log out
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </Stack>
       </Flex>
 
@@ -132,7 +145,7 @@ export function Navigation() {
 
 ///////
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("#9a7352", "gray.200");
+  const linkColor = useColorModeValue("white", "gray.200");
   const linkHoverColor = useColorModeValue("#c28f3e", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
@@ -288,7 +301,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "HOME",
-    href: "#",
+    href: "/",
   },
   {
     label: "PRODUCTS",
@@ -296,7 +309,7 @@ const NAV_ITEMS = [
       {
         label: "New Product",
         subLabel: "New item sell 50% off",
-        href: "#",
+        href: "",
       },
       {
         label: "Product",
