@@ -1,10 +1,10 @@
-import { Box, Flex, Image, Center, Heading,Stack,Text,Input,Button ,AspectRatio, Avatar,  keyframes } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading,Stack,Text,Input,Button , Avatar,  keyframes } from "@chakra-ui/react";
 
 
 
 
 function Profile() {
-    const size = '96px';
+    const size = '150px';
     const color = 'teal';
   
     const pulseRing = keyframes`
@@ -24,7 +24,7 @@ function Profile() {
   <Box w="100%" h="100%" bg="#dddddd" position='relative' >
       
     <Center  >
-           <Heading text='#000000' mt='5%'>Profile</Heading>
+           <Heading text='#000000' mt='5%'>PROFILE</Heading>
   </Center>
  <Flex 
       position='absolute' top='5%'  right='18%'
@@ -84,8 +84,8 @@ function Profile() {
                   <Text fontSize='20px' w='150px' m='15px'>Email</Text>
                   <Input variant='flushed' w='400px' isInvalid errorBorderColor='#AA8B56' />
              </Stack>
-             <Stack spacing={3} direction='row'>
-                  <Text fontSize='20px' w='150px' m='15px' mr='130px' >Address</Text>
+             <Stack spacing={3} direction='row' m='15px' >
+                  <Text fontSize='20px' w='150px'  mr='150px' >Address</Text>
                   <Button text='#000000' variant='solid' bg='#CFB9AC'  >Write Address</Button>
              </Stack>
 
