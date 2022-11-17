@@ -120,7 +120,13 @@ export function LoginNavigation() {
               />
             </MenuButton>
             <MenuList>
-              <MenuItem>My Profile</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  navigate("/userprofile");
+                }}
+              >
+                My Profile
+              </MenuItem>
               <MenuItem>My favorite</MenuItem>
               <MenuDivider />
               <MenuItem
