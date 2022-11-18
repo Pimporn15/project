@@ -59,31 +59,41 @@ authRouter.post("/login", async (req, res) => {
       message: "user not found",
     });
   }
-  console.log(req.body.password);
+
+  // console.log(user);
+
+  // console.log(req.body.password);
   const isValidPassword = await bcrypt.compare(
     req.body.password,
     user.rows[0].password
   );
 
-  console.log(isValidPassword);
+  // console.log(isValidPassword);
 
   if (!isValidPassword) {
     return res.status(401).json({
       message: "password not valid",
     });
   }
-
+  // console.log(user);
+  // console.log(user.rows[0].user_id);
+  console.log(user.rows.email);
   const token = jwt.sign(
     {
-      id: user.id,
-      firstName: user.rows.firstName,
-      lastName: user.rows.lastName,
+      id: user.rows[0].user_id,
+      firstname: user.rows[0].firstname,
+      lastname: user.rows[0].lastname,
+      email: user.rows[0].email,
     },
+
     process.env.SECRET_KEY,
     {
       expiresIn: "900000",
     }
   );
+  console.log("naja");
+  // console.log(user.rows[0].firstName);
+  console.log(user.rows[0]);
   return res.json({
     message: "login succesfully",
     token,

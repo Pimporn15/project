@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductListingPage from "./pages/productListingPage";
 
 import { ProductDetail1 } from "./pages/products-detail1"; // อย่าลืม import !!!
+import ShowProfile from "./pages/showProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Landingpage />} />
             <Route path="/products/:id" element={<ProductDetail1 />} />
             <Route path="/userprofile" element={<Profile />} />
+            <Route path="/profile" element={<ShowProfile />} />
             <Route path="/address" element={<Address />} />
 
             <Route path="/" element={<Landingpage />} />

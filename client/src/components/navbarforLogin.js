@@ -122,7 +122,7 @@ export function LoginNavigation() {
             <MenuList>
               <MenuItem
                 onClick={() => {
-                  navigate("/userprofile");
+                  navigate("/profile");
                 }}
               >
                 My Profile

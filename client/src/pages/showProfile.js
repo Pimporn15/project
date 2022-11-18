@@ -18,20 +18,20 @@ function Profile() {
   const { state } = useAuth();
   console.log(state);
   const pulseRing = keyframes`
-      0% {
-      transform: scale(0.33);
-    }
-    40%,
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-      `;
+        0% {
+        transform: scale(0.33);
+      }
+      40%,
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+        `;
 
   return (
-    <Box w="100%" h="100%" bg="#dddddd" position="relative">
+    <Box w="100%" h="100%" bg="#ffffff" position="relative">
       <Center>
         <Heading text="#000000" mt="5%">
           PROFILE
@@ -81,66 +81,47 @@ function Profile() {
           w="600px"
           h="400px"
           bgPosition="center"
-          bg="#dddddd"
+          bg="#ffffff"
           direction="column"
         >
-          <Stack spacing={3} direction="row">
-            <Text fontSize="20px" w="150px" m="15px"></Text>
-            {/* <Input
+          <Stack spacing={3} direction="row" align="center">
+            <Text fontSize="20px" w="150px" m="15px">
+              First Name :
+            </Text>
+
+            <Text fontSize="20px" w="150px" mt="15px">
+              {state.user.firstname}
+            </Text>
+          </Stack>
+          <Stack spacing={3} direction="row" align="center">
+            <Text fontSize="20px" w="150px" m="15px">
+              Last Name
+            </Text>
+            <Text fontSize="20px" w="150px" mt="15px">
+              {state.user.lastname}
+            </Text>
+          </Stack>
+
+          <Stack spacing={3} direction="row" align="center">
+            <Text fontSize="20px" w="150px" m="15px">
+              Email
+            </Text>
+            <Text fontSize="20px" w="150px" mt="15px">
+              {state.user.email}
+            </Text>
+            {/* 
+            <Input
               variant="flushed"
               w="400px"
               isInvalid
               errorBorderColor="#AA8B56"
             /> */}
           </Stack>
-          <Stack spacing={3} direction="row">
-            <Text fontSize="20px" w="150px" m="15px">
-              Frist Name
-            </Text>
-            <Input
-              variant="flushed"
-              w="400px"
-              isInvalid
-              errorBorderColor="#AA8B56"
-            />
-          </Stack>
-          <Stack spacing={3} direction="row">
-            <Text fontSize="20px" w="150px" m="15px">
-              Last Name
-            </Text>
-            <Input
-              variant="flushed"
-              w="400px"
-              isInvalid
-              errorBorderColor="#AA8B56"
-            />
-          </Stack>
-          <Stack spacing={3} direction="row">
-            <Text fontSize="20px" w="150px" m="15px">
-              Phone Number
-            </Text>
-            <Input
-              variant="flushed"
-              w="400px"
-              isInvalid
-              errorBorderColor="#AA8B56"
-            />
-          </Stack>
-          <Stack spacing={3} direction="row">
-            <Text fontSize="20px" w="150px" m="15px">
-              Email
-            </Text>
-            <Input
-              variant="flushed"
-              w="400px"
-              isInvalid
-              errorBorderColor="#AA8B56"
-            />
-          </Stack>
           <Stack spacing={3} direction="row" m="15px">
-            <Text fontSize="20px" w="150px" mr="150px">
+            <Text fontSize="20px" w="100px">
               Address
             </Text>
+            <Text fontSize="20px" w="100px" mt="5px"></Text>
             <Button text="#000000" variant="solid" bg="#CFB9AC">
               Write Address
             </Button>
