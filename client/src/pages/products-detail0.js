@@ -15,14 +15,14 @@ import {
 } from "@chakra-ui/react";
 
 import React,{useState} from "react";
-//import { RatingStar } from "rating-star";
-import Star from "./star";
+import { RatingStar } from "rating-star";
+// import Star from "./star";
 
 
 
 
 
-export function ProductDetail() {
+export function ProductDetail0() {
 
   let [counter, setCounter] = useState(1);
   
@@ -81,7 +81,7 @@ export function ProductDetail() {
           <Image boxSize="20px" src="picture/ดาวเต็ม.svg" className="pic2" alt=""/>  
           <Image boxSize="20px" src="picture/ดาวครึ่ง.svg" className="pic2" alt=""/>  
           <Image boxSize="20px" src="picture/ดาวใส.svg" className="pic2" alt=""/>   */}
-          <Star/>
+          {/* <Star/> */}
           
 
           <Flex position="absolute" ml="150" mt="2.5">  <Button  borderColor="white" size="xs" variant="outline"> <Text fontSize={[5,10,12]}>Read Reviews..</Text> </Button>  </Flex> 

@@ -15,18 +15,17 @@ import {
   
   import { StarIcon } from "@chakra-ui/icons";
   import { useParams } from "react-router-dom";
-
-
-
-  
-
+  import { useContext } from "react";
+  import CartContext from "./cartContext";
+ 
 
 
   
   export function ProductDetail1() {
     let [datas, setDatas] = useState([]);
+    // const {addToCart} = useContext(CartContext);
     
-    // let [textInfo, setTextInfo] = useState("");
+
     const {id} = useParams();
 
     useEffect(()=>{
@@ -82,7 +81,7 @@ import {
             <Button  fontSize="15" variant="ghost" color="#AA8B56">PRODUCTS</Button>
             <Button  fontSize="15" variant="ghost" color="#AA8B56">ACCESSORIES</Button>
             <Button  fontSize="15" variant="ghost" color="#AA8B56">LOG IN</Button>
-            <Button  fontSize="15" variant="ghost" color="#AA8B56">   <Image boxSize="30px" src="picture/cart.svg" className="pic2" alt=""/>   </Button>
+            <Button  fontSize="15" variant="ghost" color="#AA8B56">   <Image boxSize="30px" src="https://img.icons8.com/dotty/512/favorite-cart.png" className="pic2" alt=""/>    </Button>
         </Flex>
     </Box>
         
@@ -150,7 +149,7 @@ import {
           <Box ml = {[100,400,900]} >
             
           <Button size="lg" bg="#CFB9AC" color="white">
-          <Box onClick mb="0px" mr="2px" > <Image boxSize="25px" src="picture/cart.svg" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
+          <Box> <Image boxSize="35px" src="https://img.icons8.com/nolan/512/shopping-cart.png" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
           </Button>
          
           </Box>
