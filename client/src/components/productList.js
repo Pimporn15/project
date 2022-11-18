@@ -26,6 +26,7 @@ function ProductList() {
           description={item.description}
           price={item.price}
           rating={item.rating}
+          product_id={item.product_id}
         />
       </box>
     );

@@ -2,8 +2,10 @@ import React from "react";
 
 import { Box, Center, Flex, Image, Stack, Text, Wrap } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 function ProductItem(property) {
+  const Navigate = useNavigate();
   return (
     <Flex direction={"row"}>
       <Box
@@ -15,6 +17,9 @@ function ProductItem(property) {
         bg="#ffffff"
         p="20px"
         mb="8%"
+        onClick={() => {
+          Navigate(`/products/${property.product_id}`);
+        }}
       >
         <Center>
           <Image
