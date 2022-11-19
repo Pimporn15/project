@@ -4,9 +4,11 @@ import Products from "./productItem";
 import ProductItem from "./productItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 function ProductList() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate()
   const getProducts = async () => {
     const result = await axios.get("http://localhost:4000/products");
     setProducts(result.data.data);
@@ -18,16 +20,16 @@ function ProductList() {
 
   return products.map((item) => {
     return (
-      <box>
+      <Flex>
         <ProductItem
           image={item.image}
           imageBrand={item.image_brand}
           name={item.product_name}
           description={item.description}
           price={item.price}
-          rating={item.rating}
+          rating={item.rating}          
         />
-      </box>
+      </Flex>
     );
   });
 }

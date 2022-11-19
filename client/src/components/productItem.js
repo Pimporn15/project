@@ -9,7 +9,6 @@ function ProductItem(property) {
       <Box
         w="75%"
         h="100%"
-        r
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
