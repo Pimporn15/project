@@ -27,7 +27,8 @@ function ProductList() {
           name={item.product_name}
           description={item.description}
           price={item.price}
-          rating={item.rating}          
+          rating={item.rating}
+          product_id={item.product_id}
         />
       </Flex>
     );
