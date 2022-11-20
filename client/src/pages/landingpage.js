@@ -7,8 +7,8 @@ import {
   Spacer,
   Button,
 } from "@chakra-ui/react";
-import { Navigation } from "../components/navbar";
-import { LoginNavigation } from "../components/navbarforLogin";
+import { Navigation } from "../components/navigationBar/navbar";
+import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
 import { useAuth } from "../contexts/authentication";
 
 export function Landingpage() {

@@ -11,10 +11,9 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
-import ProductItem from "../components/productItem";
 import ProductList from "../components/productList";
-import { LoginNavigation } from "../components/navbarBlackModeforLogin.js";
-import { Navigation } from "../components/navbarBlackMode";
+import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
+import { Navigation } from "../components/navigationBar/navbarBlackMode";
 import { useAuth } from "../contexts/authentication";
 
 function ProductListingPage() {

@@ -5,7 +5,7 @@ import { Time } from "../components/time";
 export function LoginPage() {
   return (
     <Box w="100vw" bg="#FFFFFF">
-      <Box position="relative" zIndex={2}>
+      <Box position="relative">
         <Time />
         <LoginForm />
       </Box>

@@ -12,6 +12,7 @@ import ProductListingPage from "./pages/productListingPage";
 
 import { ProductDetail1 } from "./pages/products-detail1"; // อย่าลืม import !!!
 import ShowProfile from "./pages/showProfile";
+import { ProductProvider } from "./contexts/product";
 
 function App() {
   return (
@@ -20,19 +21,19 @@ function App() {
 
       <Router>
         <AuthProvider>
-          <Routes>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Routes>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<LoginPage />} />
 
-            <Route path="/" element={<Landingpage />} />
-            <Route path="/products/:id" element={<ProductDetail1 />} />
-            <Route path="/userprofile" element={<Profile />} />
-            <Route path="/profile" element={<ShowProfile />} />
-            <Route path="/address" element={<Address />} />
+              <Route path="/" element={<Landingpage />} />
+              <Route path="/products/:id" element={<ProductDetail1 />} />
+              <Route path="/userprofile" element={<Profile />} />
+              <Route path="/profile" element={<ShowProfile />} />
+              <Route path="/address" element={<Address />} />
 
-            <Route path="/" element={<Landingpage />} />
-            <Route path="/products" element={<ProductListingPage />} />
-          </Routes>
+              <Route path="/" element={<Landingpage />} />
+              <Route path="/products" element={<ProductListingPage />} />
+            </Routes>
         </AuthProvider>
       </Router>
     </ChakraProvider>

@@ -1,17 +1,18 @@
 import { Box, Button, Text, Image, Flex, Stack } from "@chakra-ui/react";
-
 import { useEffect, useState } from "react";
-
 import axios from "axios";
 import React from "react";
-
+import { useAuth } from "../contexts/authentication";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
+import { useProduct } from "../contexts/product";
+import { Navigation } from "../components/navigationBar/navbar";
+import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
 
 export function ProductDetail1() {
+  // const { datas} = useProduct;
+  const auth = useAuth();
   let [datas, setDatas] = useState([]);
-
-  // let [textInfo, setTextInfo] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -40,13 +41,12 @@ export function ProductDetail1() {
 
   // let addCart =() => {
   //     bil.push(counter > 0 )
-
   // }
 
   return (
-    // Navbar ==================================================================================
     <Box as="Big-Box">
-      <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
+      {auth.isAuthenticated ? <LoginNavigation /> : <Navigation />}
+      {/* <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
         <Flex justify="flex-end">
           <Button fontSize="15" variant="ghost" color="#AA8B56">
             HOME
@@ -70,7 +70,7 @@ export function ProductDetail1() {
             />{" "}
           </Button>
         </Flex>
-      </Box>
+      </Box> */}
 
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {

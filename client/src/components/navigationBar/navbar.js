@@ -296,7 +296,7 @@ const NAV_ITEMS = [
       {
         label: "New Product",
         subLabel: "New item sell 50% off",
-        href: "#",
+        href: "/products?category=1",
       },
       {
         label: "Product",

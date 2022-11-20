@@ -29,7 +29,7 @@ import {
 } from "@chakra-ui/icons";
 
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/authentication.js";
+import { useAuth } from "../../contexts/authentication.js";
 
 export function LoginNavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -39,7 +39,7 @@ export function LoginNavigation() {
   return (
     <Box>
       <Flex
-        bg={"#2F2E2C"}
+        bg={"#ebe4d1"}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -95,7 +95,7 @@ export function LoginNavigation() {
             h={"30px"}
             fontSize={"sm"}
             fontWeight={600}
-            color={"black"}
+            color={"white"}
             borderRadius={"3xl"}
             bg={"#D6BE96"}
             onClick={() => {
@@ -151,7 +151,7 @@ export function LoginNavigation() {
 
 ///////
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("white", "gray.200");
+  const linkColor = useColorModeValue("#9a7352", "gray.200");
   const linkHoverColor = useColorModeValue("#c28f3e", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
@@ -307,7 +307,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "HOME",
-    href: "/",
+    href: "#",
   },
   {
     label: "PRODUCTS",
@@ -315,7 +315,7 @@ const NAV_ITEMS = [
       {
         label: "New Product",
         subLabel: "New item sell 50% off",
-        href: "",
+        href: `/products?category=1`,
       },
       {
         label: "Product",

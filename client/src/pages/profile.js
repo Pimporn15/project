@@ -33,9 +33,9 @@ function Profile() {
   return (
     <Box w="100%" h="100%" bg="#dddddd" position="relative">
       <Center>
-        <Heading text="#000000" mt="5%">
-          PROFILE
-        </Heading>
+        <Text fontSize="3rem" text="#000000" mt="5%">
+          Profile
+        </Text>
       </Center>
       <Flex
         position="absolute"
@@ -95,7 +95,7 @@ function Profile() {
           </Stack>
           <Stack spacing={3} direction="row">
             <Text fontSize="20px" w="150px" m="15px">
-              Frist Name
+              First Name
             </Text>
             <Input
               variant="flushed"

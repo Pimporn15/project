@@ -28,7 +28,7 @@ function AuthProvider(props) {
     setState({ ...state, user: userDataFromToken });
     navigate("/");
   };
-  console.log(state.user);
+  
   const logout = () => {
     localStorage.removeItem("token");
     setState({ ...state, user: null, error: null });

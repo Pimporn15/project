@@ -23,17 +23,17 @@ userRouter.get("/:id", async (req, res) => {
     message: " successfully ",
   });
 });
-// userRouter.get("/1", async (req, res) => {
-//   const userId = req.params.id;
-//   console.log(req.params.id);
-//   const usersInfo = await pool.query(
-//     `select * from products where user_id= $1`,
-//     [userId]
-//   );
-//   return res.status(200).json({
-//     data: usersInfo.rows,
-//     message: " successfully ",
-//   });
-// });
+userRouter.get("/1", async (req, res) => {
+  const userId = req.params.id;
+  console.log(req.params.id);
+  const usersInfo = await pool.query(
+    `select * from products where user_id= $1`,
+    [userId]
+  );
+  return res.status(200).json({
+    data: usersInfo.rows,
+    message: " successfully ",
+  });
+});
 
 export default userRouter;

@@ -2,13 +2,12 @@ import {
   Box,
   Flex,
   Center,
-  Heading,
   Stack,
   Text,
-  Input,
   Button,
   Avatar,
   keyframes,
+  Heading,
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authentication";
 
@@ -33,9 +32,9 @@ function Profile() {
   return (
     <Box w="100%" h="100%" bg="#ffffff" position="relative">
       <Center>
-        <Heading text="#000000" mt="5%">
-          PROFILE
-        </Heading>
+      <Heading fontsize="6rem" color="#000000" mt="5%">
+        Profile
+      </Heading>
       </Center>
       <Flex
         position="absolute"
