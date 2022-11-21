@@ -20,6 +20,7 @@ import {
   MenuItem,
   Avatar,
   MenuDivider,
+  EnvironmentProvider,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -31,11 +32,15 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authentication.js";
 
-export function LoginNavigation() {
+export function LoginNavigation(props) {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
   const { logout } = useAuth();
+  const { setCategories } = props;
 
+  const handlerClick = (value) => {
+    console.log(value);
+  };
   return (
     <Box>
       <Flex
@@ -79,7 +84,7 @@ export function LoginNavigation() {
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={5} pt={2}>
-            <DesktopNav />
+            <DesktopNav onClick={handlerClick} />
           </Flex>
         </Flex>
 
@@ -143,18 +148,21 @@ export function LoginNavigation() {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav onClick={handlerClick} />
       </Collapse>
     </Box>
   );
 }
 
 ///////
-const DesktopNav = () => {
+const DesktopNav = (props) => {
   const linkColor = useColorModeValue("#9a7352", "gray.200");
   const linkHoverColor = useColorModeValue("#c28f3e", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const { onClick } = props;
 
+  // value={navItem.value}
+  // onClick={(event) => {handlerClick(event.target.value)}}
   return (
     <Stack direction={"row"} spacing={2}>
       {NAV_ITEMS.map((navItem) => (
@@ -164,10 +172,10 @@ const DesktopNav = () => {
               <Link
                 pt={"28px"}
                 pl={"15px"}
-                href={navItem.href ?? "#"}
                 fontSize={"18px"}
                 fontWeight={500}
                 color={linkColor}
+                href={navItem.href}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -188,7 +196,12 @@ const DesktopNav = () => {
               >
                 <Stack>
                   {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                    <DesktopSubNav
+                      key={child.label}
+                      {...child}
+                      onClick={onClick}
+                      value={navItem.value}
+                    />
                   ))}
                 </Stack>
               </PopoverContent>
@@ -200,10 +213,12 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+const DesktopSubNav = ({ label, onClick, subLabel, value }) => {
   return (
-    <Link
-      href={href}
+    <Button
+      // href={href}
+      value={value}
+      onClick={(event) => onClick(event.target.value)}
       role={"group"}
       display={"block"}
       p={2}
@@ -233,11 +248,12 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+    </Button>
   );
 };
 
-const MobileNav = () => {
+const MobileNav = (props) => {
+  const { onClick } = props;
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
@@ -245,21 +261,27 @@ const MobileNav = () => {
       display={{ md: "none" }}
     >
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem
+          key={navItem.label}
+          {...navItem}
+          onClick={onClick}
+          value={navItem.value}
+        />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, href, value, onClick }) => {
   const { isOpen, onToggle } = useDisclosure();
+  console.log("hi");
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? "#"}
+        // href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -294,9 +316,15 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Button
+                key={child.label}
+                py={2}
+                // href={child.href}
+                value={value}
+                onClick={() => onClick(value)}
+              >
                 {child.label}
-              </Link>
+              </Button>
             ))}
         </Stack>
       </Collapse>
@@ -315,7 +343,8 @@ const NAV_ITEMS = [
       {
         label: "New Product",
         subLabel: "New item sell 50% off",
-        href: `/products?category=1`,
+        href: "/products/category/5",
+        value: 5,
       },
       {
         label: "Product",
@@ -325,22 +354,26 @@ const NAV_ITEMS = [
       {
         label: "Men",
         subLabel: "Find your favorite watch",
-        href: "#",
+        href: "/products/category/1",
+        value: 1,
       },
       {
         label: "Women",
         subLabel: "An exclusive watch for you",
-        href: "#",
+        href: "/products/category/2",
+        value: 2,
       },
       {
         label: "Kid",
         subLabel: "Creating imagination by fantacy watch",
-        href: "#",
+        href: "/products/category/3",
+        value: 3,
       },
       {
         label: "Accessories",
         subLabel: "Watch spasres and part discount 60%",
-        href: "#",
+        href: "/products/category/4",
+        value: 4,
       },
     ],
   },

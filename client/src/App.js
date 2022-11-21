@@ -33,6 +33,7 @@ function App() {
 
               <Route path="/" element={<Landingpage />} />
               <Route path="/products" element={<ProductListingPage />} />
+              <Route path="/products/category/:id" element={<ProductListingPage />} />
             </Routes>
         </AuthProvider>
       </Router>

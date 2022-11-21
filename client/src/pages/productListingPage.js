@@ -15,16 +15,24 @@ import ProductList from "../components/productList";
 import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
 import { Navigation } from "../components/navigationBar/navbarBlackMode";
 import { useAuth } from "../contexts/authentication";
+import {useState} from "react"
+import {useParams} from "react-router-dom"
+
 
 function ProductListingPage() {
+  const params =useParams();
+  const categoryId = params.id
+  console.log(categoryId)
+  const [categories, setCategories] = useState([]);
   const auth = useAuth();
   const productPerPage = 20;
+
   return (
     <Box w="100%" h="100%" bg="#2F2E2C">
-      {auth.isAuthenticated ? <LoginNavigation /> : <Navigation />}
+      {auth.isAuthenticated ? <LoginNavigation setCategories= {setCategories}/> : <Navigation />}
       <Center w="95%" h="100%" mr="3%" ml="8%" mt="5%">
         <Wrap>
-          <ProductList />
+          <ProductList  categoryId={categoryId}/>
         </Wrap>
       </Center>
       <Center className="pagination" fontSize={"3rem"} pt="10%" pb="3%">

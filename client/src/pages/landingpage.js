@@ -10,6 +10,7 @@ import {
 import { Navigation } from "../components/navigationBar/navbar";
 import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
 import { useAuth } from "../contexts/authentication";
+import { New } from "../components/navigationBar/newversion";
 
 export function Landingpage() {
   const auth = useAuth();
@@ -17,6 +18,7 @@ export function Landingpage() {
   return (
     <Center w="100%" bg="#C7BAB1">
       <Box w="70%">
+        {/* <New/> */}
         {auth.isAuthenticated ? <LoginNavigation /> : <Navigation />}
         <Image src="picture/header.png" alt="white watch" />
         <Box mt="2%" mb="2%">
