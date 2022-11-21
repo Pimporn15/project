@@ -8,22 +8,27 @@ import {
    
   } from "@chakra-ui/react";
   
-  import{useEffect, useState} from "react";
+  import{useEffect, useState,useContext} from "react";
 
   import axios from 'axios'
   import React from "react";
   
   import { StarIcon } from "@chakra-ui/icons";
-  import { useParams } from "react-router-dom";
-  import { useContext } from "react";
-  import CartContext from "./cartContext";
- 
+  import { useNavigate, useParams } from "react-router-dom";
+  import { CartContext } from "../App";
+  
+  
+
+
 
 
   
   export function ProductDetail1() {
     let [datas, setDatas] = useState([]);
-    // const {addToCart} = useContext(CartContext);
+
+    let contextValue = useContext(CartContext);
+    const Navigate = useNavigate();
+
     
 
     const {id} = useParams();
@@ -47,32 +52,26 @@ import {
 
    
 
+    const [counter, setCounter] = useState(1)
 
-
-    let [counter, setCounter] = useState(1);
+  
     
    
 
     function handleAddCounter() {
-        setCounter(counter + 1);
+      setCounter(counter + 1);
     }
 
     function handleMinusCounter() {               // ควรตั้ง Logic ว่า ถ้า counter  > 0  ให้กด submit ปุ่ม ADD TO CART ได้
-        setCounter(counter - 1)
+      setCounter(counter - 1)
        
     }
-
-
-    // let addCart =() => {
-    //     bil.push(counter > 0 )
-
-    // }
 
 
  
     
     return (
-        
+       
         // Navbar ==================================================================================
         <Box as = "Big-Box"> 
             <Box as ="nav" bg="bgsurface" boxShadow = "lg" w="100%" >
@@ -141,18 +140,30 @@ import {
           
 
 
-        
-          
-
-
          {/* ปุ่มกด add to cart ==================================================================================== */}
-          <Box ml = {[100,400,900]} >
-            
-          <Button size="lg" bg="#CFB9AC" color="white">
-          <Box> <Image boxSize="35px" src="https://img.icons8.com/nolan/512/shopping-cart.png" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
-          </Button>
+       
+          
+            {datas.map((value, index)=>{
+            console.log(contextValue.mycart)
+               return(
+                
+
+                <Box ml = {[100,400,900]} >
+                  
+                <Button onClick={()=>{
+                  contextValue.setmyCart([...datas])
+                  Navigate("/cart")
+                }} size="lg" bg="#CFB9AC" color="white">
+                <Box > <Image boxSize="35px" src="https://img.icons8.com/nolan/512/shopping-cart.png" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
+                </Button>
+               
+                </Box>
+                )
+              
+
+            })}
          
-          </Box>
+          
           
 
 
@@ -175,8 +186,6 @@ import {
 }
 
 
-
- 
 
 
 
