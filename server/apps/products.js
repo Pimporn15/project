@@ -2,7 +2,6 @@ import { pool } from "../utils/db.js";
 import { response, Router } from "express";
 const productsRouter = Router();
 
-
 productsRouter.get("/", async (req, res) => {
   const category = req.query.category;
 
@@ -15,14 +14,13 @@ productsRouter.get("/", async (req, res) => {
   } else {
     query = `select * from products`;
   }
-  
+
   const results = await pool.query(query, values);
 
   return res.json({
     data: results.rows,
   });
-})
-
+});
 
 // productsRouter.get("/", async (req, res) => {
 //   const products = await pool.query(`select * from products limit 12`);
@@ -31,8 +29,6 @@ productsRouter.get("/", async (req, res) => {
 //     message: " successfully ",
 //   });
 // });
-
-
 
 productsRouter.get("/:id", async (req, res) => {
   const productId = req.params.id;
@@ -63,8 +59,7 @@ productsRouter.get("/:id", async (req, res) => {
 productsRouter.get("/", async (req, res) => {
   const category = req.query.category;
   const productCategory = await pool.query(
-    console.log(productCategory)
-    `select * from products where category_id = $1
+    console.log(productCategory)`select * from products where category_id = $1
    `,
     [category]
   );
