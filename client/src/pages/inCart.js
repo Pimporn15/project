@@ -22,29 +22,41 @@ export function CART() {
  
   const [counter1, setCounter1] = useState(1)
     function handleAddCounter1() {
-      setCounter1(counter1 + 1);
+      if(counter1 >= 10){
+        return
+        }setCounter1(counter1 + 1);
     }
 
-    function handleMinusCounter1() {               
-      setCounter1(counter1 - 1)
+    function handleMinusCounter1() {
+      if(counter1 === 1){
+        return               
+       } setCounter1(counter1 - 1)
     }
 
     const [counter2, setCounter2] = useState(1)
     function handleAddCounter2() {
-      setCounter2(counter2 + 1);
+      if(counter2 >= 10){
+        return
+      }setCounter2(counter2 + 1);
     }
 
-    function handleMinusCounter2() {               
-      setCounter2(counter2 - 1)
+    function handleMinusCounter2() {     
+      if(counter2 === 1){
+        return                         
+      }setCounter2(counter2 - 1)
     }
 
     const [counter3, setCounter3] = useState(1)
     function handleAddCounter3() {
-      setCounter3(counter3 + 1);
+      if(counter3 >= 10){
+        return
+      }setCounter3(counter3 + 1);
     }
 
-    function handleMinusCounter3() {               
-      setCounter3(counter3 - 1)
+    function handleMinusCounter3() {         
+      if(counter3 === 1){
+        return                               
+       }setCounter3(counter3 - 1)
     }
   
   

@@ -53,23 +53,39 @@ import {
    
 
     const [counter, setCounter] = useState(1)
+    
 
   
-    
+    // const removeCountHandler = () => {
+    //   if(count === 0){
+    //     return;  
+    //   }
+    //   setCount(count - 1);
+    // };
+  
    
 
     function handleAddCounter() {
-      setCounter(counter + 1);
+      if(counter >= 10){
+        return
+      }setCounter(counter + 1);
     }
 
-    function handleMinusCounter() {               // ควรตั้ง Logic ว่า ถ้า counter  > 0  ให้กด submit ปุ่ม ADD TO CART ได้
-      setCounter(counter - 1)
+
+
+
+    function handleMinusCounter() {              
+      if(counter === 1){
+        return
+      }setCounter(counter - 1)
+      
+      
        
     }
 
 
  
-    
+    console.log(datas)
     return (
        
         // Navbar ==================================================================================
