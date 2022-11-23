@@ -19,6 +19,7 @@ import { useState } from "react";
 export function CART() {
 
   let contextValue = useContext(CartContext)   
+
  
   const [counter1, setCounter1] = useState(1)
     function handleAddCounter1() {
@@ -62,7 +63,7 @@ export function CART() {
   
   
   
-  // console.log(contextValue)
+  console.log(contextValue.mycart)
 
  
   
@@ -88,34 +89,46 @@ export function CART() {
 <Box fontSize ={[20,25,30]} position="absolute" ml={[400,550,1400]} mt={[-7,-10]} >Total</Box>
 
 {contextValue.mycart.map((value)=>{
+  console.log(value[0])
 return(
 // กล่อง บรรจุ สินค้า ที่ add มา ========================================================================================
 <Box>
   <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
-<Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value.image} className="pic1" alt=""/>  </Box>
-<Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value.product_name}</Box>
-<Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value.price}</Box>
+<Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value[0].image} className="pic1" alt=""/>  </Box>
+<Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value[0].product_name}</Box>
+<Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value[0].price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} as="b" > <Button onClick={handleMinusCounter1} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter1} </Text>  <Button onClick={handleAddCounter1} bg="#DEDEDE" size="xs"> + </Button>      
  </Box>
 <Box position="absolute" ml={[50,560,1415]} mt={[-90]} as="b" > 2222</Box>
+</Box>
+)
+})}
 
+{/* {contextValue.mycart.map((value)=>{
+return(
+  <Box>
 <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
 <Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value.image} className="pic1" alt=""/>  </Box>
 <Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value.product_name}</Box>
 <Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value.price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} > <Button onClick={handleMinusCounter2} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter2} </Text>  <Button onClick={handleAddCounter2} bg="#DEDEDE" size="xs"> + </Button>  </Box>
 <Box position="absolute" ml={[50,560,1415]} mt={[-90]} as="b" > 2222</Box>
+</Box>
+)
+})} */}
 
-<Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
+
+
+
+{/* <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
 <Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value.image} className="pic1" alt=""/>  </Box>
 <Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value.product_name}</Box>
 <Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value.price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} as="b" ><Button onClick={handleMinusCounter3} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter3} </Text>  <Button onClick={handleAddCounter3} bg="#DEDEDE" size="xs"> + </Button> </Box>
-<Box position="absolute" ml={[50,560,1415]} mt={[-90]} as="b" > 2222</Box>
+<Box position="absolute" ml={[50,560,1415]} mt={[-90]} as="b" > 2222</Box>  */}
 
-</Box>
-)
-})}
+{/* </Box> */}
+
 
 
 

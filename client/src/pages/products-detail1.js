@@ -27,6 +27,7 @@ import {
     let [datas, setDatas] = useState([]);
 
     let contextValue = useContext(CartContext);
+    
     const Navigate = useNavigate();
 
     
@@ -53,16 +54,6 @@ import {
    
 
     const [counter, setCounter] = useState(1)
-    
-
-  
-    // const removeCountHandler = () => {
-    //   if(count === 0){
-    //     return;  
-    //   }
-    //   setCount(count - 1);
-    // };
-  
    
 
     function handleAddCounter() {
@@ -160,15 +151,17 @@ import {
        
           
             {datas.map((value, index)=>{
-            console.log(contextValue.mycart)
+            // console.log(contextValue.mycart)
                return(
                 
 
                 <Box ml = {[100,400,900]} >
                   
                 <Button onClick={()=>{
-                  contextValue.setmyCart([...datas])
-                  Navigate("/cart")
+                  console.log(contextValue.mycart)
+                  contextValue.setmyCart([...contextValue.mycart,datas ])
+                  // setmyCart([...datas,datas] )
+                  // Navigate("/cart")
                 }} size="lg" bg="#CFB9AC" color="white">
                 <Box > <Image boxSize="35px" src="https://img.icons8.com/nolan/512/shopping-cart.png" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
                 </Button>

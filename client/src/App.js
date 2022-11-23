@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { AuthProvider } from "./contexts/authentication";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Landingpage } from "./pages/landingpage";
@@ -13,11 +13,21 @@ import {CART} from "./pages/inCart";
 
 
 
-
+let cartFromLocalStorage = JSON.parse(localStorage.getItem("mycart")  ||  [])
 export const CartContext = createContext();
 function App() {  
 
-const [mycart, setmyCart] = useState([])
+const [mycart, setmyCart] = useState(cartFromLocalStorage)
+
+
+
+useEffect(()=>{
+  localStorage.setItem("mycart", JSON.stringify(mycart))
+ 
+},[mycart])
+
+
+
 
   return (
     <CartContext.Provider value ={{mycart, setmyCart}}> 
