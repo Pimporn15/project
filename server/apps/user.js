@@ -21,16 +21,7 @@ userRouter.get("/", async (req, res) => {
   });
 });
 
-// userRouter.get("/:id", async (req, res) => {
-//   const userId = req.params.id;
-//   const userInfo = await pool.query(`select * from users where user_id= $1`, [
-//     userId,
-//   ]);
-//   return res.status(200).json({
-//     data: userInfo.rows,
-//     message: " successfully ",
-//   });
-// });
+
 userRouter.get("/", async (req, res) => {
   const userId = req.params.id;
   const usersInfo = await pool.query(
