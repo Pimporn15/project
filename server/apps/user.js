@@ -21,7 +21,6 @@ userRouter.get("/", async (req, res) => {
   });
 });
 
-
 userRouter.get("/", async (req, res) => {
   const userId = req.params.id;
   const usersInfo = await pool.query(
@@ -47,13 +46,15 @@ userRouter.post("/delivery", async (req, res) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     phoneNumber: req.body.phonenumber,
-    address: req.body.address,
+    houseNumber: req.body.house_number,
     zipcode: req.body.zipcode,
     image: req.body.image,
     province: req.body.province,
     district: req.body.district,
     subDistrict: req.body.subdistrict,
-
+    village: req.body.village,
+    lane: req.body.lane,
+    road: req.body.road,
     created_at: new Date(),
     updated_at: new Date(),
     last_login: new Date(),
@@ -65,24 +66,30 @@ userRouter.post("/delivery", async (req, res) => {
         firstname,
         lastname,
         phonenumber,
-        address,
         zipcode,
         image,
         province,
         district,
-        subdistrict
+        subdistrict,
+        house_number,
+        village,
+        lane,
+        road
       )
-    values($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+    values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
     [
       user.firstname,
       user.lastname,
       user.phoneNumber,
-      user.address,
       user.zipcode,
       user.image,
       user.province,
       user.district,
       user.subDistrict,
+      user.houseNumber,
+      user.village,
+      user.lane,
+      user.road,
     ]
   );
 
