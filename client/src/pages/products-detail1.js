@@ -73,6 +73,7 @@ import {
       
        
     }
+    
 
 
  
@@ -161,7 +162,7 @@ import {
                   console.log(contextValue.mycart)
                   contextValue.setmyCart([...contextValue.mycart,datas ])
                   // setmyCart([...datas,datas] )
-                  // Navigate("/cart")
+                  Navigate("/cart")
                 }} size="lg" bg="#CFB9AC" color="white">
                 <Box > <Image boxSize="35px" src="https://img.icons8.com/nolan/512/shopping-cart.png" className="pic2" alt=""/> </Box>    <Box mr="15px">ADD TO CART</Box>
                 </Button>

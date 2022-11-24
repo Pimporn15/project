@@ -13,18 +13,20 @@ import {CART} from "./pages/inCart";
 
 
 
-let cartFromLocalStorage = JSON.parse(localStorage.getItem("mycart")  ||  [])
+let cartFromLocalStorage = JSON.parse(localStorage.getItem("mycart")  ||  "[]")
 export const CartContext = createContext();
 function App() {  
 
-const [mycart, setmyCart] = useState(cartFromLocalStorage)
 
+const [mycart, setmyCart] = useState(cartFromLocalStorage)
+// const [mycart, setmyCart] = useState([])
 
 
 useEffect(()=>{
   localStorage.setItem("mycart", JSON.stringify(mycart))
  
-},[mycart])
+}, [mycart])
+
 
 
 

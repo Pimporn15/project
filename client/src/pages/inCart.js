@@ -18,7 +18,11 @@ import { useState } from "react";
 
 export function CART() {
 
-  let contextValue = useContext(CartContext)   
+  let contextValue = useContext(CartContext)    // mycart  อยู่ในนี้
+
+  // let removeItem = () => {
+  //   localStorage.removeItem("mycart.value[0]")
+  // }
 
  
   const [counter1, setCounter1] = useState(1)
@@ -96,6 +100,7 @@ return(
   <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
 <Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value[0].image} className="pic1" alt=""/>  </Box>
 <Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value[0].product_name}</Box>
+<Button flex position="absolute" size="xs"  bg="#585858" ml="220" mt="-140" color="tomato" onClick= {()=>{contextValue.setmyCart(contextValue.mycart.filter(value=>value.id!==value[0].id))}}  > <Text  fontSize="20"> x </Text> </Button>
 <Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value[0].price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} as="b" > <Button onClick={handleMinusCounter1} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter1} </Text>  <Button onClick={handleAddCounter1} bg="#DEDEDE" size="xs"> + </Button>      
  </Box>
@@ -160,7 +165,7 @@ return(
 
 
 
-//  console.log(item)
+
 
 
   }
