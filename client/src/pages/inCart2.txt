@@ -76,4 +76,23 @@ import { ProductDetail1 } from "./products-detail1";
         </Box>
         
     )}
+
+
+
+
+
+        function deleteItem(value, event){
+      console.log(value)
+      const itemDelete = contextValue.mycart.filter((value, i) => {
+        console.log("แนนนี่ตื่นๆ")
+        return i !== value;
+      }); 
+  contextValue.setmyCart(itemDelete)
+    }
+
+    onClick= {(event)=>{deleteItem(value, event)}}
+
+
+    onClick= {()=>{contextValue.setmyCart(contextValue.mycart.filter(value=>value.id !== value[0].id))}}  
+  
     

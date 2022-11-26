@@ -19,6 +19,7 @@ import { useState } from "react";
 export function CART() {
 
   let contextValue = useContext(CartContext)    // mycart  อยู่ในนี้
+  let [me, setMe] = useState([])
 
   // let removeItem = () => {
   //   localStorage.removeItem("mycart.value[0]")
@@ -63,8 +64,14 @@ export function CART() {
         return                               
        }setCounter3(counter3 - 1)
     }
-  
-  
+
+
+    let handleRemove = () => {
+      const sum = contextValue.mycart.filter((value) => value.id !== value[1].id)
+      contextValue.setmyCart(sum);
+
+    }
+
   
   
   console.log(contextValue.mycart)
@@ -77,15 +84,25 @@ export function CART() {
     // Navbar ==================================================================================
    
     <Box as = "Big-Box"> 
-        <Box as ="nav" bg="bgsurface" boxShadow = "lg" w="100%" >
+    {/* {contextValue.mycart.map((value)=>{
+      return( */}
+        <Box position= "relative" as ="nav" bg="bgsurface" boxShadow = "lg" w="100%" >
+
     <Flex justify = "flex-end">
+
         <Button  fontSize="15" variant="ghost" color="#AA8B56" >HOME</Button>
         <Button  fontSize="15" variant="ghost" color="#AA8B56">PRODUCTS</Button>
         <Button  fontSize="15" variant="ghost" color="#AA8B56">ACCESSORIES</Button>
         <Button  fontSize="15" variant="ghost" color="#AA8B56">LOG IN</Button>
-        <Button  fontSize="15" variant="ghost" color="#AA8B56">   <Image boxSize="30px" src="https://img.icons8.com/dotty/512/favorite-cart.png" className="pic2" alt=""/>    </Button>
+        <Button  fontSize="15" variant="ghost" color="#585858" onClick= {()=>{contextValue.setmyCart(contextValue.mycart.filter(value=>value.id !== value[0].id))}}  
+  >CLEAR YOUR CART <Image mt="-1" boxSize="30px" src="picture/Bin.png" className="bin" alt="bin"/>
+</Button>
+
+        {/* <Button  fontSize="15" variant="ghost" color="#AA8B56">   <Image boxSize="30px" src="https://img.icons8.com/dotty/512/favorite-cart.png" className="pic2" alt=""/>    </Button> */}
     </Flex>
 </Box>
+      {/* )
+    })} */}
 
 <Box position="relative" mt="20" ml={[10,30,250]}> <Text fontSize="40px"> CART</Text> <Text fontSize={[20,25,30]}>Product Name</Text> </Box>
 <Box fontSize={[20,25,30]} position="absolute" mt={[-7,-10]} ml={[200,358,1000]} > Price </Box>
@@ -94,13 +111,18 @@ export function CART() {
 
 {contextValue.mycart.map((value)=>{
   console.log(value[0])
+  
 return(
+  
 // กล่อง บรรจุ สินค้า ที่ add มา ========================================================================================
 <Box>
   <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
 <Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value[0].image} className="pic1" alt=""/>  </Box>
 <Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value[0].product_name}</Box>
-<Button flex position="absolute" size="xs"  bg="#585858" ml="220" mt="-140" color="tomato" onClick= {()=>{contextValue.setmyCart(contextValue.mycart.filter(value=>value.id!==value[0].id))}}  > <Text  fontSize="20"> x </Text> </Button>
+
+
+ {/* <Button flex position="absolute" size="xs"  bg="#585858" ml="220" mt="-140" color="tomato" onClick={()=> handleRemove(value.id)}> <Text  fontSize="20"> x </Text> </Button>  */}
+
 <Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value[0].price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} as="b" > <Button onClick={handleMinusCounter1} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter1} </Text>  <Button onClick={handleAddCounter1} bg="#DEDEDE" size="xs"> + </Button>      
  </Box>
@@ -113,9 +135,9 @@ return(
 return(
   <Box>
 <Box position="relative" h="40" border="1px" borderTopColor="white" borderRightColor="white" borderLeftColor="white"  borderBottomColor="#DEDEDE" > </Box>
-<Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value.image} className="pic1" alt=""/>  </Box>
-<Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value.product_name}</Box>
-<Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value.price}</Box>
+<Box position="absolute" boxShadow ="2xl" h ={[50,100,120]} w ={[50,100,200]} mt ={[-130]} ml ={[5]} ><Image boxSize="full" src={value[0].image} className="pic1" alt=""/>  </Box>
+<Box position="absolute" ml={[80,125,280]}  mt={[-90]} as="b" > {value[0].product_name}</Box>
+<Box position="absolute" ml={[50,360,1015]} mt={[-90]} as="b" >{value[0].price}</Box>
 <Box position="absolute" ml={[50,450,1215]} mt={[-90]} > <Button onClick={handleMinusCounter2} bg="#DEDEDE" size="xs"> - </Button>  <Text as="b" fontSize="18px" >  {counter2} </Text>  <Button onClick={handleAddCounter2} bg="#DEDEDE" size="xs"> + </Button>  </Box>
 <Box position="absolute" ml={[50,560,1415]} mt={[-90]} as="b" > 2222</Box>
 </Box>
