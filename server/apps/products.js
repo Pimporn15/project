@@ -3,7 +3,7 @@ import { response, Router } from "express";
 const productsRouter = Router();
 
 productsRouter.get("/", async (req, res) => {
-  const category = req.query.category;
+  const category = Number(req.query.category);
   console.log(req.query>category);
 
   let query = "";

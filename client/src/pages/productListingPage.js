@@ -25,7 +25,7 @@ import {NewNavLoginBlack} from "../components/newnavbar/newnavbarproductlogin"
 function ProductListingPage() {
   const params =useParams();
   const categoryId = params.id
-  console.log(categoryId)
+  // console.log(categoryId)
   const [categories, setCategories] = useState([]);
   const auth = useAuth();
   const productPerPage = 20;
@@ -115,8 +115,8 @@ function ProductListingPage() {
             />
           </Flex>
           <Spacer />
-          <Flex align="center">
-            <Image src="picture/brand.png" alt="brand" />
+          <Flex align="center" >
+            <Image src="picture/logo.png" alt="brand" />
           </Flex>
         </Flex>
         <Box align="center">

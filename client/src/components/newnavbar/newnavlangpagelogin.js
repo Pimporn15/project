@@ -18,7 +18,11 @@ export function NewNavLandingLogin() {
         <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
           WOD
         </Text>
-         <Box pt={"10px"}
+         <Box   onClick={() => {
+                  Navigate("/");
+                }} >
+           <Button  bg="#ebe4d1"
+              pt={"10px"}
                 pl={"15px"}
                 fontSize={"18px"}
                 fontWeight={500}
@@ -27,12 +31,10 @@ export function NewNavLandingLogin() {
                 _hover={{
                   textDecoration: "none",
                   color: "#c28f3e",
-                }}  >
-        <Link  onClick={() => {
-                  Navigate("/");
                 }} 
+                 
         >HOME
-            </Link>
+            </Button>
            </Box>
   
            <Menu>
@@ -49,8 +51,8 @@ export function NewNavLandingLogin() {
   PRODUCTS
   </MenuButton>
   <MenuList>
-    <MenuItem  onClick={() => {
-                  Navigate(`/products/category/5`)
+  <MenuItem  onClick={() => {
+                  Navigate("/products/category/5");
                 }} >New Products
       </MenuItem>
         <MenuItem  onClick={() => {
@@ -58,19 +60,19 @@ export function NewNavLandingLogin() {
                 }} 
         >Product </MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
 
@@ -83,7 +85,9 @@ export function NewNavLandingLogin() {
       <Spacer />
 
       <Flex >
-      <Button w="45%" h="45%" mt="15px" colorScheme="#2F2E2C" > 
+      <Button w="45%" h="45%" mt="15px" colorScheme="#2F2E2C" onClick={() => {
+                  Navigate("/cart");
+                }} > 
        <Image  src="picture/iconcart.png"  />
         </Button>
 

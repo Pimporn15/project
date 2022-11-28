@@ -6,8 +6,14 @@ import { useAuth } from "../contexts/authentication";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../contexts/product";
-import { Navigation } from "../components/navigationBar/navbar";
-import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
+// import { Navigation } from "../components/navigationBar/navbar";
+// import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
+
+import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
+import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
+
+
+
 
 export function ProductDetail1() {
   // const { datas} = useProduct;
@@ -45,7 +51,7 @@ export function ProductDetail1() {
 
   return (
     <Box as="Big-Box">
-      {auth.isAuthenticated ? <LoginNavigation /> : <Navigation />}
+      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
       {/* <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
         <Flex justify="flex-end">
           <Button fontSize="15" variant="ghost" color="#AA8B56">

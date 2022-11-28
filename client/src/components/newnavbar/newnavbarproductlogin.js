@@ -3,7 +3,7 @@ import { Box, Button, Flex, Spacer,Text, Menu,Avatar, Divider,
     MenuList,
     MenuItem,
     Image, } from "@chakra-ui/react";
-  import { Link } from "react-router-dom";
+  // import { Link } from "react-router-dom";
   import { useNavigate} from "react-router-dom";
    import { useAuth } from  "../../contexts/authentication.js";
 
@@ -17,7 +17,9 @@ export function NewNavLoginBlack() {
         
       <Flex w="18%" justify="space-between" align="center" ml='3%'  >
 
-        <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
+        <Text className="logo"  fontSize="1.5rem" color="#D6BE96"  onClick={() => {
+                  Navigate("/");
+                }}  >
           WOD
         </Text>
          <Box 
@@ -31,11 +33,12 @@ export function NewNavLoginBlack() {
                   textDecoration: "none",
                   color: "#c28f3e",
                 }}  >
-        <Link onClick={() => {
+        <Text 
+        onClick={() => {
                   Navigate("/");
                 }} 
         >HOME
-            </Link>
+            </Text>
            </Box>
   
            <Menu>
@@ -53,7 +56,7 @@ export function NewNavLoginBlack() {
   </MenuButton>
   <MenuList>
     <MenuItem  onClick={() => {
-                  Navigate(`/products?category=5`);
+                  Navigate("/products/category/5");
                 }} >New Products
       </MenuItem>
         <MenuItem  onClick={() => {
@@ -61,19 +64,19 @@ export function NewNavLoginBlack() {
                 }} 
         >Product </MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
   
@@ -87,7 +90,7 @@ export function NewNavLoginBlack() {
       <Flex >
       <Button w="40%" h="45%" mt="15px" colorScheme="#2F2E2C"  
       onClick={() => {
-                  Navigate("");
+                  Navigate("/cart");
                 }} > 
        <Image  src="picture/iconcart.png"/>
         </Button>
@@ -116,7 +119,7 @@ export function NewNavLoginBlack() {
                 }}
                 >My Profile</MenuItem>
                 <MenuItem  onClick={() => {
-                  Navigate(" ");
+                  Navigate("");
                 }} 
                 >My favorite</MenuItem>
                 <MenuItem  onClick={() => {

@@ -19,22 +19,24 @@ export function NewNavBlack() {
         <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
           WOD
         </Text>
-         <Box 
+         <Box   >
+        <Button  bg="#2F2E2C"
          pt={"10px"}
                 pl={"15px"}
                 fontSize={"18px"}
                 fontWeight={500}
                 color="#ebe4d1"
-                href=""
+              
                 _hover={{
                   textDecoration: "none",
                   color: "#c28f3e",
-                }}  >
-        <Link   onClick={() => {
+                }} 
+        
+        onClick={() => {
                   Navigate("/");
                 }} 
          >HOME
-            </Link>
+            </Button>
            </Box>
   
            <Menu>
@@ -55,24 +57,28 @@ export function NewNavBlack() {
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
+      <MenuItem  onClick={() => {
+                  Navigate("/products/category/5");
+                }} >New Products
+      </MenuItem>
         <MenuItem  onClick={() => {
                   Navigate("/products");
                 }} 
         >Product </MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
   
@@ -134,7 +140,7 @@ export function NewNavBlack() {
       <Flex>
         <Button w="75%" h="50%" mt="15px" colorScheme="#2F2E2C" 
          onClick={() => {
-          Navigate(" ");
+          Navigate("/cart");
         }} 
         > 
        <Image  src="picture/iconcart.png"   />

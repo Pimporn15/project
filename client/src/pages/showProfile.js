@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authentication";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const size = "150px";
@@ -26,7 +27,7 @@ function Profile() {
 	  });
 	};
 
-
+  const Navigate = useNavigate();
 
 
   const pulseRing = keyframes`
@@ -134,7 +135,11 @@ function Profile() {
               Address
             </Text>
             <Text fontSize="20px" w="100px" mt="5px"></Text>
-            <Button text="#000000" variant="solid" bg="#CFB9AC">
+            <Button text="#000000" variant="solid" bg="#CFB9AC" 
+            onClick={() => {
+              Navigate("/address");
+            }}
+            >
               Write Address
             </Button>
           </Stack>

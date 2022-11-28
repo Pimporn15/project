@@ -6,6 +6,7 @@ import {
   Text,
   Spacer,
   Button,
+  Link
 } from "@chakra-ui/react";
 // import { Navigation } from "../components/navigationBar/navbar";
 // import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
@@ -14,16 +15,17 @@ import { New } from "../components/navigationBar/newversion";
 
 import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
 import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
-
+import { useNavigate } from "react-router-dom";
 
 
 export function Landingpage() {
   const auth = useAuth();
+  const Navigate = useNavigate()
 
   return (
     <Center w="100%" bg="#C7BAB1">
       <Box w="70%">
-        {/* <New/> */}
+        
         {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
         <Image src="picture/header.png" alt="white watch" />
         <Box mt="2%" mb="2%">
@@ -72,23 +74,48 @@ export function Landingpage() {
             position="absolute"
             bottom="5%"
           >
-            <Image src="picture/logo.png" alt="logo" w="12%" h="22%" />
+            <Image src="picture/logoland.png" alt="logo" w="12%" h="22%" />
             <Box w="18%">
-              <Text fontSize={"0.8rem"}>SHOP</Text>
-              <Text fontSize={"0.8rem"}>New Product</Text>
-              <Text fontSize={"0.8rem"}>Men</Text>
-              <Text fontSize={"0.8rem"}>Women</Text>
-              <Text fontSize={"0.8rem"}>Kid</Text>
-              <Text fontSize={"0.8rem"}>Accessories</Text>
+              <Text 
+              fontSize={"0.8rem"} 
+              >SHOP</Text>
+              <Link 
+              href="/products/category/5" isExternal fontSize={"0.8rem"} >
+              New Product 
+              </Link>
+              <br />
+              <Link 
+              href="/products/category/1" isExternal fontSize={"0.8rem"} >
+              Men
+              </Link>
+              <br />
+              <Link 
+              href="/products/category/2" isExternal fontSize={"0.8rem"} >
+              Women
+              </Link>
+              <br />
+              <Link 
+              href="/products/category/3" isExternal fontSize={"0.8rem"} >
+              Kid
+              </Link>
+              <Link 
+              href="/products/category/4" isExternal fontSize={"0.8rem"} >
+              Accessories
+              </Link>
+              
+             
             </Box>
             <Box w="20%">
               <Text fontSize={"0.8rem"}>SECURE PAYMENT</Text>
               <Image src="picture/payment.png" alt="payment-method" w="70%" />
             </Box>
-            <Box w="20%">
+            <Box w="20%" >
+
               <Text fontSize={"0.8rem"}>CONTACT</Text>
-              <Text fontSize={"0.8rem"}>0897879876</Text>
-              <Text fontSize={"0.8rem"}>watchoddile@gmail.com</Text>
+              <br />
+              <Link fontSize={"0.8rem"}>0897879876</Link>
+              <br />
+              <Link fontSize={"0.8rem"}>watchoddile@gmail.com</Link>
             </Box>
           </Flex>
         </Center>

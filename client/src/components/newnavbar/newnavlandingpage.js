@@ -21,7 +21,13 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
-           <Box pt={"10px"}
+           <Box   onClick={() => {
+            
+                  Navigate("/");
+                }} >
+          <Button  
+                  bg="#ebe4d1"  
+                  pt={"10px"}
                   pl={"15px"}
                   fontSize={"18px"}
                   fontWeight={500}
@@ -30,12 +36,10 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
                   _hover={{
                     textDecoration: "none",
                     color: "#c28f3e",
-                  }}  >
-          <Link  onClick={() => {
-                  Navigate("/");
-                }} 
+                  }}   
+                 
           >HOME
-              </Link>
+              </Button>
              </Box>
     
              <Menu>
@@ -56,24 +60,28 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
+      <MenuItem  onClick={() => {
+                  Navigate("/products/category/5");
+                }} >New Products
+      </MenuItem>
         <MenuItem  onClick={() => {
                   Navigate("/products");
                 }} 
         >Product </MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
         <MenuItem   onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
         <MenuItem    onClick={() => {
-                  Navigate("#");
+                  Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
   
@@ -89,7 +97,10 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
   
         <Flex w="25%" mr="2%">
 
-         <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" > 
+         <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+         onClick={() => {
+                  Navigate("/cart");
+                }} > 
        <Image  src="picture/iconcart.png"  />
         </Button>
 
