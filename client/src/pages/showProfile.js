@@ -8,10 +8,12 @@ import {
   Avatar,
   keyframes,
   Heading,
+  WrapItem
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authentication";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 function Profile() {
   const size = "150px";
@@ -19,6 +21,7 @@ function Profile() {
   const { state } = useAuth();
   console.log(state);
   const [avatars, setAvatars] = useState({});
+  const Navigate = useNavigate();
   const handleFileChange = (event) => {
 	  const uniqueId = Date.now();
 	  setAvatars({
@@ -26,9 +29,6 @@ function Profile() {
 	    [uniqueId]: event.target.files[0],
 	  });
 	};
-
-  const Navigate = useNavigate();
-
 
   const pulseRing = keyframes`
         0% {
@@ -60,7 +60,7 @@ function Profile() {
         w="200px"
         overflow="hidden"
       >
-        {/* Ideally, only the box should be used. The <Flex /> is used to style the preview. */}
+       
         <Box
           as="div"
           position="relative"
@@ -88,6 +88,9 @@ function Profile() {
           />
         </Box>
       </Flex>
+
+
+
 
       <Center mt="5%">
         <Flex
