@@ -7,10 +7,15 @@ import {
   Spacer,
   Button,
 } from "@chakra-ui/react";
-import { Navigation } from "../components/navigationBar/navbar";
-import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
+// import { Navigation } from "../components/navigationBar/navbar";
+// import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
 import { useAuth } from "../contexts/authentication";
 import { New } from "../components/navigationBar/newversion";
+
+import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
+import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
+
+
 
 export function Landingpage() {
   const auth = useAuth();
@@ -19,7 +24,7 @@ export function Landingpage() {
     <Center w="100%" bg="#C7BAB1">
       <Box w="70%">
         {/* <New/> */}
-        {auth.isAuthenticated ? <LoginNavigation /> : <Navigation />}
+        {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
         <Image src="picture/header.png" alt="white watch" />
         <Box mt="2%" mb="2%">
           <Image src="picture/banner.png" alt="watch banner" />

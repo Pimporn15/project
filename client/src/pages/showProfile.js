@@ -10,12 +10,25 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authentication";
+import { useEffect, useState } from "react";
 
 function Profile() {
   const size = "150px";
   const color = "teal";
   const { state } = useAuth();
   console.log(state);
+  const [avatars, setAvatars] = useState({});
+  const handleFileChange = (event) => {
+	  const uniqueId = Date.now();
+	  setAvatars({
+	    ...avatars,
+	    [uniqueId]: event.target.files[0],
+	  });
+	};
+
+
+
+
   const pulseRing = keyframes`
         0% {
         transform: scale(0.33);

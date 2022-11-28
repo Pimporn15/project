@@ -57,7 +57,7 @@ function ProductItem(property) {
                 <Flex>
                   <Box color="gray.600" fontSize="sm" pr="2">
                     price
-                    <Text color="#FF786B">à¸¿ {property.price}</Text>
+                    <Text color="#FF786B">฿ {property.price}</Text>
                   </Box>
                 </Flex>
 

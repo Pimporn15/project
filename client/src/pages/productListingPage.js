@@ -12,11 +12,14 @@ import {
 } from "@chakra-ui/react";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 import ProductList from "../components/productList";
-import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
-import { Navigation } from "../components/navigationBar/navbarBlackMode";
+// import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
+// import { Navigation } from "../components/navigationBar/navbarBlackMode";
 import { useAuth } from "../contexts/authentication";
 import {useState} from "react"
 import {useParams} from "react-router-dom"
+
+import {NewNavBlack} from "../components/newnavbar/newnavbarproductlist"
+import {NewNavLoginBlack} from "../components/newnavbar/newnavbarproductlogin"
 
 
 function ProductListingPage() {
@@ -29,7 +32,7 @@ function ProductListingPage() {
 
   return (
     <Box w="100%" h="100%" bg="#2F2E2C">
-      {auth.isAuthenticated ? <LoginNavigation setCategories= {setCategories}/> : <Navigation />}
+      {auth.isAuthenticated ? <NewNavLoginBlack setCategories= {setCategories}/> : <NewNavBlack />}
       <Center w="95%" h="100%" mr="3%" ml="8%" mt="5%">
         <Wrap>
           <ProductList  categoryId={categoryId}/>

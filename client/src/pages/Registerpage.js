@@ -28,6 +28,9 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [watch, setWatch] = useState([]);
+  
+
+
 
   const { register } = useAuth();
 
