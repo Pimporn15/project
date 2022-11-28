@@ -62,44 +62,19 @@ function ProductListingPage() {
             <Text fontSize="20px" color="#ffffff">
               CONTACT
             </Text>
-            <Box w="100%" h="5%">
-              <Link href="#">
-                <IconButton
-                  aria-label="twitter"
-                  size="lg"
-                  icon={<BsTwitter size="28px" />}
-                  _hover={{
-                    bg: "blue.500",
-                    color: "white",
-                  }}
-                  isRound
-                />
+            <Flex  direction="row" w="100%" h="5%">
+             
+               <Link>
+               <Image src="picture/twiter2.png" alt="footer" w="48px" h="48px"  />
               </Link>
-              <Link href="#">
-                <IconButton
-                  aria-label="instagram"
-                  size="lg"
-                  icon={<BsInstagram size="28px" />}
-                  _hover={{
-                    bg: "blue.500",
-                    color: "white",
-                  }}
-                  isRound
-                />
+              <Link>
+               <Image src="picture/instagram8.png" alt="footer" w="50px" h="50px" mr="5px" />
               </Link>
-              <Link href="#">
-                <IconButton
-                  aria-label="facebook"
-                  size="lg"
-                  icon={<BsFacebook size="28px" />}
-                  _hover={{
-                    bg: "blue.500",
-                    color: "white",
-                  }}
-                  isRound
-                />
+              <Link>
+               <Image src="picture/facebook5.png" alt="footer" w="38px" h="38px" mt="7px" />
               </Link>
-            </Box>
+
+            </Flex>
           </Flex>
           <Spacer />
           <Flex direction="column" align="center">
