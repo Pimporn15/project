@@ -10,7 +10,7 @@ import {
   IconButton,
   Spacer,
 } from "@chakra-ui/react";
-import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
+// import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 import ProductList from "../components/productList";
 // import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
 // import { Navigation } from "../components/navigationBar/navbarBlackMode";
@@ -20,6 +20,7 @@ import {useParams} from "react-router-dom"
 
 import {NewNavBlack} from "../components/newnavbar/newnavbarproductlist"
 import {NewNavLoginBlack} from "../components/newnavbar/newnavbarproductlogin"
+
 
 
 function ProductListingPage() {
@@ -62,6 +63,7 @@ function ProductListingPage() {
             <Text fontSize="20px" color="#ffffff">
               CONTACT
             </Text>
+
             <Flex  direction="row" w="100%" h="5%">
              
                <Link>
@@ -102,4 +104,3 @@ function ProductListingPage() {
   );
 }
 
-export default ProductListingPage;

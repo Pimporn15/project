@@ -4,7 +4,6 @@ import cors from "cors";
 import jwt from "jsonwebtoken";
 import authRouter from "./apps/auth.js";
 import dotenv from "dotenv";
-// import client from "./utils/db.js";
 import userRouter from "./apps/user.js";
 import productsRouter from "./apps/products.js";
 

@@ -1,25 +1,36 @@
 import { Box, Button, Text, Image, Flex, Stack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import React from "react";
 import { useAuth } from "../contexts/authentication";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../contexts/product";
-// import { Navigation } from "../components/navigationBar/navbar";
-// import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
-
 import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
 import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
-
-
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../App";
 
 
 export function ProductDetail1() {
   // const { datas} = useProduct;
+  const contextValue = useContext(CartContext);
+  const Navigate = useNavigate()
   const auth = useAuth();
   let [datas, setDatas] = useState([]);
   const { id } = useParams();
+  const {
+    mycart,
+    setmyCart,
+    cartItem,
+    setTotalPrice,
+    totalPrice,
+    totalQuantity,
+    quantity,
+    handleAddCounter,
+    handleMinusCounter,
+    addProductToCart,
+  } = useContext(CartContext);
 
   useEffect(() => {
     getPosts();
@@ -34,16 +45,16 @@ export function ProductDetail1() {
     }
   };
 
-  let [counter, setCounter] = useState(1);
+  // let [counter, setCounter] = useState(1);
 
-  function handleAddCounter() {
-    setCounter(counter + 1);
-  }
+  // function handleAddCounter() {
+  //   setCounter(counter + 1);
+  // }
 
-  function handleMinusCounter() {
-    // ควรตั้ง Logic ว่า ถ้า counter  > 0  ให้กด submit ปุ่ม ADD TO CART ได้
-    setCounter(counter - 1);
-  }
+  // function handleMinusCounter() {
+  //   // ควรตั้ง Logic ว่า ถ้า counter  > 0  ให้กด submit ปุ่ม ADD TO CART ได้
+  //   setCounter(counter - 1);
+  // }
 
   // let addCart =() => {
   //     bil.push(counter > 0 )
@@ -110,10 +121,8 @@ export function ProductDetail1() {
               <Text
                 fontSize={{ base: "10px", sm: "20px", md: "20px", lg: "30px" }}
               >
-                {" "}
-                {value.product_name}{" "}
+                {value.product_name}
               </Text>
-
               <Text
                 fontSize={{ base: "10px", sm: "10px", md: "15px", lg: "25px" }}
               >
@@ -132,34 +141,28 @@ export function ProductDetail1() {
                   </Box>
 
                   <Flex position="absolute" ml="150" mt="2.5">
-                    {" "}
                     <Button borderColor="white" size="xs" variant="outline">
-                      {" "}
                       <Text fontSize={[5, 10, 12]}>
-                        {value.rating} Points and Reviews..{" "}
-                      </Text>{" "}
-                    </Button>{" "}
+                        {value.rating} Points and Reviews..
+                      </Text>
+                    </Button>
                   </Flex>
                 </Flex>
               </Text>
 
               <Text fontSize={{ base: "10px", md: "15px", lg: "20px" }}>
-                {" "}
                 {value.description}
               </Text>
 
               <Text fontSize="17"> Price</Text>
               <Box pb="20px" as="b" color="tomato" fontSize="20">
-                {" "}
-                ฿ {value.price}{" "}
+                ฿ {value.price}
               </Box>
 
               {/* จำนวนสินค้า========================================================================================================================= */}
               <Box m="100">
-                {" "}
                 <Text fontSize="17px">
-                  {" "}
-                  Quantity{" "}
+                  Quantity
                   <Flex
                     position="absolute"
                     bg="white"
@@ -170,45 +173,57 @@ export function ProductDetail1() {
                     mt="-25px"
                     justify="space-between"
                   >
-                    {" "}
                     <Button onClick={handleMinusCounter} bg="#CFB9AC" size="xs">
-                      {" "}
-                      -{" "}
-                    </Button>{" "}
+                      -
+                    </Button>
                     <Text as="b" fontSize="18px">
-                      {" "}
-                      {counter}{" "}
-                    </Text>{" "}
+                      {quantity}
+                    </Text>
                     <Button onClick={handleAddCounter} bg="#CFB9AC" size="xs">
-                      {" "}
-                      +{" "}
-                    </Button>{" "}
-                  </Flex>{" "}
+                      +
+                    </Button>
+                  </Flex>
                 </Text>
               </Box>
             </Stack>
           </Flex>
         );
       })}
-
       {/* ปุ่มกด add to cart ==================================================================================== */}
+      {/* {datas.map((value, index)=>{ */}
+      {/* console.log(contextValue.mycart) */}
+      {/* return( */}
+
       <Box ml={[100, 400, 900]}>
-        <Button size="lg" bg="#CFB9AC" color="white">
-          <Box onClick mb="0px" mr="2px">
-            {" "}
+        <Button
+          onClick={() => {
+            contextValue.setmyCart([...contextValue.mycart, datas]);
+            Navigate("/cart");
+            console.log(contextValue.mycart);
+          }}
+          // onClick={(product, numOfQuantity) => {
+          //   addProductToCart();
+          // }}
+          size="lg"
+          bg="#CFB9AC"
+          color="white"
+        >
+          <Box>
             <Image
-              boxSize="25px"
-              src="picture/cart.svg"
+              boxSize="35px"
+              src="https://img.icons8.com/nolan/512/shopping-cart.png"
               className="pic2"
               alt=""
-            />{" "}
-          </Box>{" "}
+            />
+          </Box>
           <Box mr="15px">ADD TO CART</Box>
         </Button>
       </Box>
+      {/* )
+              
 
+            })} */}
       {/* Footer============================================================================================= */}
-
       <Flex
         justifyContent="center"
         color="#AA8B56"

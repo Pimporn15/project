@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function Profile() {
+export function ShowProfile() {
   const size = "150px";
   const color = "teal";
   const { state } = useAuth();
@@ -152,4 +152,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+

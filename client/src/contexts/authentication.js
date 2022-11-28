@@ -28,7 +28,11 @@ function AuthProvider(props) {
     setState({ ...state, user: userDataFromToken });
     navigate("/");
   };
-  
+
+  // const address = async (data) => {
+  //   const address = await axios.post("http://localhost:4000/address", data);
+  //   navigate("/address");
+  // };
   const logout = () => {
     localStorage.removeItem("token");
     setState({ ...state, user: null, error: null });
