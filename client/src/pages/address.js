@@ -12,7 +12,7 @@ import { useAuth } from "../contexts/authentication";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Address() {
+export function Address() {
   const address = useAuth();
   const [phoneNumber, setPhonenumber] = useState("");
   const [houseNumber, setHouseNumber] = useState("");
@@ -236,4 +236,3 @@ function Address() {
   );
 }
 
-export default Address;

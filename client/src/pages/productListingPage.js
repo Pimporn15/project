@@ -10,13 +10,13 @@ import {
   IconButton,
   Spacer,
 } from "@chakra-ui/react";
-import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
+// import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 import ProductList from "../components/productList";
 import { LoginNavigation } from "../components/navigationBar/navbarBlackModeforLogin";
 import { Navigation } from "../components/navigationBar/navbarBlackMode";
 import { useAuth } from "../contexts/authentication";
 
-function ProductListingPage() {
+export function ProductListingPage() {
   const auth = useAuth();
   const productPerPage = 20;
   return (
@@ -56,7 +56,7 @@ function ProductListingPage() {
                 <IconButton
                   aria-label="twitter"
                   size="lg"
-                  icon={<BsTwitter size="28px" />}
+                  // icon={<BsTwitter size="28px" />}
                   _hover={{
                     bg: "blue.500",
                     color: "white",
@@ -68,7 +68,7 @@ function ProductListingPage() {
                 <IconButton
                   aria-label="instagram"
                   size="lg"
-                  icon={<BsInstagram size="28px" />}
+                  // icon={<BsInstagram size="28px" />}
                   _hover={{
                     bg: "blue.500",
                     color: "white",
@@ -80,7 +80,7 @@ function ProductListingPage() {
                 <IconButton
                   aria-label="facebook"
                   size="lg"
-                  icon={<BsFacebook size="28px" />}
+                  // icon={<BsFacebook size="28px" />}
                   _hover={{
                     bg: "blue.500",
                     color: "white",
@@ -116,4 +116,3 @@ function ProductListingPage() {
   );
 }
 
-export default ProductListingPage;

@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/authentication";
 
-function Profile() {
+export function ShowProfile() {
   const size = "150px";
   const color = "teal";
   const { state } = useAuth();
@@ -131,4 +131,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+
