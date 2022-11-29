@@ -1,4 +1,4 @@
-import { Box, Button, Text, Image, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Button, Text, Image, Flex, Spacer,Menu,MenuButton,MenuList,MenuItem      } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../App";
 import { useState } from "react";
@@ -83,16 +83,71 @@ export function CART() {
       return( */}
       <Box position="relative" as="nav" bg="bgsurface" boxShadow="lg" w="100%">
         <Flex justify="flex-end">
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
+          <Button 
+          
+            fontSize="15" variant="ghost" color="#AA8B56">
             HOME
           </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
+          {/* <Button
+          
+          fontSize="15" variant="ghost" color="#AA8B56">
             PRODUCTS
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
+          </Button> */}
+          {/* <Button
+          
+          fontSize="15" variant="ghost" color="#AA8B56">
             ACCESSORIES
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
+          </Button> */}
+          <Menu>
+  <MenuButton as={Button} colorScheme='#ebe4d1'  
+                  pt={"10px"}
+                  pl={"15px"}
+                  fontSize={"18px"}
+                  fontWeight={500}
+                  color="#ebe4d1"
+                 _hover={{
+                  textDecoration: "none",
+                  color: "#c28f3e",
+                }} >
+  PRODUCTS
+  </MenuButton>
+  <MenuList>
+    <MenuItem  onClick={() => {
+                  Navigate(`/products?category=5`);
+                }} >New Products
+      </MenuItem>
+      <MenuItem  onClick={() => {
+                  Navigate("/products/category/5");
+                }} >New Products
+      </MenuItem>
+        <MenuItem  onClick={() => {
+                  Navigate("/products");
+                }} 
+        >Product </MenuItem>
+        <MenuItem   onClick={() => {
+                  Navigate("/products/category/1");
+                }}    
+        >Men</MenuItem>
+        <MenuItem   onClick={() => {
+                  Navigate("/products/category/2");
+                }} 
+        >Women</MenuItem>
+        <MenuItem    onClick={() => {
+                  Navigate("/products/category/3");
+                }} 
+        >Kid</MenuItem> 
+        <MenuItem    onClick={() => {
+                  Navigate("/products/category/4");
+                }} 
+        >Accessories</MenuItem> 
+  
+    </MenuList>
+</Menu>
+
+
+          <Button 
+          
+          fontSize="15" variant="ghost" color="#AA8B56">
             LOG IN
           </Button>
           <Button
@@ -251,7 +306,10 @@ return(
       {/* Footer============================================================================================= */}
       <Flex direction="column" width="35%" align="start" ml="80%" mt="5%">
         <Text fontSize="1.5rem">Total:</Text>
-        <Button>Check Out</Button>
+        <Button
+        onClick={() => {
+                  Navigate("/payment");
+                }}>Check Out</Button>
       </Flex>
       <Flex
         justifyContent="center"

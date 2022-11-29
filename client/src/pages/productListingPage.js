@@ -23,7 +23,7 @@ import {NewNavLoginBlack} from "../components/newnavbar/newnavbarproductlogin"
 
 
 
-function ProductListingPage() {
+export function ProductListingPage() {
   const params =useParams();
   const categoryId = params.id
   // console.log(categoryId)

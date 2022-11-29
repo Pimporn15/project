@@ -60,10 +60,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
-      <MenuItem  onClick={() => {
-                  Navigate("/products/category/5");
-                }} >New Products
-      </MenuItem>
+    
         <MenuItem  onClick={() => {
                   Navigate("/products");
                 }} 

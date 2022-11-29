@@ -11,6 +11,7 @@ import { CART } from "./pages/inCart";
 import { ProductListingPage } from "./pages/productListingPage";
 import { ShowProfile } from "./pages/showProfile";
 import {Address} from "./pages/address"
+import { Checkout } from "./pages/checkoutPage";
 
 let cartFromLocalStorage = JSON.parse(localStorage.getItem("mycart") || "[]");
 export const CartContext = createContext();
@@ -83,9 +84,10 @@ function App() {
               <Route path="/products" element={<ProductListingPage />} />
               <Route path="/products/category/:id" element={<ProductListingPage />} />
               <Route path="/profile" element={<ShowProfile/>} />
-              <Route path="/address" element={<ShowProfile/>} />
+              <Route path="/address" element={<Address/>} />
               <Route path="/products/:id" element={<ProductDetail1 />} />
               <Route path="/cart" element={<CART />} />
+              <Route path="/payment" element={<Checkout />} />
             </Routes>
           </AuthProvider>
         </Router>

@@ -1,7 +1,8 @@
 import React from 'react'
+import  {CreditCard}  from '../components/checkOutForm/creditCard'
 
-export const checkoutPage = () => {
+export const Checkout= () => {
   return (
-    <div></div>
+    <CreditCard/>
   )
 }

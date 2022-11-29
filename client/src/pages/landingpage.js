@@ -29,7 +29,9 @@ export function Landingpage() {
         {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
         <Image src="picture/header.png" alt="white watch" />
         <Box mt="2%" mb="2%">
-          <Image src="picture/banner.png" alt="watch banner" />
+          <Image src="picture/banner.png" alt="watch banner" onClick={(()=>{
+                  Navigate("/products")
+                })}/>
         </Box>
         <Box w="100%" h="100%" mt="2%" mb="2%">
           <Flex
@@ -51,7 +53,10 @@ export function Landingpage() {
                 borderradius="25px"
                 bg="rgb(174, 144, 118,0.4)"
               >
-                <Text fontSize={"1rem"} color="#ffffff">
+                <Text fontSize={"1rem"} color="#ffffff"
+                onClick={(()=>{
+                  Navigate("/products")
+                })}>
                   SEE MORE
                 </Text>
               </Button>

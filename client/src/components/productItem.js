@@ -69,7 +69,7 @@ function ProductItem(property) {
                       .map((_, i) => (
                         <StarIcon
                           key={i}
-                          color={i < property.rating ? "#FFFF00" : "gray.300"}
+                          color={i < property.rating ? "#fdd835" : "gray.300"}
                         />
                       ))}
                   </Box>

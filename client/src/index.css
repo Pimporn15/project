@@ -32,3 +32,4 @@ code {
 .logo {
   font-family: "Abril Fatface", cursive;
 }
+*{  object-fit: cover; }
