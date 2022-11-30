@@ -10,7 +10,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
   import { Link } from "react-router-dom";
   import { useNavigate } from "react-router-dom";
   
-  
+
   export function NewNavLanding() {
     const Navigate = useNavigate()
 
@@ -87,9 +87,6 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
   
         </Flex>
         
-        
-
-
         <Spacer />
   
         <Flex w="25%" mr="2%">
