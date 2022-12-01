@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../App";
 
 export const ProductContext = React.createContext();
+export const useProduct = () => { return React.useContext(ProductContext) }
 
 function ProductProvider(props) {
   const [text, setText] = useState("Hello world");
@@ -51,9 +52,9 @@ function ProductProvider(props) {
     </ProductContext.Provider>
   );
 
-  const useProduct = () => {
-    return React.useContext(ProductContext);
-  };
+  // const useProduct = () => {
+  //   return React.useContext(ProductContext);
+  // }
 }
 
-export { ProductProvider, useProduct };
+export { ProductProvider };
