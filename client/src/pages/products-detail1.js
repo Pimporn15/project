@@ -9,8 +9,8 @@ import { NewNavLanding } from "../components/newnavbar/newnavlandingpage";
 import { NewNavLandingLogin } from "../components/newnavbar/newnavlangpagelogin";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../App";
-import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
-import { NewNavCart} from "../components/newnavbar/newnavcart"
+import { NewNavCartLogin } from "../components/newnavbar/newnavcartlogin";
+import { NewNavCart } from "../components/newnavbar/newnavcart";
 import { useProduct } from "../contexts/productContext";
 
 export function ProductDetail1() {
@@ -30,20 +30,12 @@ export function ProductDetail1() {
   let getPosts = async () => {
     try {
       let response = await axios.get(`http://localhost:4000/products/${id}`);
-      setDatas(response.data.data); // [{ product }]
-      // datas -> [ { product_id: 'a', quantity: 1 } ]
-      //      value -> { product_id: 'a', quantity: 1 }
+      setDatas(response.data.data);
     } catch (err) {
       console.log(err);
     }
   };
 
-
-  return (
-    <Box as="Big-Box">
-      {/* <Box  >
-      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
-      
   const handleAddCounter = (value) => {
     value = value + 1;
     if (value > 10) {
@@ -59,14 +51,27 @@ export function ProductDetail1() {
       return 1;
     }
     setCounter(value);
-    
+  };
+
   return (
     <Box as="Big-Box">
-      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding />}
-      </Box>
-
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {
+        const handleAddCounter = (value) => {
+          value = value + 1;
+          if (value > 10) {
+            return 10;
+          }
+          setCounter(value);
+          console.log(value);
+        };
+        const handleMinusCounter = (value) => {
+          value = value - 1;
+          if (value < 1) {
+            return 1;
+          }
+          setCounter(value);
+        };
         return (
           <Box
             key={index}
@@ -199,7 +204,6 @@ export function ProductDetail1() {
           </Flex>
         );
       })}
-
 
       {/* Footer============================================================================================= */}
       <Flex
