@@ -9,15 +9,31 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
     MenuDivider, } from "@chakra-ui/react";
   import { Link } from "react-router-dom";
   import { useNavigate } from "react-router-dom";
-  
+  import { CartContext } from "../../App";
+  import { useContext } from "react";
 
-  export function NewNavLanding() {
+
+  export function  NewNavCart() {
     const Navigate = useNavigate()
+    const contextValue = useContext(CartContext);
+    const {
+        mycart,
+        setmyCart,
+        cartItem,
+        setTotalPrice,
+        totalPrice,
+        totalQuantity,
+        quantity,
+        handleAddCounter,
+        handleMinusCounter,
+        addProductToCart,
+      } = useContext(CartContext);
+    
 
     return (
       <Box>
       <Flex w="100%" h="55px" bg="#ebe4d1">
-        <Flex w="25%" justify="space-between" align="center" ml="6%">
+        <Flex w="18%" justify="space-between" align="center" ml="5%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
@@ -28,7 +44,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           <Button  
                   bg="#ebe4d1"  
                   pt={"10px"}
-                  pl={"20px"}
+                  pl={"30px"}
                   fontSize={"18px"}
                   fontWeight={500}
                   color="#9a7352"
@@ -89,21 +105,17 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
         
         <Spacer />
   
-        <Flex w="25%" mr="2%">
-
-         <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+        <Flex w="30%" mr="2%">
+         <Button w="60%" h="50%" mt="10px" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
                 }} > 
        <Image  src="picture/iconcart.png"  />
         </Button>
 
-
-
-          
           <Button
             h="60%"
-            w="65%"
+            w="70%"
             borderRadius="3xl"
             bg="#D6BE96"
             color="#ffffff"
@@ -122,7 +134,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           <Spacer />
           <Button
             h="60%"
-            w="60%"
+            w="70%"
             borderRadius="3xl"
             bg="#EBE4D1"
             border="2px"
@@ -140,8 +152,31 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           >
             REGISTER
           </Button>
-
-
+          <Flex ml="5px">
+          <Button
+          mr="10px"
+          pt={"15px"}
+          colorScheme='#ebe4d1'
+            fontSize="18"
+            variant="ghost"
+            color="#AA8B56"
+            onClick={() => {
+              contextValue.setmyCart(
+                contextValue.mycart.filter((value) => value.id !== value.id)
+              );
+            }}
+          >
+            CLEAR YOUR CART
+            <Image
+              ml="15px"
+              mt="-1"
+              boxSize="30px"
+              src="picture/Bin.png"
+              className="bin"
+              alt="bin"
+            />
+          </Button>
+         </Flex>
           
         </Flex>
       </Flex>

@@ -14,16 +14,16 @@ export function NewNavLandingLogin() {
     return (  
         <Box>
     <Flex w="100%" h="55px" bg="#ebe4d1">
-      <Flex w="25%" justify="space-between" align="center" ml="5%">
+      <Flex w="20%" justify="space-between" align="center" ml="6%">
         <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
           WOD
         </Text>
          <Box   onClick={() => {
                   Navigate("/");
                 }} >
-           <Button  bg="#ebe4d1"
+           <Button  colorScheme='#ebe4d1' 
               pt={"10px"}
-                pl={"15px"}
+                pl={"20px"}
                 fontSize={"18px"}
                 fontWeight={500}
                 color="#9a7352"
@@ -40,7 +40,7 @@ export function NewNavLandingLogin() {
            <Menu>
   <MenuButton as={Button} colorScheme='#ebe4d1'  
                   pt={"10px"}
-                  pl={"15px"}
+                  pl={"10px"}
                   fontSize={"18px"}
                   fontWeight={500}
                   color="#9a7352"

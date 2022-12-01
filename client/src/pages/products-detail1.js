@@ -9,6 +9,8 @@ import { NewNavLanding } from "../components/newnavbar/newnavlandingpage";
 import { NewNavLandingLogin } from "../components/newnavbar/newnavlangpagelogin";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../App";
+import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
+import { NewNavCart} from "../components/newnavbar/newnavcart"
 import { useProduct } from "../contexts/productContext";
 
 export function ProductDetail1() {
@@ -24,6 +26,7 @@ export function ProductDetail1() {
     getPosts();
   }, []);
 
+  console.log(datas);
   let getPosts = async () => {
     try {
       let response = await axios.get(`http://localhost:4000/products/${id}`);
@@ -35,6 +38,12 @@ export function ProductDetail1() {
     }
   };
 
+
+  return (
+    <Box as="Big-Box">
+      {/* <Box  >
+      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
+      
   const handleAddCounter = (value) => {
     value = value + 1;
     if (value > 10) {
@@ -50,41 +59,11 @@ export function ProductDetail1() {
       return 1;
     }
     setCounter(value);
-  };
-  // Todo (1st)
-  // 1) create handleAddCounter
-  //     -  value -> { product_id: 'a', quantity: 2 }
-  // 2) create handleSubtractCounter
-  //     -  value -> { product_id: 'a', quantity: 1 }
-
+    
   return (
     <Box as="Big-Box">
       {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding />}
-      {/* <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
-        <Flex justify="flex-end">
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            HOME
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            PRODUCTS
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            ACCESSORIES
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            LOG IN
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            {" "}
-            <Image
-              boxSize="30px"
-              src="picture/cart.svg"
-              className="pic2"
-              alt=""
-            />{" "}
-          </Button>
-        </Flex>
-      </Box> */}
+      </Box>
 
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {
@@ -131,7 +110,7 @@ export function ProductDetail1() {
                         .map((_, i) => (
                           <StarIcon
                             key={i}
-                            color={i < value.rating ? "#fdd835" : "gray.300"}
+                            color={i < value.rating ? "#FFBF00" : "gray.300"}
                           />
                         ))}
                     </Box>
@@ -220,38 +199,7 @@ export function ProductDetail1() {
           </Flex>
         );
       })}
-      {/* ปุ่มกด add to cart ==================================================================================== */}
-      {/* {datas.map((value, index)=>{ */}
-      {/* console.log(contextValue.mycart) */}
-      {/* return( */}
 
-      {/* <Box ml={[100, 400, 900]}>
-        <Button
-          onClick={() => {
-            contextValue.setmyCart([...contextValue.mycart, value]);
-            Navigate("/cart");
-            console.log(contextValue.mycart);
-          }}
-          // onClick={(product, numOfQuantity) => {
-          //   addProductToCart();
-          // }}
-          size="lg"
-          bg="#CFB9AC"
-          color="white"
-        >
-          <Box>
-            <Image
-              boxSize="35px"
-              src="https://img.icons8.com/nolan/512/shopping-cart.png"
-              className="pic2"
-              alt=""
-            />
-          </Box>
-          <Box mr="15px">ADD TO CART</Box>
-        </Button>
-      </Box> 
-     
-               */}
 
       {/* Footer============================================================================================= */}
       <Flex

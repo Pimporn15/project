@@ -1,27 +1,22 @@
-import {
-  Box,
-  Button,
-  Text,
-  Image,
-  Flex,
-  Spacer,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
+import { Box, Button, Text, Image, Flex, Spacer,Menu,MenuButton,MenuList,MenuItem, Center } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../App";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PayMentCard} from "../components/paymentcard"
+import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
+import { NewNavCart} from "../components/newnavbar/newnavcart"
+import { useAuth } from  "../contexts/authentication"
 import { useProduct } from "../contexts/productContext";
 
 export function CART() {
-  const Navigate = useNavigate();
-  const contextValue = useContext(CartContext); // mycart  อยู่ในนี้
+  const Navigate = useNavigate()
+  const auth = useAuth();
+  const contextValue = useContext(CartContext); 
   const { deleteCartItem, cart } = useProduct();
   const { setTotalPrice, setmyCart, mycart } = useContext(CartContext);
 
+  
   const handleAddCounter = (index) => {
     let itemIndex = contextValue.mycart[index];
     const plusQuantitty = itemIndex.quantity + 1;
@@ -41,178 +36,73 @@ export function CART() {
     setmyCart([...mycart]);
   };
 
-  const getPrice = (value, quantity) => {
-    const total = value[0].price * quantity;
-    setTotalPrice(total);
-  };
 
   let handleRemove = () => {
     const sum = contextValue.mycart.filter((value) => value.id !== value[1].id);
     contextValue.setmyCart(sum);
-  };
-  console.log(contextValue.mycart);
+  }
+  
   return (
     // Navbar ==================================================================================
 
-    <Box as="Big-Box">
-      {/* {contextValue.mycart.map((value)=>{
-      return( */}
-      <Box position="relative" as="nav" bg="bgsurface" boxShadow="lg" w="100%">
-        <Flex justify="flex-end">
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            HOME
-          </Button>
-          {/* <Button
-          
-          fontSize="15" variant="ghost" color="#AA8B56">
-            PRODUCTS
-          </Button> */}
-          {/* <Button
-          
-          fontSize="15" variant="ghost" color="#AA8B56">
-            ACCESSORIES
-          </Button> */}
-          <Menu>
-            <MenuButton
-              as={Button}
-              colorScheme="#ebe4d1"
-              pt={"10px"}
-              pl={"15px"}
-              fontSize={"18px"}
-              fontWeight={500}
-              color="#ebe4d1"
-              _hover={{
-                textDecoration: "none",
-                color: "#c28f3e",
-              }}
-            >
-              PRODUCTS
-            </MenuButton>
-            <MenuList>
-              <MenuItem
-                onClick={() => {
-                  Navigate(`/products?category=5`);
-                }}
-              >
-                New Products
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products/category/5");
-                }}
-              >
-                New Products
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products");
-                }}
-              >
-                Product{" "}
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products/category/1");
-                }}
-              >
-                Men
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products/category/2");
-                }}
-              >
-                Women
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products/category/3");
-                }}
-              >
-                Kid
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  Navigate("/products/category/4");
-                }}
-              >
-                Accessories
-              </MenuItem>
-            </MenuList>
-          </Menu>
-
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            LOG IN
-          </Button>
-          <Button
-            fontSize="15"
-            variant="ghost"
-            color="#585858"
-            onClick={() => {
-              contextValue.setmyCart(
-                contextValue.mycart.filter((value) => value.id !== value.id)
-              );
-            }}
-          >
-            CLEAR YOUR CART
-            <Image
-              mt="-1"
-              boxSize="30px"
-              src="picture/Bin.png"
-              className="bin"
-              alt="bin"
-            />
-          </Button>
-
-          {/* <Button  fontSize="15" variant="ghost" color="#AA8B56">   <Image boxSize="30px" src="https://img.icons8.com/dotty/512/favorite-cart.png" className="pic2" alt=""/>    </Button> */}
-        </Flex>
+    <Box as="Big-Box" >
+      <Box w="100%">
+      {auth.isAuthenticated ? <NewNavCartLogin /> : < NewNavCart/>}
       </Box>
-      {/* )
-    })} */}
-
-      <Box position="relative" mt="20" ml={[10, 30, 250]}>
-        <Text fontSize="40px"> CART</Text>
-        <Text fontSize={[20, 25, 30]}>Product Name</Text>
+       <Flex w="60%"  h="40%" direction="column">
+      <Box position="relative" mt="20" ml={[100, 250,250]}  mb="200px">
+        <Flex>
+        <Text fontSize="40px"  as='b' > CART</Text>
+        </Flex>
+        <Text fontSize={[20, 25, 30]}  as='b' >Product Name</Text>
       </Box>
       <Box
-        fontSize={[20, 25, 30]}
+        as='b'
+        fontSize="30px"
         position="absolute"
-        mt={[-7, -10]}
-        ml={[200, 358, 1000]}
+        // mt={[-7, -10]}
+        ml={[200, 358, 920]}
+        mt="130px"
       >
         Price
       </Box>
       <Box
+        as='b'
         fontSize={[20, 25, 30]}
         position="absolute"
-        ml={[300, 445, 1195]}
-        mt={[-7, -10]}
+        ml={[300, 445, 1130]}
+        // mt={[-7, -10]}
+        mt="130px"
       >
         Quantity
       </Box>
       <Box
+        as='b'
         fontSize={[20, 25, 30]}
         position="absolute"
-        ml={[400, 550, 1400]}
-        mt={[-7, -10]}
+        ml={[300, 445, 1400]}
+        // mt={[-7, -10]}
+        mt="130px" 
       >
         Total
       </Box>
 
       {contextValue.mycart.map((value, index) => {
         return (
-          // กล่อง บรรจุ สินค้า ที่ add มา ========================================================================================
-          <Box>
-            <Box
+          // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
+          <Box >
+          <Flex   ml={[100, 250, 200]} >
+            <Box 
               position="relative"
               h="40"
-              border="1px"
+              border="2px"
               borderTopColor="white"
               borderRightColor="white"
               borderLeftColor="white"
               borderBottomColor="#DEDEDE"
             ></Box>
             <Box
+              borderRadius="20px"
               position="absolute"
               boxShadow="2xl"
               h={[50, 100, 120]}
@@ -220,12 +110,18 @@ export function CART() {
               mt={[-130]}
               ml={[5]}
             >
-              <Image boxSize="full" src={value.image} className="pic1" alt="" />
+              <Image
+                 
+                borderRadius="20px"
+                boxSize="full"
+                src={value.image}
+                className="pic1"
+                alt="product"
+              />
             </Box>
-            <Box position="absolute" ml={[80, 125, 280]} mt={[-90]} as="b">
+            <Box position="absolute" ml={[80, 125, 280]} mt={[-90]} as="b"   fontSize="25px" >
               {value.product_name}
             </Box>
-
             <Button
               flex
               position="absolute"
@@ -240,11 +136,12 @@ export function CART() {
               <Text fontSize="20"> x </Text>{" "}
             </Button>
 
-            <Box position="absolute" ml={[50, 360, 1015]} mt={[-90]} as="b">
+            <Box position="absolute" ml={[20, 500, 730]} mt={[-90]} as="b">
               {value.price}
             </Box>
-            <Box position="absolute" ml={[50, 450, 1215]} mt={[-90]} as="b">
-              <Button
+            <Box position="absolute" ml={[20, 500, 950]} mt={[-90]} as="b" >
+              <Button 
+               m="5px"
                 onClick={() => {
                   handleMinusCounter(index);
                 }}
@@ -257,6 +154,7 @@ export function CART() {
                 {value.quantity}
               </Text>
               <Button
+                m="5px"
                 onClick={() => {
                   handleAddCounter(index);
                 }}
@@ -266,24 +164,27 @@ export function CART() {
                 +
               </Button>
             </Box>
-            <Box position="absolute" ml={[50, 560, 1415]} mt={[-90]} as="b">
+            <Box position="absolute" ml={[20, 500, 1210]} mt={[-90]} as="b">
               {value.price * value.quantity}
             </Box>
+          </Flex>
           </Box>
         );
       })}
 
       {/* Footer============================================================================================= */}
-      <Flex direction="column" width="35%" align="start" ml="80%" mt="5%">
-        <Text fontSize="1.5rem">Total:</Text>
-        <Button
-          onClick={() => {
-            Navigate("/payment");
-          }}
-        >
-          Check Out
-        </Button>
+      <Flex direction="column" width="35%" align="start"  mt="2%" ml={[300, 550, 680]}>
+        
+       <Flex   direction="column" align="center">
+        <Text fontSize="25px" m="10px"   fontWeight='bold'>Total:</Text>
       </Flex>
+      </Flex>
+      </Flex>
+
+{/* //-------------card-------------// */}
+ <PayMentCard/>
+
+ {/* /// Toggle -----------------------------// */
       <Flex
         justifyContent="center"
         color="#AA8B56"
@@ -295,6 +196,7 @@ export function CART() {
           Copyright©2022 Watchodile.All Right Reserved.
         </Text>
       </Flex>
+      
     </Box>
   );
 }
