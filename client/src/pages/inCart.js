@@ -7,37 +7,41 @@ import { PayMentCard} from "../components/paymentcard"
 import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
 import { NewNavCart} from "../components/newnavbar/newnavcart"
 import { useAuth } from  "../contexts/authentication"
+import { useProduct } from "../contexts/productContext";
 
 export function CART() {
   const Navigate = useNavigate()
   const auth = useAuth();
-
-  const contextValue = useContext(CartContext); // mycart  อยู่ในนี้
-  const {
-    mycart,
-    setmyCart,
-    cartItem,
-    setTotalPrice,
-    totalPrice,
-    totalQuantity,
-    quantity,
-    handleAddCounter,
-    handleMinusCounter,
-    addProductToCart,
-  } = useContext(CartContext);
+  const contextValue = useContext(CartContext); 
+  const { deleteCartItem, cart } = useProduct();
+  const { setTotalPrice, setmyCart, mycart } = useContext(CartContext);
 
   
-
-  const getPrice = (value, quantity) => {
-    const total = value[0].price * quantity;
-    setTotalPrice(total);
+  const handleAddCounter = (index) => {
+    let itemIndex = contextValue.mycart[index];
+    const plusQuantitty = itemIndex.quantity + 1;
+    itemIndex.quantity = plusQuantitty;
+    console.log(itemIndex);
+    setmyCart([...mycart]);
   };
+
+  const handleMinusCounter = (index) => {
+    let itemIndex = contextValue.mycart[index]
+    const minusQuantitty = itemIndex.quantity - 1;
+    itemIndex.quantity = minusQuantitty;
+    if (itemIndex.quantity < 1) {
+      itemIndex.quantity = 1;
+    }
+    console.log(itemIndex);
+    setmyCart([...mycart]);
+  };
+
 
   let handleRemove = () => {
     const sum = contextValue.mycart.filter((value) => value.id !== value[1].id);
     contextValue.setmyCart(sum);
-  };
-
+  }
+  
   return (
     // Navbar ==================================================================================
 
@@ -45,9 +49,6 @@ export function CART() {
       <Box w="100%">
       {auth.isAuthenticated ? <NewNavCartLogin /> : < NewNavCart/>}
       </Box>
-
-      
-
        <Flex w="60%"  h="40%" direction="column">
       <Box position="relative" mt="20" ml={[100, 250,250]}  mb="200px">
         <Flex>
@@ -75,30 +76,23 @@ export function CART() {
       >
         Quantity
       </Box>
-
-
       <Box
         as='b'
         fontSize={[20, 25, 30]}
         position="absolute"
         ml={[300, 445, 1400]}
         // mt={[-7, -10]}
-        mt="130px"
-        
+        mt="130px" 
       >
         Total
       </Box>
 
-      {contextValue.mycart.map((value) => {
+      {contextValue.mycart.map((value, index) => {
         return (
-          // กล่อง บรรจุ สินค้า ที่ add มา ========================================================================================
-          
-          
+          // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
           <Box >
           <Flex   ml={[100, 250, 200]} >
             <Box 
-             
-              
               position="relative"
               h="40"
               border="2px"
@@ -120,25 +114,36 @@ export function CART() {
                  
                 borderRadius="20px"
                 boxSize="full"
-                src={value[0].image}
+                src={value.image}
                 className="pic1"
                 alt="product"
               />
             </Box>
             <Box position="absolute" ml={[80, 125, 280]} mt={[-90]} as="b"   fontSize="25px" >
-              {value[0].product_name}
+              {value.product_name}
             </Box>
-
-            {/* <Button flex position="absolute" size="xs"  bg="#585858" ml="220" mt="-140" color="tomato" onClick={()=> handleRemove(value.id)}> <Text  fontSize="20"> x </Text> </Button>  */}
+            <Button
+              flex
+              position="absolute"
+              size="xs"
+              bg="#585858"
+              ml="220"
+              mt="-140"
+              color="tomato"
+              onClick={() => deleteCartItem(value.product_id)}
+            >
+              {" "}
+              <Text fontSize="20"> x </Text>{" "}
+            </Button>
 
             <Box position="absolute" ml={[20, 500, 730]} mt={[-90]} as="b">
-              {value[0].price}
+              {value.price}
             </Box>
             <Box position="absolute" ml={[20, 500, 950]} mt={[-90]} as="b" >
               <Button 
                m="5px"
                 onClick={() => {
-                  handleMinusCounter(value[0].product_id);
+                  handleMinusCounter(index);
                 }}
                 bg="#DEDEDE"
                 size="xs"
@@ -146,12 +151,12 @@ export function CART() {
                 -
               </Button>
               <Text as="b" fontSize="18px">
-                {quantity}
+                {value.quantity}
               </Text>
               <Button
                 m="5px"
                 onClick={() => {
-                  handleAddCounter(value[0].product_id);
+                  handleAddCounter(index);
                 }}
                 bg="#DEDEDE"
                 size="xs"
@@ -160,7 +165,7 @@ export function CART() {
               </Button>
             </Box>
             <Box position="absolute" ml={[20, 500, 1210]} mt={[-90]} as="b">
-              {value[0].price * quantity}
+              {value.price * value.quantity}
             </Box>
           </Flex>
           </Box>
@@ -179,9 +184,7 @@ export function CART() {
 {/* //-------------card-------------// */}
  <PayMentCard/>
 
- {/* /// Toggle -----------------------------// */}
-   
-
+ {/* /// Toggle -----------------------------// */
       <Flex
         justifyContent="center"
         color="#AA8B56"

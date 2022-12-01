@@ -5,7 +5,7 @@ import ProductItem from "./productItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useProduct } from "../contexts/product";
+import { useProduct } from "../contexts/productContext";
 
 function ProductList(props) {
   // const {products} = useProduct

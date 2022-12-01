@@ -5,33 +5,22 @@ import React from "react";
 import { useAuth } from "../contexts/authentication";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
-import { useProduct } from "../contexts/product";
-import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
-import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
+import { NewNavLanding } from "../components/newnavbar/newnavlandingpage";
+import { NewNavLandingLogin } from "../components/newnavbar/newnavlangpagelogin";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../App";
 import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
 import { NewNavCart} from "../components/newnavbar/newnavcart"
+import { useProduct } from "../contexts/productContext";
 
 export function ProductDetail1() {
-  // const { datas} = useProduct;
+  const { text, addProductToCart, deleteCartItem } = useProduct();
   const contextValue = useContext(CartContext);
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
   const auth = useAuth();
   let [datas, setDatas] = useState([]);
+  const [counter, setCounter] = useState(1);
   const { id } = useParams();
-  const {
-    mycart,
-    setmyCart,
-    cartItem,
-    setTotalPrice,
-    totalPrice,
-    totalQuantity,
-    quantity,
-    handleAddCounter,
-    handleMinusCounter,
-    addProductToCart,
-  } = useContext(CartContext);
 
   useEffect(() => {
     getPosts();
@@ -40,20 +29,40 @@ export function ProductDetail1() {
   console.log(datas);
   let getPosts = async () => {
     try {
-      let response = await axios.get(`http://localhost:4000/products/${id} `);
-      setDatas(response.data.data);
+      let response = await axios.get(`http://localhost:4000/products/${id}`);
+      setDatas(response.data.data); // [{ product }]
+      // datas -> [ { product_id: 'a', quantity: 1 } ]
+      //      value -> { product_id: 'a', quantity: 1 }
     } catch (err) {
       console.log(err);
     }
   };
 
+
   return (
     <Box as="Big-Box">
       {/* <Box  >
       {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
-      </Box> */}
-      <Box w="100%">
-      {auth.isAuthenticated ? <NewNavCartLogin /> : < NewNavCart/>}
+      
+  const handleAddCounter = (value) => {
+    value = value + 1;
+    if (value > 10) {
+      return 10;
+    }
+    setCounter(value);
+    console.log(value);
+  };
+
+  const handleMinusCounter = (value) => {
+    value = value - 1;
+    if (value < 1) {
+      return 1;
+    }
+    setCounter(value);
+    
+  return (
+    <Box as="Big-Box">
+      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding />}
       </Box>
 
       {/* รูปใหญ่============================================================================================= */}
@@ -125,8 +134,6 @@ export function ProductDetail1() {
               <Box pb="20px" as="b" color="tomato" fontSize="20">
                 ฿ {value.price}
               </Box>
-
-              {/* จำนวนสินค้า========================================================================================================================= */}
               <Box m="100">
                 <Text fontSize="17px">
                   Quantity
@@ -140,57 +147,60 @@ export function ProductDetail1() {
                     mt="-25px"
                     justify="space-between"
                   >
-                    <Button onClick={handleMinusCounter} bg="#CFB9AC" size="xs">
+                    <Button
+                      bg="#CFB9AC"
+                      size="xs"
+                      onClick={() => {
+                        handleMinusCounter(counter);
+                      }}
+                    >
                       -
                     </Button>
                     <Text as="b" fontSize="18px">
-                      {quantity}
+                      {counter}
                     </Text>
-                    <Button onClick={handleAddCounter} bg="#CFB9AC" size="xs">
+                    <Button
+                      onClick={() => {
+                        handleAddCounter(counter);
+                      }}
+                      bg="#CFB9AC"
+                      size="xs"
+                    >
                       +
                     </Button>
                   </Flex>
                 </Text>
               </Box>
             </Stack>
+            <Box ml={[100, 400, 900]}>
+              <Button
+                onClick={() => {
+                  value.quantity = counter;
+                  // `value` send into addProductToCard
+                  addProductToCart(value);
+                  Navigate("/cart");
+                  console.log(value);
+                }}
+                size="lg"
+                bg="#CFB9AC"
+                color="white"
+              >
+                <Box>
+                  <Image
+                    boxSize="35px"
+                    src="https://img.icons8.com/nolan/512/shopping-cart.png"
+                    className="pic2"
+                    alt=""
+                  />
+                </Box>
+                <Box mr="15px">ADD TO CART</Box>
+              </Button>
+            </Box>
           </Flex>
         );
       })}
-      {/* ปุ่มกด add to cart ==================================================================================== */}
-      {/* {datas.map((value, index)=>{ */}
-      {/* console.log(contextValue.mycart) */}
-      {/* return( */}
 
-      <Box ml={[100, 400, 900]}>
-        <Button
-          onClick={() => {
-            contextValue.setmyCart([...contextValue.mycart, datas]);
-            console.log(datas);
-            Navigate("/cart");
-            console.log(contextValue.mycart);
-          }}
-          // onClick={(product, numOfQuantity) => {
-          //   addProductToCart();
-          // }}
-          size="lg"
-          bg="#CFB9AC"
-          color="white"
-        >
-          <Box>
-            <Image
-              boxSize="35px"
-              src="https://img.icons8.com/nolan/512/shopping-cart.png"
-              className="pic2"
-              alt=""
-            />
-          </Box>
-          <Box mr="15px">ADD TO CART</Box>
-        </Button>
-      </Box>
-      {/* )
-              
 
-            })} */}
       {/* Footer============================================================================================= */}
       <Flex
         justifyContent="center"
