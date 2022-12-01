@@ -85,7 +85,7 @@ export function ProductListingPage() {
             </Text>
             <Image
               boxSize="100px"
-              w="200px"
+              w="250px"
               h="45px"
               src="picture/payment.png"
               alt="payment"

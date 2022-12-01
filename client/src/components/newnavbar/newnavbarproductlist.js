@@ -28,6 +28,7 @@ export function NewNavBlack() {
                 color="#ebe4d1"
               
                 _hover={{
+                  bg:"#2F2E2C",
                   textDecoration: "none",
                   color: "#c28f3e",
                 }} 

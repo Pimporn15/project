@@ -1,5 +1,5 @@
 
-import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
+import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
     MenuButton,
     MenuList,
     MenuItem,
@@ -9,15 +9,33 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
     MenuDivider, } from "@chakra-ui/react";
   import { Link } from "react-router-dom";
   import { useNavigate } from "react-router-dom";
-  
+  import { CartContext } from "../../App";
+  import { useContext } from "react";
+  import { useAuth } from  "../../contexts/authentication"
 
-  export function NewNavLanding() {
+  export function  NewNavCartLogin() {
+
+    const { logout } = useAuth();
     const Navigate = useNavigate()
+    const contextValue = useContext(CartContext);
+    const {
+        mycart,
+        setmyCart,
+        cartItem,
+        setTotalPrice,
+        totalPrice,
+        totalQuantity,
+        quantity,
+        handleAddCounter,
+        handleMinusCounter,
+        addProductToCart,
+      } = useContext(CartContext);
+    
 
     return (
       <Box>
       <Flex w="100%" h="55px" bg="#ebe4d1">
-        <Flex w="25%" justify="space-between" align="center" ml="6%">
+        <Flex w="18%" justify="space-between" align="center" ml="5%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
@@ -28,7 +46,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           <Button  
                   bg="#ebe4d1"  
                   pt={"10px"}
-                  pl={"20px"}
+                  pl="50px"
                   fontSize={"18px"}
                   fontWeight={500}
                   color="#9a7352"
@@ -89,7 +107,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
         
         <Spacer />
   
-        <Flex w="25%" mr="2%">
+        <Flex w="20%" mr="2%">
 
          <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" 
          onClick={() => {
@@ -98,51 +116,70 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
        <Image  src="picture/iconcart.png"  />
         </Button>
 
-
-
           
+          <Flex ml="5px">
           <Button
-            h="60%"
-            w="65%"
-            borderRadius="3xl"
-            bg="#D6BE96"
-            color="#ffffff"
-            m="2%"
-            fontSize="0.9rem"
-              _hover={{
-                bg: "#d5b178",
-              }}
-              onClick={() => {
-                Navigate("/login");
-              }} 
-              
+          mr="10px"
+          pt={"15px"}
+          colorScheme='#ebe4d1'
+            fontSize="18"
+            variant="ghost"
+            color="#AA8B56"
+            onClick={() => {
+              contextValue.setmyCart(
+                contextValue.mycart.filter((value) => value.id !== value.id)
+              );
+            }}
           >
-            LOG IN
-          </Button>
-          <Spacer />
-          <Button
-            h="60%"
-            w="60%"
-            borderRadius="3xl"
-            bg="#EBE4D1"
-            border="2px"
-            borderColor="#D6BE96"
-            color="#9A7352"
-            m="2%"
-            fontSize="0.9rem"
-            _hover={{
-                color: "#d5b178",
-              }}
+            CLEAR YOUR CART
+            <Image
+              ml="15px"
+              mt="-1"
+              boxSize="30px"
+              src="picture/Bin.png"
+              className="bin"
+              alt="bin"
+            />
+          </Button> 
+         </Flex>
+         <Flex alignItems={'center'}>
+            <Menu>
+              <MenuButton
+                mr="5px"
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}>
+                <Avatar
+                  size={'sm'}
+                  src={
+                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                  }
+                />
+              </MenuButton>
+              <MenuList >
+                <MenuItem onClick={() => {
+                  Navigate("/profile");
+                }}
+                >My Profile</MenuItem>
+                <MenuItem  onClick={() => {
+                  Navigate("");
+                }} 
+                >My favorite</MenuItem>
+                <MenuItem  onClick={() => {
+                  logout();
+                  Navigate("/login");
+                }}
+                >Log out</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
+        
 
-              onClick={() => {
-                Navigate("/register");
-              }} 
-          >
-            REGISTER
-          </Button>
 
 
-          
+
         </Flex>
       </Flex>
       </Box>

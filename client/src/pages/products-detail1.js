@@ -10,7 +10,8 @@ import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
 import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../App";
-
+import {NewNavCartLogin} from "../components/newnavbar/newnavcartlogin"
+import { NewNavCart} from "../components/newnavbar/newnavcart"
 
 export function ProductDetail1() {
   // const { datas} = useProduct;
@@ -36,6 +37,7 @@ export function ProductDetail1() {
     getPosts();
   }, []);
 
+  console.log(datas);
   let getPosts = async () => {
     try {
       let response = await axios.get(`http://localhost:4000/products/${id} `);
@@ -45,49 +47,14 @@ export function ProductDetail1() {
     }
   };
 
-  // let [counter, setCounter] = useState(1);
-
-  // function handleAddCounter() {
-  //   setCounter(counter + 1);
-  // }
-
-  // function handleMinusCounter() {
-  //   // ควรตั้ง Logic ว่า ถ้า counter  > 0  ให้กด submit ปุ่ม ADD TO CART ได้
-  //   setCounter(counter - 1);
-  // }
-
-  // let addCart =() => {
-  //     bil.push(counter > 0 )
-  // }
-
   return (
     <Box as="Big-Box">
+      {/* <Box  >
       {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
-      {/* <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
-        <Flex justify="flex-end">
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            HOME
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            PRODUCTS
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            ACCESSORIES
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            LOG IN
-          </Button>
-          <Button fontSize="15" variant="ghost" color="#AA8B56">
-            {" "}
-            <Image
-              boxSize="30px"
-              src="picture/cart.svg"
-              className="pic2"
-              alt=""
-            />{" "}
-          </Button>
-        </Flex>
       </Box> */}
+      <Box w="100%">
+      {auth.isAuthenticated ? <NewNavCartLogin /> : < NewNavCart/>}
+      </Box>
 
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {
@@ -134,7 +101,7 @@ export function ProductDetail1() {
                         .map((_, i) => (
                           <StarIcon
                             key={i}
-                            color={i < value.rating ? "#fdd835" : "gray.300"}
+                            color={i < value.rating ? "#FFBF00" : "gray.300"}
                           />
                         ))}
                     </Box>
@@ -198,6 +165,7 @@ export function ProductDetail1() {
         <Button
           onClick={() => {
             contextValue.setmyCart([...contextValue.mycart, datas]);
+            console.log(datas);
             Navigate("/cart");
             console.log(contextValue.mycart);
           }}
