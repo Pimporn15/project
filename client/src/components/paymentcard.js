@@ -37,6 +37,7 @@ import {
 import { FaCheckCircle } from "react-icons/fa";
 import { CreditCard } from "./checkOutForm/creditCard";
 
+
 export function PayMentCard() {
   // const ServerQuickActions = () => {
   return (
@@ -45,17 +46,21 @@ export function PayMentCard() {
      */
 
     <Box w="100%" h="500px">
+
+
       <Flex justifyContent="center" mt={4}>
         
         <Popover placement="bottom" isLazy>
           <PopoverTrigger>
             <Button
-              m="10px"
+              position="absolute"
+              mt="10"
+              ml="10"
               fontSize="25px"
               color={"white"}
               rightIcon={<ChevronDownIcon />}
               variant="solid"
-              bg="#FF9F9F"
+              bg="#DBA39A"
               _hover={{
                 bg: "#FFADBC",
               }}

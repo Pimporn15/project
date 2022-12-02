@@ -153,7 +153,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
             REGISTER
           </Button>
           <Flex ml="5px">
-          <Button
+          {/* <Button
           
           pt={"15px"}
           colorScheme='#ebe4d1'
@@ -176,7 +176,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
               className="bin"
               alt="bin"
             />
-          </Button>
+          </Button> */}
          </Flex>
           
         </Flex>

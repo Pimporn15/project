@@ -76,7 +76,7 @@ export function CART() {
           fontSize="30px"
           position="absolute"
           // mt={[-7, -10]}
-          ml={[200, 400, 830]}
+          ml={[200, 400, 790]}
           mt="130px"
         >
           Price
@@ -85,7 +85,7 @@ export function CART() {
           as="b"
           fontSize={[20, 25, 30]}
           position="absolute"
-          ml={[300, 445, 1020]}
+          ml={[300, 445, 990]}
           // mt={[-7, -10]}
           mt="130px"
         >
@@ -95,7 +95,7 @@ export function CART() {
           as="b"
           fontSize={[20, 25, 30]}
           position="absolute"
-          ml={[300, 445, 1250]}
+          ml={[300, 445, 1220]}
           // mt={[-7, -10]}
           mt="130px"
         >
@@ -106,7 +106,7 @@ export function CART() {
           return (
             // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
             <Box>
-              <Flex ml={[80, 100, 150]}>
+              <Flex ml={[80, 0, 150]}>
                 <Box
                   position="relative"
                   h="40"
@@ -123,7 +123,7 @@ export function CART() {
                   h={[50, 100, 120]}
                   w={[50, 100, 200]}
                   mt={[-130]}
-                  ml={[5]}
+                  ml={[-5]}
                 >
                   <Image
                     borderRadius="20px"
@@ -135,7 +135,7 @@ export function CART() {
                 </Box>
                 <Box
                   position="absolute"
-                  ml={[80, 125, 280]}
+                  ml={[80, 125, 250]}
                   mt={[-90]}
                   as="b"
                   fontSize="25px"
@@ -146,22 +146,30 @@ export function CART() {
                   flex
                   position="absolute"
                   size="xs"
-                  bg="#585858"
-                  ml="220"
-                  mt="-140"
+                  bg="white"
+                  ml="1195"
+                  mt="-92"
+                  _hover={{ boxSize: '30' , size: "md"}}
                   color="tomato"
                   onClick={() => deleteCartItem(value.product_id)}
                 >
-                  {" "}
-                  <Text fontSize="20"> x </Text>{" "}
+                  <Text fontSize="20"> <Image     
+              ml="1px"
+              mt="-1"
+              boxSize="20px"
+              src="picture/Bin.png"
+              className="bin"
+              alt="bin"/> 
+              </Text>{" "}
                 </Button>
 
-                <Box position="absolute" ml={[20, 500, 690]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 650]} mt={[-90]} as="b">
                   {value.price}
                 </Box>
-                <Box position="absolute" ml={[20, 500, 880]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 850]} mt={[-90]} as="b">
                   <Button
                     m="5px"
+                    _hover={{ bg: "#ebe4d1"}}
                     onClick={() => {
                       handleMinusCounter(index);
                     }}
@@ -175,6 +183,7 @@ export function CART() {
                   </Text>
                   <Button
                     m="5px"
+                    _hover={{ bg: "#ebe4d1"}}
                     onClick={() => {
                       handleAddCounter(index);
                     }}
@@ -184,7 +193,7 @@ export function CART() {
                     +
                   </Button>
                 </Box>
-                <Box position="absolute" ml={[20, 500, 1110]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 1080]} mt={[-90]} as="b">
                   {value.price * value.quantity}
                 </Box>
               </Flex>
@@ -200,15 +209,51 @@ export function CART() {
           mt="2%"
           ml={[300, 550, 680]}
         >
-          <Flex direction="column" align="center">
-            <Text fontSize="25px" m="10px" fontWeight="bold">
-              Total:{getTotalPrice}
-            </Text>
-          </Flex>
+          
+         
         </Flex>
       </Flex>
+      <Button
+          position="absolute"
+          _hover={{bg:"white",fontSize:"20",color:"#C7BCA1"}}
+          mt="-160"
+          ml="1200"
+          mr="10px"
+         bg="#C7BCA1"
+         size='md'
+         height='35px'
+         width='170px'
+         border='2px'
+         borderColor='#C7BCA1'
+          colorScheme='#ebe4d1'
+            fontSize="18"
+            variant="ghost"
+            color="white"
+            onClick={() => {
+              contextValue.setmyCart(
+                contextValue.mycart.filter((value) => value.id !== value.id)
+              );
+            }}>
+
+            CLEAR YOUR CART
+            
+          </Button>
       {/* //-------------card-------------// */}
-      <PayMentCard />
+
+     
+    
+     <Box bg="white" ml="1050" w="80" h="200" >
+         <Flex position="absolute">
+            <Text fontSize="20px" fontWeight="bold" ml="20">
+              Total: <Box ml="55" mt="-12" position="absolute" fontSize="40"> {getTotalPrice} </Box>
+            </Text>
+          </Flex>
+          
+     <PayMentCard /> 
+     
+   </Box>
+     
+
       {/* _______________________________________Toggle ________________________________________ */}
       <Flex
         justifyContent="center"
@@ -217,6 +262,7 @@ export function CART() {
         ml={[50, 100, 300]}
         mt="300"
       >
+        
         <Text fontSize={{ base: "15px", sm: "20px", md: "20px", lg: "px" }}>
           Copyright©2022 Watchodile.All Right Reserved.
         </Text>
