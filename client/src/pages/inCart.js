@@ -25,7 +25,7 @@ export function CART() {
   const Navigate = useNavigate();
   const auth = useAuth();
   const contextValue = useContext(CartContext);
-  const { deleteCartItem, cart } = useProduct();
+  const { deleteCartItem, getTotalPrice } = useProduct();
   const { setTotalPrice, setmyCart, mycart } = useContext(CartContext);
 
   const handleAddCounter = (index) => {
@@ -60,7 +60,7 @@ export function CART() {
         {auth.isAuthenticated ? <NewNavCartLogin /> : <NewNavCart />}
       </Box>
       <Flex w="60%" h="40%" direction="column">
-        <Box position="relative" mt="20" ml={[100, 250, 250]} mb="200px">
+        <Box position="relative" mt="20" ml={[80, 100, 150]} mb="200px">
           <Flex>
             <Text fontSize="40px" as="b">
               {" "}
@@ -76,7 +76,7 @@ export function CART() {
           fontSize="30px"
           position="absolute"
           // mt={[-7, -10]}
-          ml={[200, 358, 920]}
+          ml={[200, 400, 830]}
           mt="130px"
         >
           Price
@@ -85,7 +85,7 @@ export function CART() {
           as="b"
           fontSize={[20, 25, 30]}
           position="absolute"
-          ml={[300, 445, 1130]}
+          ml={[300, 445, 1020]}
           // mt={[-7, -10]}
           mt="130px"
         >
@@ -95,7 +95,7 @@ export function CART() {
           as="b"
           fontSize={[20, 25, 30]}
           position="absolute"
-          ml={[300, 445, 1400]}
+          ml={[300, 445, 1250]}
           // mt={[-7, -10]}
           mt="130px"
         >
@@ -106,7 +106,7 @@ export function CART() {
           return (
             // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
             <Box>
-              <Flex ml={[100, 250, 200]}>
+              <Flex ml={[80, 100, 150]}>
                 <Box
                   position="relative"
                   h="40"
@@ -156,10 +156,10 @@ export function CART() {
                   <Text fontSize="20"> x </Text>{" "}
                 </Button>
 
-                <Box position="absolute" ml={[20, 500, 730]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 690]} mt={[-90]} as="b">
                   {value.price}
                 </Box>
-                <Box position="absolute" ml={[20, 500, 950]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 880]} mt={[-90]} as="b">
                   <Button
                     m="5px"
                     onClick={() => {
@@ -184,7 +184,7 @@ export function CART() {
                     +
                   </Button>
                 </Box>
-                <Box position="absolute" ml={[20, 500, 1210]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 500, 1110]} mt={[-90]} as="b">
                   {value.price * value.quantity}
                 </Box>
               </Flex>
@@ -202,7 +202,7 @@ export function CART() {
         >
           <Flex direction="column" align="center">
             <Text fontSize="25px" m="10px" fontWeight="bold">
-              Total:
+              Total:{getTotalPrice}
             </Text>
           </Flex>
         </Flex>

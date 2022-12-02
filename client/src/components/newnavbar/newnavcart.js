@@ -105,7 +105,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
         
         <Spacer />
   
-        <Flex w="30%" mr="2%">
+        <Flex w="35%" mr="2%">
          <Button w="60%" h="50%" mt="10px" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
@@ -154,7 +154,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           </Button>
           <Flex ml="5px">
           <Button
-          mr="10px"
+          
           pt={"15px"}
           colorScheme='#ebe4d1'
             fontSize="18"
@@ -168,10 +168,11 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           >
             CLEAR YOUR CART
             <Image
-              ml="15px"
+              ml="10px"
               mt="-1"
               boxSize="30px"
-              src="picture/Bin.png"
+             
+              src="picture/bin2.png"
               className="bin"
               alt="bin"
             />

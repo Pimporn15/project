@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Script from "react-load-script";
-import { Box, Button,} from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
+// import { useProduct } from "../../contexts/productContext";
 
 // import { publicKey } from "../../../confidential/keys";
 
@@ -27,13 +28,14 @@ export class CreditCard extends Component {
   };
 
   omiseCardHandler = () => {
-    const { cart, createCreditCardCharge } = this.props;
+    const { value, createCreditCardCharge } = this.props;
+    // const { getTotalPrice } = useProduct();
     OmiseCard.open({
       frameDescription: "Invoice #3847",
-      amount: 100000,
-      //   amount: cart.amount,
+      // amount: { getTotalPrice },
+      amount: 5000000,
       onCreateTokenSuccess: (token) => {
-        createCreditCardCharge(cart.email, cart.name, cart.amount, token);
+        createCreditCardCharge(value.email, value.name, value.amount, token);
       },
       onFormClosed: () => {},
     });

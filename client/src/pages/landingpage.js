@@ -8,11 +8,8 @@ import {
   Button,
   Link
 } from "@chakra-ui/react";
-// import { Navigation } from "../components/navigationBar/navbar";
-// import { LoginNavigation } from "../components/navigationBar/navbarforLogin";
-import { useAuth } from "../contexts/authentication";
-import { New } from "../components/navigationBar/newversion";
 
+import { useAuth } from "../contexts/authentication";
 import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
 import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
 import { useNavigate } from "react-router-dom";

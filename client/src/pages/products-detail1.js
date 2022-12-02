@@ -1,4 +1,4 @@
-import { Box, Button, Text, Image, Flex, Stack } from "@chakra-ui/react";
+import { Box, Button, Text, Image, Flex, Stack, Center, Heading } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import React from "react";
@@ -55,6 +55,10 @@ export function ProductDetail1() {
 
   return (
     <Box as="Big-Box">
+      <Box >
+          {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavLanding/>}
+      </Box>
+
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {
         const handleAddCounter = (value) => {
@@ -81,6 +85,8 @@ export function ProductDetail1() {
             mt="175"
             ml={[30, 70, 100]}
           >
+
+
             <Image boxSize="full" src={value.image} className="pic1" alt="" />
           </Box>
         );
@@ -95,15 +101,15 @@ export function ProductDetail1() {
             w={[100, 200, 500]}
             h="500"
             ml={[100, 400, 900]}
-            mt={[-100, -300, -500]}
+            mt={[-100, -300, -450]}
             position="relative"
           >
             <Stack spacing={2}>
-              <Text
-                fontSize={{ base: "10px", sm: "20px", md: "20px", lg: "30px" }}
+              <Heading
+                fontSize={{ base: "10px", sm: "20px", md: "20px", lg: "30px"  }}
               >
                 {value.product_name}
-              </Text>
+              </Heading>
               <Text
                 fontSize={{ base: "10px", sm: "10px", md: "15px", lg: "25px" }}
               >
@@ -139,8 +145,8 @@ export function ProductDetail1() {
               <Box pb="20px" as="b" color="tomato" fontSize="20">
                 ฿ {value.price}
               </Box>
-              <Box m="100">
-                <Text fontSize="17px">
+              <Flex m="100" direction="column"  >
+                <Text fontSize="20px">
                   Quantity
                   <Flex
                     position="absolute"
@@ -153,6 +159,7 @@ export function ProductDetail1() {
                     justify="space-between"
                   >
                     <Button
+                       mr="10px"
                       bg="#CFB9AC"
                       size="xs"
                       onClick={() => {
@@ -165,6 +172,7 @@ export function ProductDetail1() {
                       {counter}
                     </Text>
                     <Button
+                     ml="10px"
                       onClick={() => {
                         handleAddCounter(counter);
                       }}
@@ -173,11 +181,11 @@ export function ProductDetail1() {
                     >
                       +
                     </Button>
-                  </Flex>
-                </Text>
-              </Box>
-            </Stack>
-            <Box ml={[100, 400, 900]}>
+
+
+                <Center>
+             <Flex justify="flex-start"  mt="250px">       
+            <Box >
               <Button
                 onClick={() => {
                   value.quantity = counter;
@@ -193,7 +201,7 @@ export function ProductDetail1() {
                 <Box>
                   <Image
                     boxSize="35px"
-                    src="https://img.icons8.com/nolan/512/shopping-cart.png"
+                    src="picture/iconcart.png" 
                     className="pic2"
                     alt=""
                   />
@@ -201,6 +209,16 @@ export function ProductDetail1() {
                 <Box mr="15px">ADD TO CART</Box>
               </Button>
             </Box>
+            </Flex>
+            </Center>
+
+                  </Flex>
+                </Text>
+              </Flex>
+            </Stack>
+
+
+            
           </Flex>
         );
       })}

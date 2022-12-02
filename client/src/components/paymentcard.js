@@ -24,6 +24,7 @@ import {
   ListItem,
   ListIcon,
   Image,
+  Center,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
@@ -45,6 +46,7 @@ export function PayMentCard() {
 
     <Box w="100%" h="500px">
       <Flex justifyContent="center" mt={4}>
+        
         <Popover placement="bottom" isLazy>
           <PopoverTrigger>
             <Button
@@ -127,18 +129,11 @@ export function PayMentCard() {
                           <ListItem></ListItem>
                         </List>
                         <Box w="30%" pt={8}>
-                          <Button
-                            w="full"
-                            color="#CFF5E7"
-                            variant="outline"
-                            bg="#0D4C92"
-                            _hover={{
-                              bg: "#59C1BD",
-                            }}
-                          >
+                          <Center>
+                          <Button >
                             <CreditCard />
-                            {/* Credit Card Payments */}
                           </Button>
+                          </Center>
                         </Box>
                       </VStack>
                     </Box>

@@ -88,7 +88,7 @@ export function NewNavLandingLogin() {
       <Button w="45%" h="45%" mt="15px" colorScheme="#2F2E2C" onClick={() => {
                   Navigate("/cart");
                 }} > 
-       <Image  src="picture/iconcart.png"  />
+       <Image  src="picture/iconcart.png" />
         </Button>
 
         <Spacer />
@@ -126,10 +126,6 @@ export function NewNavLandingLogin() {
             </Menu>
           </Flex>
         
-
-
-
-
       </Flex>
     </Flex>
     </Box>

@@ -56,19 +56,24 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
     PRODUCTS
     </MenuButton>
     <MenuList>
-    <MenuItem  onClick={() => {
+    <MenuItem 
+     onClick={() => {
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
     
-        <MenuItem  onClick={() => {
+        <MenuItem 
+         onClick={() => {
                   Navigate("/products");
                 }} 
-        >Product </MenuItem>
-        <MenuItem   onClick={() => {
+        >Product 
+        </MenuItem>
+        <MenuItem   
+        onClick={() => {
                   Navigate("/products/category/1");
                 }}    
-        >Men</MenuItem>
+        >Men
+        </MenuItem>
         <MenuItem   onClick={() => {
                   Navigate("/products/category/2");
                 }} 
@@ -103,14 +108,14 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           
           <Button
             h="60%"
-            w="65%"
+            w="65%" 
+            m="2%"
+            fontSize="0.9rem"
             borderRadius="3xl"
             bg="#D6BE96"
             color="#ffffff"
-            m="2%"
-            fontSize="0.9rem"
-              _hover={{
-                bg: "#d5b178",
+            _hover={{
+            bg: "#d5b178",
               }}
               onClick={() => {
                 Navigate("/login");

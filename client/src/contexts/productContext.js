@@ -46,8 +46,12 @@ function ProductProvider(props) {
     console.log(itemId);
   };
 
+   const getTotalPrice = contextValue.mycart.reduce((acc, value) => {
+    return acc + value.price * value.quantity;
+  }, 0);
+
   return (
-    <ProductContext.Provider value={{ text, addProductToCart, deleteCartItem }}>
+    <ProductContext.Provider value={{ text, addProductToCart, deleteCartItem, getTotalPrice }}>
       {props.children}
     </ProductContext.Provider>
   );

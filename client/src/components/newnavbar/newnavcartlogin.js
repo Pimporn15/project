@@ -136,7 +136,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
               ml="15px"
               mt="-1"
               boxSize="30px"
-              src="picture/Bin.png"
+              src="picture/bin2.png"
               className="bin"
               alt="bin"
             />
