@@ -61,12 +61,10 @@ export function PayMentCard() {
               rightIcon={<ChevronDownIcon />}
               variant="solid"
               bg="#DBA39A"
-              _hover={{
-                bg: "#FFADBC",
-              }}
+              _hover={{bg:"white",fontSize:"20",color:"#DBA39A"}}
               w="fit-content"
             >
-              Proceed to Check out
+              Proceed To Check Out
             </Button>
           </PopoverTrigger>
           <PopoverContent

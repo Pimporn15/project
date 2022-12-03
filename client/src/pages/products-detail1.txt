@@ -9,10 +9,7 @@ import { NewNavLanding } from "../components/newnavbar/newnavlandingpage";
 import { NewNavLandingLogin } from "../components/newnavbar/newnavlangpagelogin";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../App";
-import { NewNavCartLogin } from "../components/newnavbar/newnavcartlogin";
-import { NewNavCart } from "../components/newnavbar/newnavcart";
 import { useProduct } from "../contexts/productContext";
-import { NewNavProductDetail } from "../components/newnavbar/newNavProductDetail";
 
 export function ProductDetail1() {
   const { text, addProductToCart, deleteCartItem } = useProduct();
@@ -55,10 +52,30 @@ export function ProductDetail1() {
   };
 
   return (
-    <Box as="Big-Box">
-      <Box >
-          {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavProductDetail/>}
-      </Box>
+
+     <Box as="nav" bg="bgsurface" boxShadow="lg" w="100%">
+       <Flex justify="flex-end">
+         <Button fontSize="15" variant="ghost" color="#AA8B56">
+           HOME
+         </Button>
+         <Button fontSize="15" variant="ghost" color="#AA8B56">
+           PRODUCTS
+         </Button>
+         <Button fontSize="15" variant="ghost" color="#AA8B56">
+           ACCESSORIES
+         </Button>
+         <Button fontSize="15" variant="ghost" color="#AA8B56">
+           LOG IN
+         </Button>
+         <Button fontSize="15" variant="ghost" color="#AA8B56">
+           <Image
+             boxSize="30px"
+             src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t39.30808-6/317859627_660806115497798_6968916594870350129_n.jpg?stp=cp0_dst-jpg&_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFsoElEVybSCV2FtKvSgPpyqdARQxdNAfOp0BFDF00B84VuryCBg4k5CpuNc88NPu_U451dLJtVLPCh4TQdVaKA&_nc_ohc=azWdtcyAhLcAX8Xb2mP&_nc_ht=scontent.fbkk5-6.fna&oh=00_AfD6Wa-VLWOx9-5E_Zng7aoyiidqgU_E5yu4UkVQN4vcQA&oe=638ECB8B"  
+             className="pic2"
+             alt="" />
+         </Button>
+       </Flex>
+     
 
       {/* รูปใหญ่============================================================================================= */}
       {datas.map((value, index) => {
@@ -196,32 +213,18 @@ export function ProductDetail1() {
                   console.log(value);
                 }}
                 size="lg"
-                bg="white"
-                color="#CFB9AC"
-                 height='60px'
-                 width='200px'
-                 border='2px'
-                 borderColor='#CFB9AC'
-                 _hover={{fontSize: '22'}}
-
+                bg="#CFB9AC"
+                color="white"
               >
                 <Box>
                   <Image
-                    // boxSize="35px"
-                    // src="https://img.icons8.com/external-bearicons-glyph-bearicons/512/external-cart-call-to-action-bearicons-glyph-bearicons.png" 
-                    // className="pic2"
-                    // alt=""
-                  />
-                </Box>
-                <Image
-                mt="-2"
-                ml="-10"
-                mr="2"
-                    boxSize="45px"
-                    src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t39.30808-6/317859627_660806115497798_6968916594870350129_n.jpg?stp=cp0_dst-jpg&_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFsoElEVybSCV2FtKvSgPpyqdARQxdNAfOp0BFDF00B84VuryCBg4k5CpuNc88NPu_U451dLJtVLPCh4TQdVaKA&_nc_ohc=azWdtcyAhLcAX8Xb2mP&_nc_ht=scontent.fbkk5-6.fna&oh=00_AfD6Wa-VLWOx9-5E_Zng7aoyiidqgU_E5yu4UkVQN4vcQA&oe=638ECB8B"                    className="pic2"
+                    boxSize="35px"
+                    src="picture/iconcart.png" 
+                    className="pic2"
                     alt=""
                   />
-                <Box mr="-28px">ADD TO CART</Box>
+                </Box>
+                <Box mr="15px">ADD TO CART</Box>
               </Button>
             </Box>
             </Flex>
@@ -253,3 +256,4 @@ export function ProductDetail1() {
     </Box>
   );
 }
+

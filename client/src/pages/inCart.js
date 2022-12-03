@@ -107,16 +107,27 @@ export function CART() {
             // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
             <Box>
               <Flex ml={[80, 0, 150]}>
+                
                 <Box
                   position="relative"
                   h="40"
                   border="2px"
+                  
                   borderTopColor="white"
                   borderRightColor="white"
                   borderLeftColor="white"
-                  borderBottomColor="#DEDEDE"
-                ></Box>
+                  borderBottomColor="white"
+                >
+                  
+              <Box ml="-5" position="absolute"  color="#DEDEDE">___________________________________________________________________________________________________________________________________________________________________________________________________</Box> 
+                </Box>
+              
+
+
+
                 <Box
+                
+                _hover={{width:"300px", height:"150px", left:"10", position:"relative"}}
                   borderRadius="20px"
                   position="absolute"
                   boxShadow="2xl"
@@ -126,6 +137,7 @@ export function CART() {
                   ml={[-5]}
                 >
                   <Image
+                  
                     borderRadius="20px"
                     boxSize="full"
                     src={value.image}
@@ -196,7 +208,9 @@ export function CART() {
                 <Box position="absolute" ml={[20, 500, 1080]} mt={[-90]} as="b">
                   {value.price * value.quantity}
                 </Box>
+                
               </Flex>
+
             </Box>
           );
         })}
