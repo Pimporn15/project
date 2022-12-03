@@ -35,7 +35,7 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
-import { CreditCard } from "./checkOutForm/creditCard";
+import CreditCard  from "./checkOutForm/creditCard";
 
 
 export function PayMentCard() {
@@ -133,7 +133,7 @@ export function PayMentCard() {
                         </List>
                         <Box w="30%" pt={8}>
                           <Center>
-                          <Button >
+                          <Button bg ="white" _hover={{bg:"white"}}>
                             <CreditCard />
                           </Button>
                           </Center>

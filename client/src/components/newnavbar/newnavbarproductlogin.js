@@ -62,7 +62,7 @@ export function NewNavLoginBlack() {
         <MenuItem  onClick={() => {
                   Navigate("/products");
                 }} 
-        >Product </MenuItem>
+        >Products </MenuItem>
         <MenuItem   onClick={() => {
                   Navigate("/products/category/1");
                 }}    

@@ -54,10 +54,7 @@ export function NewNavBlack() {
   PRODUCTS
   </MenuButton>
   <MenuList>
-    <MenuItem  onClick={() => {
-                  Navigate(`/products?category=5`);
-                }} >New Products
-      </MenuItem>
+    
       <MenuItem  onClick={() => {
                   Navigate("/products/category/5");
                 }} >New Products

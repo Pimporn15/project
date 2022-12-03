@@ -66,7 +66,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
          onClick={() => {
                   Navigate("/products");
                 }} 
-        >Product 
+        >Products 
         </MenuItem>
         <MenuItem   
         onClick={() => {
