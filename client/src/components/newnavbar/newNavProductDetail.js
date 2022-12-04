@@ -33,7 +33,7 @@ import { Time } from "../time";
 
     return (
       <Box>
-      <Flex w="100%" h="55px" bg="#ebe4d1">
+      <Flex w={[500,'120%','100%']}  h="55px" bg="#ebe4d1">
         <Flex w="18%" justify="space-between" align="center" ml="5%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
@@ -111,10 +111,10 @@ import { Time } from "../time";
          onClick={() => {
                   Navigate("/cart");
                 }} > 
-                <Box mt="3" mr="10">
-
+                <Box mt="3" mr="">
+       <Box ml={[-90,-84,-10]}>
        <Time/>
-
+       </Box>
        </Box>
         </Button>
 
@@ -124,7 +124,8 @@ import { Time } from "../time";
             borderRadius="3xl"
             bg="#D6BE96"
             color="#ffffff"
-            m="2%"
+            
+            mt={[3]}
             fontSize="0.9rem"
               _hover={{
                 bg: "#d5b178",
@@ -145,7 +146,7 @@ import { Time } from "../time";
             border="2px"
             borderColor="#D6BE96"
             color="#9A7352"
-            m="2%"
+            mt={[3]}
             fontSize="0.9rem"
             _hover={{
                 color: "#d5b178",

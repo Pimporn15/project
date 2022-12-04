@@ -12,12 +12,18 @@ import {
   useColorModeValue,
   Link,
   Image,
+  Spacer,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/authentication.js";
+import {NewNavLanding} from "../components/newnavbar/newnavlandingpage"
+import {NewNavLandingLogin} from "../components/newnavbar/newnavlangpagelogin"
+import { useNavigate } from "react-router-dom";
+import { NewNavProductDetail } from "../components/newnavbar/newNavProductDetail.js";
+
 
 export function Register() {
   // const [showPassword, setShowPassword] = useState(false);
@@ -28,11 +34,10 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [watch, setWatch] = useState([]);
-  
-
-
-
   const { register } = useAuth();
+  const auth = useAuth();
+  const Navigate = useNavigate()
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,17 +52,7 @@ export function Register() {
     // console.log(register);
   };
 
-  // const validatePassword = () => {
-  //   let valid = document.getElementById("inputPassword").value;
-  //   let text;
-  //   if (valid == "" || valid.lenght < 8 || valid.lenght > 15) {
-  //     text = "Input not valid";
-  //   } else {
-  //     text = "Input OK";
-  //   }
-  //   return text
-  // };
-
+  
   return (
     <form
       className="registerForm"
@@ -65,12 +60,15 @@ export function Register() {
         handleSubmit(event);
       }}
     >
-      <Box bg="white" w="100%" h="100%">
+      <Box bg="" w="100%" h="100%">
+      {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavProductDetail/>}
+
+
         <Flex direction="row" gap="30%">
           <Box>
-            <Box position="relative" bg="#2C2C2C" w="300px" h="100%"></Box>
-            <Box position="absolute" top="15%">
-              <Image src="picture/imagereg.png" alt="watch picture" w="70%" />
+            <Box position="relative" bg="#2C2C2C" w={[100,200,450]} h={[100,1050,1000]} ></Box>
+            <Box position="absolute" top="23%">
+              <Image src="picture/imagereg.png" w={[100,300,600]} />
             </Box>
           </Box>
           <Box>
@@ -78,8 +76,11 @@ export function Register() {
               <Stack spacing={"5%"} mx={"auto"} maxW={"lg"} py={"25%"}>
                 <Box w="150%">
                   <Stack spacing={4}>
-                    <Box>
-                      <Text fontSize={"3rem"} textAlign={"center"} pb="10%">
+
+                    <Box bg="" mt="10%" ml={[-20,-15,0]}>
+
+                      <Spacer/>
+                      <Text fontSize="3rem" textAlign="center" pb="5%" as="b" m="28%" >
                         Register
                       </Text>
                       <FormControl id="UserName" isRequired>
@@ -120,23 +121,17 @@ export function Register() {
                             value={password}
                           />
                           <InputRightElement h={"full"}>
-                            {/* <Button
-                              // variant={"ghost"}
-                              onClick={() =>
-                                setPassword((Password) => !Password)
-                              }
-                            > */}
-                              {/* {setPassword ? <ViewIcon /> : <ViewOffIcon />} */}
-                            {/* </Button> */}
+                           
                           </InputRightElement>
                         </InputGroup>
                       </FormControl>
                     </Box>
 
-                    <Box>
+                    <Box bg="" >
                       <FormControl id="firstName" isRequired>
-                        {/* <FormLabel fontSize={'20px'}>First Name</FormLabel> */}
+                      {/* <FormLabel fontSize={'20px'}>First Name</FormLabel> */}
                         <Input
+                        ml={[-20,-15,0]}
                           type="text"
                           variant="flushed"
                           placeholder="Firstname"
@@ -154,6 +149,8 @@ export function Register() {
                       <FormControl id="lastName" isRequired>
                         {/* <FormLabel fontSize={'20px'} >Last Name</FormLabel> */}
                         <Input
+                        bg=""
+                        ml={[-20,-15,0]}
                           type="text"
                           variant="flushed"
                           placeholder="Lastname"
@@ -171,6 +168,8 @@ export function Register() {
                     <FormControl id="email" isRequired>
                       {/* <FormLabel>Email address</FormLabel> */}
                       <Input
+                      bg=""
+                      ml={[-20,-15,0]}
                         type="email"
                         variant="flushed"
                         placeholder="Email"
@@ -186,6 +185,7 @@ export function Register() {
 
                     <Stack spacing={10} pt={2}>
                       <Button
+                       ml={[-20,-18,0]}
                         loadingText="Submitting"
                         size="md"
                         bg={"#CFB9AC"}
@@ -198,12 +198,12 @@ export function Register() {
                         // onClick={() => {
                         //   validatePassword()
                         // }}
-                      >
+                      > 
                         SUBMIT
                       </Button>
                     </Stack>
                     <Stack pt={6}>
-                      <Text align={"center"} fontSize={"20px"}>
+                      <Text align={"center"} fontSize={"20px"} as="b">
                         Already a user?{" "}
                         <Link href="/login" color={"#AC4425"} fontSize={"20px"}>
                           Login

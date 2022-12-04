@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { AuthProvider } from "./contexts/authentication";
 import { ChakraProvider } from "@chakra-ui/react";
-import Profile from "./pages/profile";
 import { Landingpage } from "./pages/landingpage";
 import { LoginPage } from "./pages/loginPage";
 import { Register } from "./pages/Registerpage.js";

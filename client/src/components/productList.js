@@ -13,6 +13,7 @@ function ProductList(props) {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
   const { categoryId } = props;
+  const [newProduct, setNewProduct] = useState([]);
 
   // const getProducts = async () => {
   //   const result = await axios.get("http://localhost:4000/products");
@@ -30,7 +31,19 @@ function ProductList(props) {
 
     setCategories(result.data.data);
     console.log(categories);
+
   };
+
+  const getProductsByNewProduct = async () => {
+    const result = await axios.get( `http://localhost:4000/products/newproduct `);
+    setNewProduct(result.data.data);
+  };
+
+   useEffect(()=>{
+    getProductsByNewProduct()
+   }, [])
+
+   
   useEffect(() => {
     getProductsByCategory(categoryId);
   }, [categoryId]);
@@ -70,6 +83,23 @@ function ProductList(props) {
           </Flex>
         );
       })}
+{newProduct.map((item, index) => {
+        return (
+          <Flex>
+            <ProductItem
+              key={index}
+              image={item.image}
+              imageBrand={item.image_brand}
+              name={item.product_name}
+              description={item.description}
+              price={item.price}
+              rating={item.rating}
+              product_id={item.product_id}
+            />
+          </Flex>
+        );
+      })}
+
     </>
   );
 }

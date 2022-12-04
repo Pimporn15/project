@@ -185,7 +185,7 @@ export function ProductDetail1() {
 
 
                 <Center>
-             <Flex justify="flex-start"  mt="250px">       
+             <Flex justify="flex-start"  mt="370" ml={[-200,-150,-5]}>       
             <Box >
               <Button
                 onClick={() => {

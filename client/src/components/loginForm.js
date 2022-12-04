@@ -3,12 +3,14 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
   Input,
+  InputLeftAddon,
+  InputGroup,
   Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/authentication.js";
@@ -36,31 +38,49 @@ export function LoginForm() {
     >
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
-          <Stack w="300%" p="5%" bg="white" boxShadow="lg" maxW={"md"}>
+          <Stack
+            w="300%"
+            p="7%"
+            boxShadow="lg"
+            maxW={"md"}
+            bg="rgba(46, 37, 39, 0.2)"
+            backdropFilter="auto"
+            backdropBlur="8px"
+          >
             <Text fontSize="2.5rem" pb="5%">
               <center>LOG IN</center>
             </Text>
             <FormControl id="username">
               <FormLabel fontSize="1.2rem">Username</FormLabel>
-              <Input
-                type="username"
-                bg="#EEEEEE"
-                onChange={(event) => {
-                  setUsername(event.target.value);
-                }}
-                value={username}
-              />
+              <InputGroup>
+                <InputLeftAddon children={<FaUserAlt />} />
+                <Input
+                  type="username"
+                  bg="rgba(46, 37, 39, 0.3)"
+                  focusBorderColor="black"
+                  placeholder="Enter username"
+                  onChange={(event) => {
+                    setUsername(event.target.value);
+                  }}
+                  value={username}
+                />
+              </InputGroup>
             </FormControl>
             <FormControl id="password">
               <FormLabel fontSize="1.2rem">Password</FormLabel>
-              <Input
-                type="password"
-                bg="#EEEEEE"
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
-                value={password}
-              />
+              <InputGroup>
+                <InputLeftAddon children={<FaLock />} />
+                <Input
+                  type="password"
+                  focusBorderColor="black"
+                  placeholder="Enter password"
+                  bg="rgba(46, 37, 39, 0.3)"
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                  }}
+                  value={password}
+                />
+              </InputGroup>
             </FormControl>
             <Stack spacing={6}>
               <Stack

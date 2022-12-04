@@ -23,6 +23,20 @@ productsRouter.get("/", async (req, res) => {
   });
 });
 
+productsRouter.get("/newproduct", async (req, res) => {
+  const created = req.query.created;
+  const createProduct = await pool.query(
+      `SELECT *
+      FROM products
+      ORDER BY created_at desc
+      limit 10`
+  );
+  return res.status(200).json({
+    data: createProduct.rows,
+    message: " successfully ",
+  });
+});
+
 // productsRouter.get("/", async (req, res) => {
 //   const products = await pool.query(`select * from products limit 12`);
 //   return res.status(200).json({

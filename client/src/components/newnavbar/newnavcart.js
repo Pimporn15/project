@@ -32,7 +32,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
 
     return (
       <Box>
-      <Flex w="100%" h="55px" bg="#ebe4d1">
+      <Flex w={[50,1400,'100%']} h="55px" bg="#ebe4d1">
         <Flex w="18%" justify="space-between" align="center" ml="5%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
