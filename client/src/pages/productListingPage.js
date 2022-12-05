@@ -111,6 +111,7 @@ import {
   Flex,
   Image,
   Wrap,
+  WrapItem,
   Link,
   Text,
   IconButton,
@@ -123,6 +124,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { NewNavBlack } from "../components/newnavbar/newnavbarproductlist";
 import { NewNavLoginBlack } from "../components/newnavbar/newnavbarproductlogin";
+import { Grid, GridItem } from '@chakra-ui/react'
 
 export function ProductListingPage() {
   const params = useParams();
@@ -132,18 +134,22 @@ export function ProductListingPage() {
   const productPerPage = 20;
 
   return (
+    
     <Box w="100%" h="100%" bg="#2F2E2C">
       {auth.isAuthenticated ? (
         <NewNavLoginBlack setCategories={setCategories} />
       ) : (
         <NewNavBlack />
       )}
-      <Center w="95%" h="100%" mr="3%" ml="8%" mt="5%">
-        <Wrap>
+     
+    <Wrap  mt="5%"  m="3%">
+      <Flex direction="row" justify="Center" w="70%" h="100%"  >
           <ProductList categoryId={categoryId} />
-        </Wrap>
-      </Center>
+      </Flex>
+</Wrap>
 
+
+{/* footer */}
       <Box>
         <Flex direction="row" position="absolute" w="90%" m="5%" mt="20%">
           <Flex direction="column" align="center" mt="10px">

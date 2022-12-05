@@ -157,15 +157,27 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
                 />
               </MenuButton>
               <MenuList >
-                <MenuItem onClick={() => {
+                <MenuItem 
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }} 
+                onClick={() => {
                   Navigate("/profile");
                 }}
                 >My Profile</MenuItem>
-                <MenuItem  onClick={() => {
+                <MenuItem 
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }} 
+                onClick={() => {
                   Navigate("");
                 }} 
                 >My favorite</MenuItem>
-                <MenuItem  onClick={() => {
+                <MenuItem 
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }} 
+                onClick={() => {
                   logout();
                   Navigate("/login");
                 }}

@@ -49,8 +49,12 @@ export function Landingpage() {
                 mt="6%"
                 borderradius="25px"
                 bg="rgb(174, 144, 118,0.4)"
+                   _hover={{
+                  bg: "#AA8B56",
+                }}  
               >
                 <Text fontSize={"1rem"} color="#ffffff"
+               
                 onClick={(()=>{
                   Navigate("/products")
                 })}>
@@ -114,7 +118,7 @@ export function Landingpage() {
             <Box w="20%" >
 
               <Text fontSize={"0.8rem"}>CONTACT</Text>
-              <br />
+        
               <Link fontSize={"0.8rem"}>0897879876</Link>
               <br />
               <Link fontSize={"0.8rem"}>watchoddile@gmail.com</Link>

@@ -1,12 +1,13 @@
 
 import React from "react";
-import { Box, Flex, Image, Wrap } from "@chakra-ui/react";
+import { Box, Center, Flex, Image, Wrap } from "@chakra-ui/react";
 import ProductItem from "./productItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../contexts/productContext";
 import ReactPaginate from "react-paginate";
+import { Grid, GridItem } from '@chakra-ui/react'
 
 function ProductList(props) {
   const [categories, setCategories] = useState([]);
@@ -21,7 +22,7 @@ function ProductList(props) {
     .map((categories) => {
       console.log(categories);
       return (
-        <Wrap direction="row">
+        // <Wrap >
           <ProductItem
             // key={index}
             image={categories.image}
@@ -32,7 +33,7 @@ function ProductList(props) {
             rating={categories.rating}
             product_id={categories.product_id}
           />
-        </Wrap>
+        // </Wrap>
       );
     });
 
@@ -55,8 +56,15 @@ function ProductList(props) {
     setPageNumber(selected);
   };
   return (
-    <Box>
+
+    <Box w="70%" h="100%" >
+     
+      <Grid  
+       templateColumns='repeat(4,5fr)' gap={6}>
+  
       {displayItems}
+      </Grid>
+      <Center w="300px" h="100px" m="5%"  ml="60%" >
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={">"}
@@ -68,7 +76,11 @@ function ProductList(props) {
         disabledClassName={"paginateDisale"}
         activeLinkClassName={"paginationActive"}
       />
+     </Center>
+    
     </Box>
+
+
   );
 }
 

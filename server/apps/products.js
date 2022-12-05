@@ -4,12 +4,14 @@ const productsRouter = Router();
 
 productsRouter.get("/", async (req, res) => {
   const category = Number(req.query.category);
-  console.log(req.query>category);
+  console.log(req.query > category);
 
   let query = "";
   let values = [];
-
-  if (category) {
+  if (category === 5) {
+    query = `select * from products ORDER BY created_at desc
+      limit 10`;
+  } else if (category) {
     query = `select * from products where category_id = $1`;
     values = [category];
   } else {
@@ -26,7 +28,7 @@ productsRouter.get("/", async (req, res) => {
 productsRouter.get("/newproduct", async (req, res) => {
   const created = req.query.created;
   const createProduct = await pool.query(
-      `SELECT *
+    `SELECT *
       FROM products
       ORDER BY created_at desc
       limit 10`

@@ -10,13 +10,19 @@ function ProductItem(property) {
   return (
     <Flex direction="row" justify="Center">
       <Box
-        w="300px"
-        h="320px"
+        w="280px"
+        h="310px"
         borderRadius="20px"
         overflow="hidden"
         bg="#ffffff"
         p="15px"
-        m="5%"
+        m="3%"
+        shadow="xl"
+        _hover={{ background: "white", 
+        border: "solid 3px",
+         borderColor: "#AA8B56",
+         
+         }}
       >
         <Center>
           <Image
@@ -38,13 +44,13 @@ function ProductItem(property) {
               alt={property.ImageBrandAlt}
               w="35px"
               h="35px"
-              mt="8px"
-              ml="5px"
+              mt="15px"
+              ml="3px"
             />
 
             <Flex direction="column" ml="20px">
               <Box
-                mt="2"
+                mt="3"
                 fontWeight="semibold"
                 as="h4"
                 lineHeight="tight"

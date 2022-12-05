@@ -12,7 +12,7 @@ export function Time() {
   }, []);
 
   return (
-    <Text className="runtime" fontSize={"2rem"}>
+    <Text className="runtime" fontSize={"2rem"} >
       {runTime}
     </Text>
   );
