@@ -72,28 +72,51 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
     PRODUCTS
     </MenuButton>
     <MenuList>
-    <MenuItem  onClick={() => {
+    <MenuItem 
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
     
-        <MenuItem  onClick={() => {
+        <MenuItem  
+                  _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                  onClick={() => {
                   Navigate("/products");
                 }} 
         >Products </MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                    _hover={{
+                     bg: "#ebe4d1",
+                        }}   
+              onClick={() => {
                   Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                  _hover={{
+                bg: "#ebe4d1",
+                }}   
+               onClick={() => {
                   Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
-        <MenuItem    onClick={() => {
+        <MenuItem  
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }}    
+                  onClick={() => {
                   Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
-        <MenuItem    onClick={() => {
+        <MenuItem   _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                   onClick={() => {
                   Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
@@ -105,8 +128,8 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
         
         <Spacer />
   
-        <Flex w="35%" mr="2%">
-         <Button w="60%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+        <Flex w="25%" mr="2%">
+         <Button w="80px" h="30%" mt="18px" mr="10px"  ml="30px" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
                 }} > 
@@ -114,13 +137,15 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
         </Button>
 
           <Button
-            h="60%"
-            w="70%"
+
+            h="55%"
+            w="30%"
             borderRadius="3xl"
             bg="#D6BE96"
             color="#ffffff"
-            m="2%"
-            fontSize="0.9rem"
+            mt="3%"
+            mr="2%"
+            fontSize="18px"
               _hover={{
                 bg: "#d5b178",
               }}
@@ -133,15 +158,16 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           </Button>
           <Spacer />
           <Button
-            h="60%"
-            w="70%"
+            h="55%"
+            w="30%"
             borderRadius="3xl"
             bg="#EBE4D1"
             border="2px"
             borderColor="#D6BE96"
             color="#9A7352"
-            m="2%"
-            fontSize="0.9rem"
+            mt="3%"
+            mr="5%"
+            fontSize="18px"
             _hover={{
                 color: "#d5b178",
               }}
@@ -153,30 +179,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
             REGISTER
           </Button>
           <Flex ml="5px">
-          {/* <Button
           
-          pt={"15px"}
-          colorScheme='#ebe4d1'
-            fontSize="18"
-            variant="ghost"
-            color="#AA8B56"
-            onClick={() => {
-              contextValue.setmyCart(
-                contextValue.mycart.filter((value) => value.id !== value.id)
-              );
-            }}
-          >
-            CLEAR YOUR CART
-            <Image
-              ml="10px"
-              mt="-1"
-              boxSize="30px"
-             
-              src="picture/bin2.png"
-              className="bin"
-              alt="bin"
-            />
-          </Button> */}
          </Flex>
           
         </Flex>

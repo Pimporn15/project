@@ -38,45 +38,69 @@ export function NewNavLandingLogin() {
            </Box>
   
            <Menu>
-  <MenuButton as={Button} colorScheme='#ebe4d1'  
-                  pt={"10px"}
-                  pl={"10px"}
-                  fontSize={"18px"}
-                  fontWeight={500}
-                  color="#9a7352"
-                 _hover={{
-                  textDecoration: "none",
-                  color: "#c28f3e",
-                }} >
+  <MenuButton  as={Button} colorScheme='#ebe4d1'  
+                       pr={"40px"}
+                       pl={"15px"}
+                       pt="10px"
+                       fontSize={"18px"}
+                       fontWeight={500}
+                       color="#9a7352"
+                      _hover={{
+                       textDecoration: "none",
+                       color: "#c28f3e",
+                     }} >
   PRODUCTS
   </MenuButton>
+  
   <MenuList>
-  <MenuItem  onClick={() => {
-                  Navigate("/products/category/5");
+    <MenuItem 
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
+                  Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
-        <MenuItem  onClick={() => {
+    
+        <MenuItem  
+                  _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                  onClick={() => {
                   Navigate("/products");
                 }} 
         >Products </MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                    _hover={{
+                     bg: "#ebe4d1",
+                        }}   
+              onClick={() => {
                   Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                  _hover={{
+                bg: "#ebe4d1",
+                }}   
+               onClick={() => {
                   Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
-        <MenuItem    onClick={() => {
+        <MenuItem  
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }}    
+                  onClick={() => {
                   Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
-        <MenuItem    onClick={() => {
+        <MenuItem   _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                   onClick={() => {
                   Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
-
-
   
     </MenuList>
 </Menu>
@@ -109,15 +133,30 @@ export function NewNavLandingLogin() {
                 />
               </MenuButton>
               <MenuList >
-                <MenuItem onClick={() => {
+                <MenuItem 
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   Navigate("/profile");
                 }}
                 >My Profile</MenuItem>
-                <MenuItem  onClick={() => {
+                <MenuItem 
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   Navigate(" ");
                 }} 
                 >My favorite</MenuItem>
-                <MenuItem onClick={() => {
+                <MenuItem 
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   logout();
                   Navigate("/login");
                 }}

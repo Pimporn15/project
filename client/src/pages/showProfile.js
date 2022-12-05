@@ -13,11 +13,11 @@ import {
 import { useAuth } from "../contexts/authentication";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {NewNavProductLogin} from "../components/newnavbar/newnavbarproducdetail-login"
 
 export function ShowProfile() {
   const size = "150px";
-  const color = "teal";
+  const color = "#EF9A53";
   const { state } = useAuth();
   console.log(state);
   const [avatars, setAvatars] = useState({});
@@ -45,14 +45,16 @@ export function ShowProfile() {
 
   return (
     <Box w="100%" h="100%" bg="#ffffff" position="relative">
+     <NewNavProductLogin/>
+
       <Center>
-      <Heading fontsize="6rem" color="#000000" mt="5%">
+      <Heading fontsize="6rem" color="#000000" mt="8%">
         Profile
       </Heading>
       </Center>
       <Flex
         position="absolute"
-        top="5%"
+        top="10%"
         right="18%"
         justifyContent="center"
         alignItems="center"
@@ -75,7 +77,7 @@ export function ShowProfile() {
             boxSizing: "border-box",
             marginLeft: "-100%",
             marginTop: "-100%",
-            borderRadius: "50%",
+            borderRadius: "100%",
             bgColor: color,
             animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
           }}
@@ -88,8 +90,6 @@ export function ShowProfile() {
           />
         </Box>
       </Flex>
-
-
 
 
       <Center mt="5%">
@@ -105,7 +105,7 @@ export function ShowProfile() {
               First Name :
             </Text>
 
-            <Text fontSize="20px" w="150px" mt="15px">
+            <Text fontSize="20px" w="300px" mt="15px">
               {state.user.firstname}
             </Text>
           </Stack>
@@ -113,7 +113,7 @@ export function ShowProfile() {
             <Text fontSize="20px" w="150px" m="15px">
               Last Name
             </Text>
-            <Text fontSize="20px" w="150px" mt="15px">
+            <Text fontSize="20px" w="300px" mt="15px">
               {state.user.lastname}
             </Text>
           </Stack>
@@ -122,7 +122,7 @@ export function ShowProfile() {
             <Text fontSize="20px" w="150px" m="15px">
               Email
             </Text>
-            <Text fontSize="20px" w="150px" mt="15px">
+            <Text fontSize="20px" w="300px" mt="15px">
               {state.user.email}
             </Text>
             {/* 

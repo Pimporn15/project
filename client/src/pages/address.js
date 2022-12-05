@@ -11,6 +11,9 @@ import {
 import { useAuth } from "../contexts/authentication";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { NewNavProductDetail } from "../components/newnavbar/newNavProductDetail";
+import {NewNavProductLogin} from "../components/newnavbar/newnavbarproducdetail-login"
+import { useNavigate } from "react-router-dom";
 
 export function Address() {
   const address = useAuth();
@@ -24,6 +27,9 @@ export function Address() {
   const [province, setProvice] = useState("");
   const [zipcode, serZipcode] = useState("");
   const [totalAddress, setTotalAddress] = useState([]);
+  const Navigate = useNavigate();
+  const auth = useAuth();
+
 
   const postAddress = async (data) => {
     const result = await axios.post("http:localhost/4000/user/dilivery", data);
@@ -52,12 +58,16 @@ export function Address() {
       <Box
         w="100%"
         h="100%"
-        bg="#dddddd"
+        bg="#ffffff"
         position="relative"
         // onSubmit={(event) => {
         //   handleSubmit(event);
         // }}
       >
+        <Box >
+          {auth.isAuthenticated ? <NewNavProductLogin/> : <NewNavProductDetail/>}
+      </Box>
+
         <Center>
           <Heading text="#000000" mt="5%">
             ADDRESS
@@ -216,21 +226,32 @@ export function Address() {
           </Center>
         </Flex>
         <Center>
+ <Flex mt="3%">
+       
           <Button
-            text="#000000"
+           mr="5%"
+            text="#ffffff"
             variant="solid"
             bg="#CFB9AC"
             w="100px"
             onClick={postAddress}
+            _hover={{
+              bg: "#5F8D4E",
+            }} 
           >
             SUBMIT
           </Button>
-        </Center>
-        <Center>
-          <Button text="#000000" variant="solid" bg="#CFB9AC" w="100px">
+        
+          <Button text="#ffffff" variant="solid" bg="#CFB9AC" w="200px" 
+           _hover={{
+            textDecoration: "#ffffff",
+            bg: "#CE7777",
+          }} >
             NEW ADDRESS
           </Button>
-        </Center>
+        
+</Flex>
+</Center>
       </Box>
     </form>
   );

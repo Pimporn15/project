@@ -35,7 +35,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
     return (
       <Box>
       <Flex w="100%" h="55px" bg="#ebe4d1">
-        <Flex w="18%" justify="space-between" align="center" ml="5%">
+        <Flex w="18%" justify="space-between" align="center" ml="7%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
@@ -62,7 +62,8 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
     
              <Menu>
     <MenuButton as={Button} colorScheme='#ebe4d1'  
-                    pt={"10px"}
+                    mt="3%"
+                    pr={"40px"}
                     pl={"15px"}
                     fontSize={"18px"}
                     fontWeight={500}
@@ -74,28 +75,51 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
     PRODUCTS
     </MenuButton>
     <MenuList>
-    <MenuItem  onClick={() => {
+    <MenuItem 
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
     
-        <MenuItem  onClick={() => {
+        <MenuItem  
+                  _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                  onClick={() => {
                   Navigate("/products");
                 }} 
         >Products </MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                    _hover={{
+                     bg: "#ebe4d1",
+                        }}   
+              onClick={() => {
                   Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                  _hover={{
+                bg: "#ebe4d1",
+                }}   
+               onClick={() => {
                   Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
-        <MenuItem    onClick={() => {
+        <MenuItem  
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }}    
+                  onClick={() => {
                   Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
-        <MenuItem    onClick={() => {
+        <MenuItem   _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                   onClick={() => {
                   Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
@@ -107,45 +131,19 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
         
         <Spacer />
   
-        <Flex w="20%" mr="2%">
+        <Flex w="20%"   >
 
-         <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+         <Button w="80px" h="30px" mt="13px" ml="100px" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
                 }} > 
        <Image  src="picture/iconcart.png"  />
         </Button>
 
-          
-          <Flex ml="5px">
-          <Button
-          mr="10px"
-          pt={"15px"}
-          colorScheme='#ebe4d1'
-            fontSize="18"
-            variant="ghost"
-            color="#AA8B56"
-            onClick={() => {
-              contextValue.setmyCart(
-                contextValue.mycart.filter((value) => value.id !== value.id)
-              );
-            }}
-          >
-            CLEAR YOUR CART
-            <Image
-              ml="15px"
-              mt="-1"
-              boxSize="30px"
-              src="picture/bin2.png"
-              className="bin"
-              alt="bin"
-            />
-          </Button> 
-         </Flex>
          <Flex alignItems={'center'}>
             <Menu>
               <MenuButton
-                mr="5px"
+               
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
@@ -176,10 +174,6 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
             </Menu>
           </Flex>
         
-
-
-
-
         </Flex>
       </Flex>
       </Box>

@@ -14,7 +14,7 @@ export function NewNavBlack() {
         <Box >
     <Flex w="100%" h="55px" bg="#2F2E2C" >
         
-      <Flex w="18%" justify="space-between" align="center" ml='3%'  >
+      <Flex w="18%" justify="space-between" align="center" ml='5%'  >
 
         <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
           WOD
@@ -54,28 +54,51 @@ export function NewNavBlack() {
   PRODUCTS
   </MenuButton>
   <MenuList>
-    
-      <MenuItem  onClick={() => {
-                  Navigate("/products/category/5");
+    <MenuItem 
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
+                  Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
-        <MenuItem  onClick={() => {
+    
+        <MenuItem  
+                  _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                  onClick={() => {
                   Navigate("/products");
                 }} 
-        >Product </MenuItem>
-        <MenuItem   onClick={() => {
+        >Products </MenuItem>
+        <MenuItem  
+                    _hover={{
+                     bg: "#ebe4d1",
+                        }}   
+              onClick={() => {
                   Navigate("/products/category/1");
                 }}    
         >Men</MenuItem>
-        <MenuItem   onClick={() => {
+        <MenuItem  
+                  _hover={{
+                bg: "#ebe4d1",
+                }}   
+               onClick={() => {
                   Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
-        <MenuItem    onClick={() => {
+        <MenuItem  
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }}    
+                  onClick={() => {
                   Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
-        <MenuItem    onClick={() => {
+        <MenuItem   _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                   onClick={() => {
                   Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
@@ -136,7 +159,7 @@ export function NewNavBlack() {
 
       
       <Flex>
-        <Button w="75%" h="50%" mt="15px" colorScheme="#2F2E2C" 
+        <Button w="75%" h="50%" mt="15px" mr="5px" colorScheme="#2F2E2C" 
          onClick={() => {
           Navigate("/cart");
         }} 

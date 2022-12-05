@@ -38,13 +38,13 @@ function ProductItem(property) {
               alt={property.ImageBrandAlt}
               w="35px"
               h="35px"
-              mt="7px"
+              mt="8px"
               ml="5px"
             />
 
             <Flex direction="column" ml="20px">
               <Box
-                mt="1"
+                mt="2"
                 fontWeight="semibold"
                 as="h4"
                 lineHeight="tight"
@@ -63,7 +63,7 @@ function ProductItem(property) {
 
                 <Box as="span" color="gray.600" fontSize="sm">
                   Reviews ({property.review} reviews)
-                  <Box display="flex" mt="2" alignItems="center">
+                  <Box display="flex"  alignItems="center">
                     {Array(5)
                       .fill("")
                       .map((_, i) => (

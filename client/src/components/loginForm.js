@@ -39,9 +39,9 @@ export function LoginForm() {
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack
-            w="300%"
-            p="7%"
-            boxShadow="lg"
+            w="500px"
+            p="20%"
+            boxShadow="3lg"
             maxW={"md"}
             bg="rgba(46, 37, 39, 0.2)"
             backdropFilter="auto"
@@ -59,10 +59,14 @@ export function LoginForm() {
                   bg="rgba(46, 37, 39, 0.3)"
                   focusBorderColor="black"
                   placeholder="Enter username"
+                  
                   onChange={(event) => {
                     setUsername(event.target.value);
                   }}
                   value={username}
+
+
+                  
                 />
               </InputGroup>
             </FormControl>

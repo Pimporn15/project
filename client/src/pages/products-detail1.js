@@ -5,14 +5,12 @@ import React from "react";
 import { useAuth } from "../contexts/authentication";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
-import { NewNavLanding } from "../components/newnavbar/newnavlandingpage";
-import { NewNavLandingLogin } from "../components/newnavbar/newnavlangpagelogin";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../App";
-import { NewNavCartLogin } from "../components/newnavbar/newnavcartlogin";
-import { NewNavCart } from "../components/newnavbar/newnavcart";
+import { CartContext } from "../App"
 import { useProduct } from "../contexts/productContext";
 import { NewNavProductDetail } from "../components/newnavbar/newNavProductDetail";
+import {NewNavProductLogin} from "../components/newnavbar/newnavbarproducdetail-login"
+
 
 export function ProductDetail1() {
   const { text, addProductToCart, deleteCartItem } = useProduct();
@@ -57,7 +55,7 @@ export function ProductDetail1() {
   return (
     <Box as="Big-Box">
       <Box >
-          {auth.isAuthenticated ? <NewNavLandingLogin /> : <NewNavProductDetail/>}
+          {auth.isAuthenticated ? <NewNavProductLogin/> : <NewNavProductDetail/>}
       </Box>
 
       {/* รูปใหญ่============================================================================================= */}
@@ -83,7 +81,7 @@ export function ProductDetail1() {
             boxShadow="2xl"
             h={[100, 300, 500]}
             w={[100, 300, 600]}
-            mt="175"
+            mt="130"
             ml={[30, 70, 100]}
           >
 
@@ -102,7 +100,7 @@ export function ProductDetail1() {
             w={[100, 200, 500]}
             h="500"
             ml={[100, 400, 900]}
-            mt={[-100, -300, -450]}
+            mt={[-100, -300, -500]}
             position="relative"
           >
             <Stack spacing={2}>
@@ -202,10 +200,11 @@ export function ProductDetail1() {
                  width='200px'
                  border='2px'
                  borderColor='#CFB9AC'
-                 _hover={{fontSize: '22'}}
-
+                 _hover={{fontSize: '22'
+                }}
+                
               >
-                <Box>
+                <Box >
                   <Image
                     // boxSize="35px"
                     // src="https://img.icons8.com/external-bearicons-glyph-bearicons/512/external-cart-call-to-action-bearicons-glyph-bearicons.png" 
@@ -221,7 +220,9 @@ export function ProductDetail1() {
                     src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t39.30808-6/317859627_660806115497798_6968916594870350129_n.jpg?stp=cp0_dst-jpg&_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFsoElEVybSCV2FtKvSgPpyqdARQxdNAfOp0BFDF00B84VuryCBg4k5CpuNc88NPu_U451dLJtVLPCh4TQdVaKA&_nc_ohc=azWdtcyAhLcAX8Xb2mP&_nc_ht=scontent.fbkk5-6.fna&oh=00_AfD6Wa-VLWOx9-5E_Zng7aoyiidqgU_E5yu4UkVQN4vcQA&oe=638ECB8B"                    className="pic2"
                     alt=""
                   />
-                <Box mr="-28px">ADD TO CART</Box>
+                <Box mr="-28px" 
+                  
+                >ADD TO CART</Box>
               </Button>
             </Box>
             </Flex>

@@ -67,7 +67,7 @@ export function Register() {
         <Flex direction="row" gap="30%">
           <Box>
             <Box position="relative" bg="#2C2C2C" w={[100,200,450]} h={[100,1050,1000]} ></Box>
-            <Box position="absolute" top="23%">
+            <Box position="absolute" top="15%">
               <Image src="picture/imagereg.png" w={[100,300,600]} />
             </Box>
           </Box>

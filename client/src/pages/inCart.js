@@ -60,7 +60,7 @@ export function CART() {
         {auth.isAuthenticated ? <NewNavCartLogin /> : <NewNavCart />}
       </Box>
       <Flex w="60%" h="40%" direction="column">
-        <Box position="relative" mt="20" ml={[80, 100, 150]} mb="200px">
+        <Box position="relative" mt="20" ml={[80, 100, 180]} mb="200px">
           <Flex>
             <Text fontSize="40px" as="b">
               {" "}
@@ -76,12 +76,13 @@ export function CART() {
           fontSize="30px"
           position="absolute"
           // mt={[-7, -10]}
-          ml={[200, 600, 790]}
+          ml={[200, 600, 800]}
           mt="130px"
         >
           Price
         </Box>
         <Box
+         mr="20px"
           as="b"
           fontSize={[20, 25, 30]}
           position="absolute"
@@ -106,7 +107,7 @@ export function CART() {
           return (
             // กล่อง บรรจุ สินค้า ที่ add มา =======================================================================================
             <Box>
-              <Flex ml={[80, 0, 150]}>
+              <Flex ml={[80, 0, 180]}>
                 
                 <Box
                   position="relative"
@@ -159,14 +160,14 @@ export function CART() {
                   position="absolute"
                   size="xs"
                   bg="white"
-                  ml="1195"
+                  ml="1150"
                   mt="-92"
                   _hover={{ boxSize: '30' , size: "md"}}
                   color="tomato"
                   onClick={() => deleteCartItem(value.product_id)}
                 >
                   <Text fontSize="20"> <Image     
-              ml="1px"
+             
               mt="-1"
               boxSize="20px"
               src="picture/Bin.png"
@@ -175,10 +176,10 @@ export function CART() {
               </Text>{" "}
                 </Button>
 
-                <Box position="absolute" ml={[20, 610, 650]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 610, 630]} mt={[-90]} as="b">
                   {value.price}
                 </Box>
-                <Box position="absolute" ml={[20, 885, 850]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 885, 810]} mt={[-90]} as="b">
                   <Button
                   mr={[1,2,2]}
                     ml={[1,-20,2]}
@@ -206,7 +207,7 @@ export function CART() {
                     +
                   </Button>
                 </Box>
-                <Box position="absolute" ml={[20, 1020, 1080]} mt={[-90]} as="b">
+                <Box position="absolute" ml={[20, 1020, 1050]} mt={[-90]} as="b">
                   {value.price * value.quantity}
                 </Box>
                 
@@ -232,7 +233,7 @@ export function CART() {
           position="absolute"
           _hover={{bg:"white",fontSize:"20",color:"#C7BCA1"}}
           mt={[-100,-140,-160]}
-          ml={[500,1100,1200]}
+          ml={[500,1000,1150]}
           mr="10px"
          bg="#C7BCA1"
          size='md'
@@ -257,7 +258,7 @@ export function CART() {
 
      
     
-     <Box bg="white" ml={[800,1000,1100]} w="80" h="200" >
+     <Box bg="white" ml={[800,1000,1000]} w="80" h="200" >
          <Flex position="absolute">
             <Text fontSize="20px" fontWeight="bold" ml="20">
               Total: <Box ml="55" mt="-12" position="absolute" fontSize="40"> {getTotalPrice} </Box>

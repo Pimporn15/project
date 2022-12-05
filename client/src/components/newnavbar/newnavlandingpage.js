@@ -17,7 +17,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
     return (
       <Box>
       <Flex position="relative" w={[500,'100%','100%']} h="55px" bg="#ebe4d1">
-        <Flex w="25%" justify="space-between" align="center" ml={[1,2,6]}>
+        <Flex w="25%" justify="space-between" align="center" ml={[1,10,20]}>
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
@@ -44,80 +44,95 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
              </Box>
     
              <Menu>
-    <MenuButton as={Button} colorScheme='#ebe4d1'  
-                    pt={"10px"}
-                    pl={[-10,-5,15]}
-                    fontSize={[10,12,18]}
-                    fontWeight={500}
-                    color="#9a7352"
-                   _hover={{
-                    textDecoration: "none",
-                    color: "#c28f3e",
-                  }} >
+    <MenuButton as={Button} colorScheme='#ebe4d1' 
+                       mt="3%" 
+                       pr={"40px"}
+                       pl={"15px"}
+                       fontSize={"18px"}
+                       fontWeight={500}
+                       color="#9a7352"
+                      _hover={{
+                       textDecoration: "none",
+                       color: "#c28f3e",
+                     }} >
     PRODUCTS
     </MenuButton>
-
-
     <MenuList>
     <MenuItem 
-     onClick={() => {
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
                   Navigate(`/products?category=5`);
                 }} >New Products
       </MenuItem>
     
-        <MenuItem 
-         onClick={() => {
+        <MenuItem  
+                  _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                  onClick={() => {
                   Navigate("/products");
                 }} 
-        >Products 
-        </MenuItem>
-        <MenuItem   
-        onClick={() => {
+        >Products </MenuItem>
+        <MenuItem  
+                    _hover={{
+                     bg: "#ebe4d1",
+                        }}   
+              onClick={() => {
                   Navigate("/products/category/1");
                 }}    
-        >Men
-        </MenuItem>
-        <MenuItem   onClick={() => {
+        >Men</MenuItem>
+        <MenuItem  
+                  _hover={{
+                bg: "#ebe4d1",
+                }}   
+               onClick={() => {
                   Navigate("/products/category/2");
                 }} 
         >Women</MenuItem>
-        <MenuItem    onClick={() => {
+        <MenuItem  
+                  _hover={{
+                    bg: "#ebe4d1",
+                  }}    
+                  onClick={() => {
                   Navigate("/products/category/3");
                 }} 
         >Kid</MenuItem> 
-        <MenuItem    onClick={() => {
+        <MenuItem   _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                   onClick={() => {
                   Navigate("/products/category/4");
                 }} 
         >Accessories</MenuItem> 
   
     </MenuList>
+
+   
   </Menu>
   
         </Flex>
         
         <Spacer />
   
-        <Flex  mr={[-10,-5,2]}>
+        <Flex >
 
-         <Button w="55%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+         <Button w="40px" h="40px" mt="2px" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
                 }} > 
-       <Image position="absolute" mr={[1,40,60]} mt={[-5,0,-2]}  src="picture/iconcart.png"  />
+       <Image position="absolute"  mr="250px" mt={[-5,0,3]}  src="picture/iconcart.png"  />
         </Button>
 
-
-
-          
+          <Flex >
           <Button
           position="absolute"
           mt="3"
-          mr={[5,15,20]}
-          ml="-2"
-            h="8"
-            w="14" 
-            
-            fontSize={[10,11,18]}
+          ml="-110px"
+            h="30px"
+            w="100px" 
+            fontSize={[10,11,17]}
             borderRadius="3xl"
             bg="#D6BE96"
             color="#ffffff"
@@ -135,16 +150,16 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           <Spacer />
           <Button
           position="relative"
-           h="8"
-           w="15" 
+          h="30px"
+          w="100px"
             borderRadius="3xl"
             bg="#EBE4D1"
             border="2px"
             borderColor="#D6BE96"
             color="#9A7352"
             mt={[3]}
-            mr={[30]}
-            fontSize={[10,9,18]}
+            mr={[10]}
+            fontSize={[10,9,17]}
             _hover={{
                 color: "#d5b178",
               }}
@@ -155,7 +170,7 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
           >
             REGISTER
           </Button>
-
+             </Flex>
 
           
         </Flex>

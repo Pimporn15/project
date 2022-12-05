@@ -1,5 +1,5 @@
 
-import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
+import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,Avatar,
     MenuButton,
     MenuList,
     MenuItem,
@@ -11,10 +11,11 @@ import { Box, Button, Flex, Heading, Spacer,Text, Menu,Image,
   import { useNavigate } from "react-router-dom";
   import { CartContext } from "../../App";
   import { useContext } from "react";
-import { Time } from "../time";
+  import { useAuth } from  "../../contexts/authentication"
+  import { Time } from "../time";
+  export function  NewNavProductLogin() {
 
-
-  export function  NewNavProductDetail() {
+    const { logout } = useAuth();
     const Navigate = useNavigate()
     const contextValue = useContext(CartContext);
     const {
@@ -33,8 +34,8 @@ import { Time } from "../time";
 
     return (
       <Box>
-      <Flex w={[500,'120%','100%']}  h="55px" bg="#ebe4d1">
-        <Flex w="18%" justify="space-between" align="center" ml="5%">
+      <Flex w="100%" h="55px" bg="#ebe4d1">
+        <Flex w="18%" justify="space-between" align="center" ml="6%">
           <Text className="logo"  fontSize="1.5rem" color="#D6BE96">
             WOD
           </Text>
@@ -45,7 +46,7 @@ import { Time } from "../time";
           <Button  
                   bg="#ebe4d1"  
                   pt={"10px"}
-                  pl={"30px"}
+                  pl="50px"
                   fontSize={"18px"}
                   fontWeight={500}
                   color="#9a7352"
@@ -53,7 +54,6 @@ import { Time } from "../time";
                   _hover={{
                     textDecoration: "none",
                     color: "#c28f3e",
-                    bg:"#ebe4d1"
                   }}   
                  
           >HOME
@@ -130,62 +130,68 @@ import { Time } from "../time";
         
         <Spacer />
   
-        <Flex w="30%" mr="2%">
-         <Button w="50%" h="50%" mt="10px" colorScheme="#2F2E2C" 
+        <Flex w="20%">
+         
+        <Button w="50%" h="50%" mt="10px" ml="5%" colorScheme="#2F2E2C" 
          onClick={() => {
                   Navigate("/cart");
                 }} > 
                 <Box mt="3">
-       <Box ml={[-90,-84,2]}>
+       <Box ml={[-90,-84,-30]}>
        <Time/>
        </Box>
        </Box>
         </Button>
-
-          <Button
-            h="60%"
-            w="30%"
-            borderRadius="3xl"
-            bg="#D6BE96"
-            color="#ffffff"
-            mr="2%"
-            mt={[3]}
-            fontSize="0.9rem"
-              _hover={{
-                bg: "#d5b178",
-              }}
-              onClick={() => {
-                Navigate("/login");
-              }} 
-              
-          >
-            LOG IN
-          </Button>
-          <Spacer />
-          <Button
-            h="60%"
-            w="30%"
-            borderRadius="3xl"
-            bg="#EBE4D1"
-            border="2px"
-            borderColor="#D6BE96"
-            color="#9A7352"
-            mt={[3]}
-            fontSize="0.9rem"
-            _hover={{
-                color: "#d5b178",
-              }}
-
-              onClick={() => {
-                Navigate("/register");
-              }} 
-          >
-            REGISTER
-          </Button>
-          <Flex ml="5px">
-          
-         </Flex>
-          
+        
+         <Flex alignItems={'center'}>
+            <Menu>
+              <MenuButton
+                
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}>
+                <Avatar
+                  size={'sm'}
+                  src={
+                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                  }
+                />
+              </MenuButton>
+              <MenuList >
+                <MenuItem
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
+                  Navigate("/profile");
+                }}
+                >My Profile</MenuItem>
+                <MenuItem  
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
+                  Navigate("");
+                }} 
+                >My favorite</MenuItem>
+                <MenuItem  
+                
+                _hover={{
+                  bg: "#ebe4d1",
+                }}   
+                onClick={() => {
+                  logout();
+                  Navigate("/login");
+                }}
+                >Log out</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
+        
         </Flex>
       </Flex>
       </Box>
