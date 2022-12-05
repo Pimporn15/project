@@ -25,6 +25,26 @@ code {
   font-family: "Monoton", cursive;
 } */
 
+.paginateButton {
+  font-size: 2.5rem;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.paginateButton a {
+  color: aliceblue;
+}
+
+.previousButton .nextButton {
+  width: 80%;
+  padding: 1%;
+  margin: 1%;
+}
+
 * {
   font-family: "League Spartan", sans-serif;
 }
@@ -32,4 +52,6 @@ code {
 .logo {
   font-family: "Abril Fatface", cursive;
 }
-*{  object-fit: cover; }
+* {
+  object-fit: cover;
+}

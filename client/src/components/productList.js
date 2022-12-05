@@ -1,27 +1,40 @@
+
 import React from "react";
 import { Box, Flex, Image, Wrap } from "@chakra-ui/react";
-import Products from "./productItem";
 import ProductItem from "./productItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../contexts/productContext";
+import ReactPaginate from "react-paginate";
 
 function ProductList(props) {
-  // const {products} = useProduct
-  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
   const navigate = useNavigate();
   const { categoryId } = props;
-  const [newProduct, setNewProduct] = useState([]);
 
-  // const getProducts = async () => {
-  //   const result = await axios.get("http://localhost:4000/products");
-  //   setProducts(result.data.data);
-  // };
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
+  const itemsPerpage = 20;
+  const pageVisited = pageNumber * itemsPerpage;
+  const displayItems = categories
+    .slice(pageVisited, pageVisited + itemsPerpage)
+    .map((categories) => {
+      console.log(categories);
+      return (
+        <Wrap direction="row">
+          <ProductItem
+            // key={index}
+            image={categories.image}
+            imageBrand={categories.image_brand}
+            name={categories.product_name}
+            description={categories.description}
+            price={categories.price}
+            rating={categories.rating}
+            product_id={categories.product_id}
+          />
+        </Wrap>
+      );
+    });
 
   const getProductsByCategory = async (category) => {
     // console.log(category);
@@ -29,78 +42,33 @@ function ProductList(props) {
       `http://localhost:4000/products?category=${category}`
     );
 
-    setCategories(result.data.data);
+    setCategories(result.data.data.slice(0, 41));
     console.log(categories);
-
   };
 
-  const getProductsByNewProduct = async () => {
-    const result = await axios.get( `http://localhost:4000/products/newproduct `);
-    setNewProduct(result.data.data);
-  };
-
-   useEffect(()=>{
-    getProductsByNewProduct()
-   }, [])
-
-   
   useEffect(() => {
     getProductsByCategory(categoryId);
   }, [categoryId]);
 
+  const pageCount = Math.ceil(categories.length / itemsPerpage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   return (
-    <>
-      {products.map((item, index) => {
-        return (
-          <Flex>
-            <ProductItem
-              key={index}
-              image={item.image}
-              imageBrand={item.image_brand}
-              name={item.product_name}
-              description={item.description}
-              price={item.price}
-              rating={item.rating}
-              product_id={item.product_id}
-            />
-          </Flex>
-        );
-      })}
-
-      {categories.map((item, index) => {
-        return (
-          <Flex>
-            <ProductItem
-              key={index}
-              image={item.image}
-              imageBrand={item.image_brand}
-              name={item.product_name}
-              description={item.description}
-              price={item.price}
-              rating={item.rating}
-              product_id={item.product_id}
-            />
-          </Flex>
-        );
-      })}
-{newProduct.map((item, index) => {
-        return (
-          <Flex>
-            <ProductItem
-              key={index}
-              image={item.image}
-              imageBrand={item.image_brand}
-              name={item.product_name}
-              description={item.description}
-              price={item.price}
-              rating={item.rating}
-              product_id={item.product_id}
-            />
-          </Flex>
-        );
-      })}
-
-    </>
+    <Box>
+      {displayItems}
+      <ReactPaginate
+        previousLabel={"<"}
+        nextLabel={">"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginateButton"}
+        previousLinkClassName={"previousButton"}
+        nextLinkClassName={"nextButton"}
+        disabledClassName={"paginateDisale"}
+        activeLinkClassName={"paginationActive"}
+      />
+    </Box>
   );
 }
 
